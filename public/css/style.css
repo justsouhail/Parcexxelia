@@ -1,0 +1,393 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Schibsted+Grotesk&display=swap');
+
+ :root{
+    --second-color : #0A5E4F;
+    --first-color : #08473C;
+    --third-color: #20A364;
+ }
+
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type:none;
+    text-decoration: none;
+
+ }
+ body {
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #eeeef0;
+    padding: 0;
+    margin: 0;
+
+  }
+  
+.sidebar{
+    width: 350px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: var(--second-color);
+    font-family: 'Poppins', sans-serif;
+    z-index: 100;
+    transition: width 300ms;
+
+}
+.logo{
+    color: white;
+    height: 90px;
+    padding: 1.3rem 1rem 9rem 2rem;
+
+}
+.sidebar_menu li {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 50px;
+    margin-left: 2rem;
+}
+
+.sidebar_menu a {
+    color: white;
+    font-size: 1.2rem;
+    display: block;
+} 
+.sidebar_menu a.active{
+    background-color: white;
+    color: var(--second-color);
+    border-radius: 33px 0px 0px 33px; 
+    margin-left:10px;
+}  
+.sidebar_menu a.active li{
+    padding: 1.3rem ;
+
+}  
+.sidebar_menu a.active li span{
+    color:var(--second-color);
+
+}  
+.sidebar_menu span {
+    color: white;
+    font-size: 1.4rem;
+    padding-right: 1rem;
+}
+
+#menu-toogle:checked + .sidebar{
+        width: 80px;
+    }
+    
+    #menu-toogle:checked  + .sidebar .logo h1 , 
+    #menu-toogle:checked +.sidebar   a li{
+        padding-left: 0rem;
+        text-align: center;
+    }
+    #menu-toogle:checked +.sidebar .logo h1  span:last-child ,
+    #menu-toogle:checked +.sidebar .sidebar_menu   a li span:last-child{
+        display: none;
+    }
+    #menu-toogle:checked +.sidebar .sidebar_menu   a li span{
+        padding-left: 0rem;
+    }
+      
+    #menu-toogle:checked ~ .main-content{
+        margin-left: 70px;
+    }
+    #menu-toogle:checked ~.navigation header{
+        width: calc(100%-70px);
+        margin-left: 70px;
+    }
+
+
+#menu-toogle {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+.main-content{
+    margin-left: 350px;
+    transition: left 300ms;
+}
+.navigation header{
+    margin-left: 350px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px 3px 10px gray	;
+    /* position: fixed; */
+    /* width: calc(100% - 350px); */
+    z-index: 100;
+    top: 0;
+    height: 100px;
+    transition: left 300ms;
+    background-color: white;
+
+
+}
+.bar-recherche {
+    border:  1px solid gray;
+    border-radius: 20px;
+    height: 47px;
+    display: flex;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 300px;
+    font-size: 20px;
+
+} 
+.bar-recherche input{
+    border: none;
+    outline: none;
+    padding-left: 12px;
+    padding-bottom: 10px;
+    height: 100%;
+    width: 250px;
+ }
+
+.user-wrapper{
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.user-wrapper small{
+    color: var(--third-color);
+    display: inline-block;
+}
+.user-wrapper img{
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.menu{
+    margin-top: 10px;
+}
+
+main{
+    
+    margin-top: 10px;
+    background-color: #eeeef0;
+    min-height: calc(100%-100px);
+    padding: 1rem;
+    padding-top: 2rem;
+    font-family: 'Poppins', sans-serif;
+ 
+}
+
+  
+.cartes{
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    grid-gap: 2rem;
+}
+.carte{
+    display: flex;
+    border-radius: 20px;
+    justify-content: space-between;
+    padding: 1.3rem;
+    font-family: 'Schibsted Grotesk', sans-serif;
+    background-color: var(--third-color);
+    color: white;
+}
+.carte:hover{   
+    background-color:white;
+    color:  var(--third-color);
+}
+
+.info-carte{
+    font-size: 20px;
+    padding-right: 10px;
+    padding-top: 10px;
+    letter-spacing: 2px;
+}
+
+
+
+
+table{
+    border-collapse: collapse;
+}
+.users{
+    margin-top: 4rem;
+    background-color: white;
+    border-radius: 10px;
+}
+.carte-header, .carte-body{
+    padding: 1rem;
+}
+.carte-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.carte-header button{
+    background-color: var(--third-color);
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 10px;
+        color: white;
+        font-size: 14px;
+        padding: 14px 20px 14px 20px ;
+        border: none;
+        box-shadow: 5px 5px 10px gray	;
+        cursor: pointer;
+
+}
+.carte-header button:hover{
+    background-color: var(--first-color)
+}
+#arrow{
+    vertical-align: middle;
+
+}
+thead tr{
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+thead td{
+    font-weight: 700;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+td    {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.9rem;
+    color: #222 ;
+}
+tbody tr  td:nth-child(3) {
+    padding-left: 25px;
+    
+}
+tbody tr  td:nth-child(4) {
+    padding-left: 44px;
+}
+.status{
+    padding: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    
+    vertical-align: middle;
+}
+.red{
+    background: red;
+}
+.green{
+    background: green;
+}
+.orange{
+    background-color: orange;
+}
+
+
+
+@media only screen and (max-width:1500px){
+    .cartes{
+        grid-template-columns: repeat(3,1fr);
+    }
+      .sidebar{
+        width: 80px;
+    }
+    
+     .sidebar .logo h1 , 
+     .sidebar   a li{
+        padding-left: 0rem;
+        text-align: center;
+    }
+     .sidebar .logo h1  span:last-child ,
+     .sidebar .sidebar_menu   a li span:last-child{
+        display: none;
+    }
+     .sidebar .sidebar_menu   a li span{
+        padding-left: 0rem;
+    }
+      /* hover */
+      .sidebar:hover{
+        width: 350px;
+        z-index: 200;
+    }
+    
+     .sidebar:hover .logo h1 , 
+     .sidebar:hover   a li{
+        padding-left: 2rem;
+        text-align: left;
+    }
+     .sidebar:hover .logo h1  span:last-child ,
+     .sidebar:hover  .sidebar_menu   a li span:last-child{
+        display: inline;
+    }
+     .sidebar:hover .sidebar_menu   a li span{
+        padding-left: 1rem;
+    }
+
+      .main-content{
+        margin-left: 70px;
+    }
+     .navigation header{
+        width: calc(100%-70px);
+        margin-left: 70px;
+    }
+
+}
+
+@media only screen and (max-width:980px){
+    .cartes{
+        grid-template-columns: repeat(2,1fr);
+      
+    }
+    .bar-recherche {
+        display: none;
+    }
+    .sidebar:hover{
+        width: 350px;
+        z-index: 200;
+    }
+    
+     .sidebar:hover .logo h1 , 
+     .sidebar:hover   a li{
+        padding-left: 2rem;
+        text-align: left;
+    }
+     .sidebar:hover .logo h1  span:last-child ,
+     .sidebar:hover  .sidebar_menu   a li span:last-child{
+        display: inline;
+    }
+     .sidebar:hover .sidebar_menu   a li span{
+        padding-left: 1rem;
+    }
+}
+
+@media only screen and (max-width:680px){
+        .cartes{
+            grid-template-columns: 100%;
+          
+        }
+        .bar-recherche   ,
+        thead tr td:last-child ,
+        tbody tr td:last-child ,
+       #tb
+      {
+            display: none;
+        }
+        .sidebar:hover{
+            width: 350px;
+            z-index: 200;
+        }
+        
+         .sidebar:hover .logo h1 , 
+         .sidebar:hover   a li{
+            padding-left: 2rem;
+            text-align: left;
+        }
+         .sidebar:hover .logo h1  span:last-child ,
+         .sidebar:hover  .sidebar_menu   a li span:last-child{
+            display: inline;
+        }
+         .sidebar:hover .sidebar_menu   a li span{
+            padding-left: 1rem;
+        }
+    
+        
+     
+    }
