@@ -1,15 +1,22 @@
+@push('css')
+    <link rel="stylesheet" href="/css/nav_sidebar.css">
+     @endpush
 <div class="navigation">
             <header>
                 <h2  style="display: flex; align-items: center;">
-                    <label style="vertical-align: middle;"  for="menu-toogle"> <span style="cursor: pointer;"><ion-icon name="menu-outline" id="menu"></ion-icon></span></label> 
-                    <span id="tb"> Tableau de bord</span>
+                    <label style="vertical-align: middle; "  for="menu-toogle"> <span style="cursor: pointer;"><ion-icon name="menu-outline" id="menu"></ion-icon></span></label> 
+                   
  
-                </h2>
-
-                 <div class="bar-recherche" style="margin-top: 10px;">
+                </h2> 
+                
+                <div class="bar-recherche" style="margin-top: 10px;">
                     <span><ion-icon name="search-outline"></ion-icon></span>
-                     <input type="search" placeholder="Chercher Ici">
+                     <input type="search" placeholder="Chercher Ici" >
                  </div>
+
+
+
+                
 
                 <div class="user-wrapper">
 

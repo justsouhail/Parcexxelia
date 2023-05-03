@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Schibsted+Grotesk&display=swap');
+
+:root{
+   --second-color : #0A5E4F;
+   --first-color : #08473C;
+   --third-color: #20A364;
+}
+.sidebar{
+    width: 350px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: var(--second-color);
+    font-family: 'Poppins', sans-serif;
+    z-index: 100;
+    transition: width 300ms;
+
+}
+.logo{
+    color: white;
+    height: 90px;
+    padding: 1.3rem 1rem 9rem 2rem;
+
+}
+.sidebar_menu li {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 50px;
+    margin-left: 2rem;
+}
+
+.sidebar_menu a {
+    color: white;
+    font-size: 1.2rem;
+    display: block;
+} 
+.sidebar_menu a.active{
+    background-color: white;
+    color: var(--second-color);
+    border-radius: 33px 0px 0px 33px; 
+    margin-left:10px;
+}  
+.sidebar_menu a.active li{
+    padding: 1.3rem ;
+
+}  
+.sidebar_menu a.active li span{
+    color:var(--second-color);
+
+}  
+.sidebar_menu span {
+    color: white;
+    font-size: 1.4rem;
+    padding-right: 1rem;
+}
+
+#menu-toogle:checked + .sidebar{
+        width: 100px;
+    }
+    
+    #menu-toogle:checked  + .sidebar .logo h1 , 
+    #menu-toogle:checked +.sidebar   a li{
+        padding-left: 0rem;
+        text-align: center;
+    }
+    #menu-toogle:checked  + .sidebar .logo h1 #img-logo{
+           margin-left: 20px;
+    }
+    #menu-toogle:checked +.sidebar .logo h1  span:last-child ,
+    #menu-toogle:checked +.sidebar .sidebar_menu   a li span:last-child{
+        display: none;
+    }
+    #menu-toogle:checked +.sidebar .sidebar_menu {
+        margin-right: 100px;
+    }
+ 
+    #menu-toogle:checked +.sidebar .sidebar_menu   a li span{
+        padding-left: 0rem;
+    }
+    #menu-toogle:checked +.sidebar .sidebar_menu   a li span{
+        padding-left: 0rem;
+    }
+      
+    #menu-toogle:checked ~ .main-content{
+        margin-left: 100px;
+    }
+    #menu-toogle:checked ~.navigation header{
+        width: calc(100%-100px);
+        margin-left: 100px;
+    }
+
+
+#menu-toogle {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .navigation header{
+    margin-left: 350px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px 3px 10px gray	;
+    /* position: fixed; */
+    /* width: calc(100% - 350px); */
+    z-index: 100;
+    top: 0;
+    height: 100px;
+    transition: left 300ms;
+    background-color: white;
+
+
+
+}
+
+.bar-recherche {
+    border:  1px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    height: 47px;
+    display: flex;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 600px;
+    font-size: 20px;
+
+} 
+.bar-recherche input{
+    border: none;
+    outline: none;
+    padding-left: 12px;
+    padding-bottom: 10px;
+    height: 100%;
+    width: 250px;
+ }
+
+.user-wrapper{
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.user-wrapper small{
+    color: var(--third-color);
+    display: inline-block;
+}
+.user-wrapper img{
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logo_nav{
+    margin-top: 10px;
+}

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\Employes;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/home',  [App\Http\Controllers\HomeController::class, 'index']);
+
 
 
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware('auth');
+Route::get('/Employes', [App\Http\Controllers\EmployesController::class, 'index'])->middleware('auth');;
+Route::post('/Employes/traitement', [App\Http\Controllers\EmployesController::class, 'addEmployes_traitement']);
+Route::get('/Employes/{id}', [App\Http\Controllers\EmployesController::class, 'display_employe_info']);
+
+Route::post('/Employes/update/{id}', [App\Http\Controllers\EmployesController::class, 'updateEmployes_traitement']);
+Route::get('/Employes/delete/{id}', [App\Http\Controllers\EmployesController::class, 'deleteEmployes_traitement']);
+
+
+
+
+
+
 
 
 
