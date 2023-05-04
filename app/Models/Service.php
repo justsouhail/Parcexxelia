@@ -5,20 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Employes extends Model
+class Service extends Model
 {
     use HasFactory;
-    protected $table = 'employes';
+    protected $table = 'services';
     protected $connection = 'mysql';
 
     protected $fillable = [
         'Nom',
-        'Prenom',
-        'CIN',
-        'service_id',
     ];
 
-    public function Service(){
-        return $this->belongsTo(Service::class);
+    public function SevicesEmployes(){
+        return $this->hasMany(Employes::class);
     }
 }

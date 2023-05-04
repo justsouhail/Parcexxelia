@@ -11,14 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('services', function (Blueprint $table) {
+            $table->id();
+            $table->string('Nom');
+            $table->timestamps();
+        });
+    
+    
+  
         Schema::create('employes', function (Blueprint $table) {
             $table->id();
             $table->string('Nom');
             $table->string('Prenom');
             $table->string('CIN');
+            $table->unsignedInteger('service_id');
+            $table->foreign('service_id')->references('id')->on('services');
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

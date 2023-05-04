@@ -49,7 +49,7 @@
                                    <tr class="hoverable"onclick="window.location='/Employes/{{$employe->id}}';"    class="mydivouter" >
                                         <td>{{$employe->CIN}}</td>
                                         <td><strong>{{  $employe->Prenom}} &nbsp{{ $employe->Nom}}</strong></td>
-                                        <td>Production</td>
+                                        <td>{{  $employe->service->Nom}}</td>
                                         <td>qwerty111223</td>
                                         <td > <span class="status orange"></span> reparation</td>
                                     

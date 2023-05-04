@@ -49,6 +49,24 @@
 
                         </div>
 
+             
+           
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="Service"><strong>{{ __('Service') }}</strong></label>
+                                <select name="Service" class="form-control @error('Service') is-invalid @enderror" id="Service">
+                                    <option value="">Select a service</option>
+                                    @foreach($services_tables as $service)
+                                        <option value="{{ $service->id }}" {{ old('Service') == $service->id ? 'selected' : '' }}>{{ $service->Nom }}</option>
+                                    @endforeach
+                                </select>
+                                @error('Service')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+</div>
+
+
               
                    
                    

@@ -47,7 +47,7 @@
                     <li>
                         <div>
                             <span>Service :</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            <span >????</span>
+                            <span>{{$employe->service->Nom}} <span>
                         </div>
                     </li>
         
@@ -57,6 +57,7 @@
                                 </span> </button>
                     
                     </li> 
+
                     <li id="btn">
                     <button  data-bs-toggle="modal" data-bs-target="#deleteEmployesModal">Supprimer 
                     <span >
