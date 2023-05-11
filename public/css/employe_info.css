@@ -50,6 +50,7 @@
     backdrop-filter: blur(10px);
     margin-right: 2rem;
     background-color: #eeeef0;
+    margin-bottom: 2rem;
  }
 
 .profile-links {
@@ -155,3 +156,8 @@ button{
         padding: 10px;
     }
 }
+
+
+
+
+

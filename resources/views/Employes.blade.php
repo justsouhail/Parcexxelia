@@ -25,9 +25,14 @@
             @endif
             <div class="users">
             <div class="carte-header">
-                            <h2 >Gerez vos Utilisateurs</h2>
-                           
-                           <button  data-bs-toggle="modal" data-bs-target="#AddEmployesModal">Ajouter un Utilisateur <span >
+                            <h2 id="gerer"  >Gerez vos Utilisateurs</h2>
+                            
+                            <div class="bar-recherche" class="cartes" >
+                    <span><ion-icon name="search-outline"></ion-icon></span>
+                     <input type="search" placeholder="Chercher Ici" >
+                 </div  >
+
+                           <button class="cartes"  data-bs-toggle="modal" data-bs-target="#AddEmployesModal">Ajouter un Utilisateur <span >
                            <ion-icon id="arrow" name="add-circle-outline"></ion-icon>
                                 </span></button>
                            
@@ -68,7 +73,7 @@
              
             </div>
            
-   <!-- footer -->
+   
    
    @push('scripts')
        <script src="{{ asset('/js/users.js')}}"></script>

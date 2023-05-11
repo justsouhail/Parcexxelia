@@ -16,12 +16,6 @@ class EmployesController extends Controller
     }
 
     public function addEmployes_traitement(Request $request){
-
-       
-     
-      
-        
-    
         $request->validate([
             'Nom' => 'required' ,
             'Prenom' => 'required' ,
@@ -53,11 +47,16 @@ class EmployesController extends Controller
 
     public function display_employe_info($id){
         $employe = Employes::findOrFail($id);
+        if(count($employe->Ordinateur) > 0){
+            $data= true;
+        }
+else{
+    $data= false;
+}
         $services_tables = Service::all();
 
-        
-
-       return view('employes.employe_info' , compact('employe' , 'services_tables'));
+// dd($employe->Ordinateur[0]->antivirus[0]->Antivirus_Nom);
+       return view('employes.employe_info' , compact('employe' , 'services_tables' , 'data'));
     }
     public function updateEmployes_traitement(Request $request , $id){
         $services_tables = Service::all();
@@ -96,7 +95,7 @@ class EmployesController extends Controller
 
        return redirect('/Employes/')->with('status' , 'L\'utilisateur a bien été supprimé avec succes. ');
 
-      ;
+      
         
     }
 

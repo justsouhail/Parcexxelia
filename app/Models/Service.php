@@ -18,4 +18,7 @@ class Service extends Model
     public function SevicesEmployes(){
         return $this->hasMany(Employes::class);
     }
+    public function SevicesOrdinateur(){
+        return $this->hasMany(Ordinateur::class);
+    }
 }

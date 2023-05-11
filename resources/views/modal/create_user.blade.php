@@ -4,7 +4,7 @@
     @csrf
        
         <div class="modal fade" id="AddEmployesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document" >
+            <div class="modal-dialog modal-xl" role="document" >
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Ajouter un nouveau Utilisateur</h5>
@@ -55,7 +55,7 @@
                             <div class="form-group">
                                 <label for="Service"><strong>{{ __('Service') }}</strong></label>
                                 <select name="Service" class="form-control @error('Service') is-invalid @enderror" id="Service">
-                                    <option value="">Select a service</option>
+                                    <option value="">Choisir un service</option>
                                     @foreach($services_tables as $service)
                                         <option value="{{ $service->id }}" {{ old('Service') == $service->id ? 'selected' : '' }}>{{ $service->Nom }}</option>
                                     @endforeach
@@ -85,5 +85,4 @@
                 </div>
             </div>
          </div>
-</form>
-
+</formweb

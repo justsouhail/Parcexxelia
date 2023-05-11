@@ -9,10 +9,6 @@
  
                 </h2> 
                 
-                <div class="bar-recherche" style="margin-top: 10px;">
-                    <span><ion-icon name="search-outline"></ion-icon></span>
-                     <input type="search" placeholder="Chercher Ici" >
-                 </div>
 
 
 

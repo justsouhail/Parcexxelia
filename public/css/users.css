@@ -51,12 +51,13 @@ table{
    border-collapse: collapse;
 }
 .users{
-   margin: 2rem;
+   margin: 4rem;
    background-color: white;
    border-radius: 10px;
    margin: 1rem;
    backdrop-filter: blur(10px);
    margin-right: 2rem;
+
 }
 .carte-header, .carte-body{
    padding: 1rem;
@@ -143,8 +144,12 @@ tbody td{
 
 
  /* responsive */
-
-@media screen and (max-width: 900px) {
+ @media screen and (max-width: 1300px) {
+   #gerer{
+      display: none;
+   }
+}
+@media screen and (max-width: 1000px) {
   .head{
    display: none;
   }
@@ -203,7 +208,18 @@ tbody td{
 .sidebar:hover .sidebar_menu   a li span{
    padding-left: 1rem;
 }
+
+#gerer{
+   display: none;
+}
+.cartes {
+   display: grid;
+   grid-template-columns: 1fr;
+   
  }
+ }
+
+
 
 
 /* search filter */
@@ -327,5 +343,26 @@ thead td.active , tbody td.active  {
    vertical-align: middle;
    height: 20px;
    width: 20px;
+
+}
+
+
+  .required:after {
+    content:" *";
+    color: red;
+
+  }
+  .status{
+   padding: 13px 15px;
+   border-radius: 50%;
+   display: inline-block;
+   
+   vertical-align: middle;
+   margin-top:5px;
+   cursor: pointer;
+   background:var(--third-color)
+}
+.status:hover{
+   background:var(--second-color)
 
 }

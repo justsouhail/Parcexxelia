@@ -11,28 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-    
-    
-  
-        Schema::create('employes', function (Blueprint $table) {
-          $table->increments('id');
-
-            $table->string('Nom');
-            $table->string('Prenom');
-            $table->string('CIN');
-            $table->unsignedInteger('service_id');
-            $table->foreign('service_id')->references('id')->on('services');
+        Schema::create('antivirus', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('Antivirus_Nom');
             $table->timestamps();
         });
     }
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('employes');
+        Schema::dropIfExists('_antivirus');
     }
 };

@@ -21,13 +21,18 @@ use App\Models\Employes;
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware('auth');
-Route::get('/Employes', [App\Http\Controllers\EmployesController::class, 'index'])->middleware('auth');;
+Route::get('/Employes', [App\Http\Controllers\EmployesController::class, 'index'])->middleware('auth');
 Route::post('/Employes/traitement', [App\Http\Controllers\EmployesController::class, 'addEmployes_traitement']);
-Route::get('/Employes/{id}', [App\Http\Controllers\EmployesController::class, 'display_employe_info']);
+Route::get('/Employes/{id}', [App\Http\Controllers\EmployesController::class, 'display_employe_info'])->middleware('auth');
 
-Route::post('/Employes/update/{id}', [App\Http\Controllers\EmployesController::class, 'updateEmployes_traitement']);
-Route::get('/Employes/delete/{id}', [App\Http\Controllers\EmployesController::class, 'deleteEmployes_traitement']);
+Route::post('/Employes/update/{id}', [App\Http\Controllers\EmployesController::class, 'updateEmployes_traitement'])->middleware('auth');
+Route::get('/Employes/delete/{id}', [App\Http\Controllers\EmployesController::class, 'deleteEmployes_traitement'])->middleware('auth');
 
+
+Route::get('/Materiel', [App\Http\Controllers\MaterielController::class, 'index'])->middleware('auth');;;
+Route::get('/Materiel/ordinateurs', [App\Http\Controllers\MaterielController::class, 'ordinateurs'])->middleware('auth');
+Route::get('/Ordinateur/{id}', [App\Http\Controllers\MaterielController::class, 'ordinateurs_info'])->middleware('auth');
+Route::post('/Ordinateur/traitement', [App\Http\Controllers\MaterielController::class, 'addOrdinateur_traitement'])->middleware('auth');
 
 
 
