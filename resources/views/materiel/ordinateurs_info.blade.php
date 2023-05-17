@@ -6,7 +6,6 @@
     @push('css')
     
     <link rel="stylesheet" href="/css/nav_sidebar.css">
-    <!-- <link rel="stylesheet" href="/css/users.css"> -->
     <link rel="stylesheet" href="/css/ordinateur_info.css">
 
 
@@ -20,8 +19,13 @@
 
             <!-- main -->
             <div class="main-content" >
-
+            @if(session('status'))
+                <div class="alert alert-success">
+                    {{session('status')}}
+                </div>
+            @endif
                 <div class="users">
+                  
                 <div class="container">
 <div id="content" class="content p-0">
 <div class="profile-header" style="position: absolute; left: 0; right: 0; z-index: 1;">
@@ -30,15 +34,22 @@
 
 <div class="profile-header-info">
 <h4 class="m-t-sm">{{$ordinateur->N°_de_serie}} </h4>
-<p class="m-b-sm">{{$ordinateur->employes->Nom}}&nbsp;&nbsp; {{$ordinateur->employes->Nom}}
-    <br>{{$ordinateur->N°_de_serie}}
+<p class="m-b-sm">     
+                                        @if (isset($ordinateur->employes) && $ordinateur->employes->isNotEmpty())
+                                            {{$ordinateur->employes()->latest('date_affectation')->first()->Prenom}}&nbsp;{{$ordinateur->employes()->latest('date_affectation')->first()->Nom}}
+                                        @else
+                                            <span style="color: red;">Non disponible</span>
+                                        @endif
+                                  
+    <br>{{$ordinateur->Nom}}
 </p>
 </div>
 </div>
 <ul class="profile-header-tab nav nav-tabs" style="justify-content: center; padding-right: 100px;">
-<li class="nav-item "><a href="#"  class="nav-link_">Mise á jour</a></li>
-<li class="nav-item"><a href="#"  class="nav-link_">Supprimer</a></li>
-<li class="nav-item"><a href="#"  class="nav-link_">Historique</a></li>
+<li class="nav-item "><a href="/Materiel/Ordinateur/update/{{$ordinateur->id}}"  class="nav-link_">Mise á jour</a></li>
+<li class="nav-item "><a href="#" data-bs-toggle="modal" data-bs-target="#deletePCModal" class="nav-link_">Supprimer</a>
+</li>
+<li class="nav-item"><a class="nav-link_">Historique</a></li>
 </ul>
 </div>
 <div class="profile-container" style="padding-top: 190px !important">
@@ -57,7 +68,12 @@
 <td class="field">SERVICE</td>
 <td class="value">
 <div class="m-b-5">
-{{$ordinateur->Service->Nom}} 
+@if(isset($ordinateur->Service->Nom))
+                                               {{$ordinateur->Service->Nom}}
+                                               @else
+                                    <span style="color: red;">Non disponible</span>
+                                        @endif
+
 </div>
 </td>
 </tr>
@@ -241,7 +257,7 @@
   @endif
 </li>
 
-<a  href="#" id="boutton" class="btn btn-xs btn-primary mb-3">IMPRIMER FICHE TECHNIQUE</a>
+<a  href="/Materiel/Ordinateur/pdf/{{$ordinateur->id}}" id="boutton" class="btn btn-xs btn-primary mb-3">IMPRIMER FICHE TECHNIQUE</a>
 </ul>
 </div>
 </div>
@@ -260,6 +276,7 @@
            @endpush
 
          
+           @include('modal.delete_pc')
 
              </div>
              

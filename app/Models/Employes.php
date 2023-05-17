@@ -21,8 +21,8 @@ class Employes extends Model
     public function Service(){
         return $this->belongsTo(Service::class);
     }
-
-    public function Ordinateur(){
-        return $this->hasMany(Ordinateur::class);
+    public function Ordinateurs(){
+        return $this->belongsToMany(Ordinateur::class, 'Historique');
     }
+  
 }

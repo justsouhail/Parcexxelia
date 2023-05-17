@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Schibsted+Grotesk&display=swap');
+
+:root{
+   --second-color : #0A5E4F;
+   --first-color : #08473C;
+   --third-color: #20A364;
+}
+
+.users{
+    padding-left: 2rem !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+#boutton{
+    background-color: var(--third-color);
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 10px;
+        color: white;
+        font-size: 14px;
+        padding: 14px 20px 14px 20px ;
+        border: none;
+        box-shadow: 5px 5px 10px gray	;
+        cursor: pointer;
+
+}
+     #boutton:hover{
+    background-color: var(--first-color)
+}

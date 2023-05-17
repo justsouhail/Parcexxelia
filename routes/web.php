@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Auth;
@@ -29,13 +30,25 @@ Route::post('/Employes/update/{id}', [App\Http\Controllers\EmployesController::c
 Route::get('/Employes/delete/{id}', [App\Http\Controllers\EmployesController::class, 'deleteEmployes_traitement'])->middleware('auth');
 
 
-Route::get('/Materiel', [App\Http\Controllers\MaterielController::class, 'index'])->middleware('auth');;;
+Route::get('/Materiel', [App\Http\Controllers\MaterielController::class, 'index'])->middleware('auth');
+
 Route::get('/Materiel/ordinateurs', [App\Http\Controllers\MaterielController::class, 'ordinateurs'])->middleware('auth');
-Route::get('/Ordinateur/{id}', [App\Http\Controllers\MaterielController::class, 'ordinateurs_info'])->middleware('auth');
-Route::post('/Ordinateur/traitement', [App\Http\Controllers\MaterielController::class, 'addOrdinateur_traitement'])->middleware('auth');
+Route::get('/Materiel/Ordinateur/{id}', [App\Http\Controllers\MaterielController::class, 'ordinateurs_info'])->middleware('auth');
+Route::post('/Materiel/Ordinateur/traitement', [App\Http\Controllers\MaterielController::class, 'addOrdinateur_traitement'])->middleware('auth');
+Route::get('/Materiel/Ordinateur/update/{id}', [App\Http\Controllers\MaterielController::class, 'ordinateurs_update'])->middleware('auth');
+Route::post('/Materiel/Ordinateur/update/traitement/{id}', [App\Http\Controllers\MaterielController::class, 'updateOrdinateur_traitement'])->middleware('auth');
+Route::get('/Materiel/Ordinateur/delete/{id}', [App\Http\Controllers\MaterielController::class, 'ordinateurs_delete'])->middleware('auth');
+Route::get('/Materiel/Ordinateur/pdf/{id}', [App\Http\Controllers\MaterielController::class, 'ordinateurs_pdf'])->middleware('auth');
+
+Route::post('/Materiel/Ordinateur/DeleteAll', [App\Http\Controllers\MaterielController::class, 'DeleteAll'])->middleware('auth');
 
 
+Route::get('/add', [App\Http\Controllers\MaterielController::class, 'ordinateurs_add'])->middleware('auth');
+Route::post('/Materiel/Ordinateur/export', [App\Http\Controllers\MaterielController::class, 'ordinateurs_excel'])->middleware('auth');
 
+
+Route::get('/Affectation', [App\Http\Controllers\AffectationController::class, 'index'])->middleware('auth');
+Route::post('/Affectation/traitement', [App\Http\Controllers\AffectationController::class, 'affectation'])->middleware('auth');
 
 
 

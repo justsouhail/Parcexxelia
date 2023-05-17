@@ -12,7 +12,7 @@
 
         <div class="wrapper">
         <div class="logo">
-              <h1><span ><img src="/images/favicon-exxelia.png" alt="" style="width: 39px; height: 39px;" id="img-logo" ></span> <span>ParcInfo</span></h1>
+              <h2><span ><img src="/images/favicon-exxelia.png" alt="" style="width: 39px; height: 39px;" id="img-logo" ></span> <span style="color: black;">ParcInfo</span></h2>
               
         </div>
             <!-- <h4 id="insc">S'inscrire</h4> -->

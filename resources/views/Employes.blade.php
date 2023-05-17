@@ -30,7 +30,7 @@
                             <div class="bar-recherche" class="cartes" >
                     <span><ion-icon name="search-outline"></ion-icon></span>
                      <input type="search" placeholder="Chercher Ici" >
-                 </div  >
+                 </div>
 
                            <button class="cartes"  data-bs-toggle="modal" data-bs-target="#AddEmployesModal">Ajouter un Utilisateur <span >
                            <ion-icon id="arrow" name="add-circle-outline"></ion-icon>
@@ -56,7 +56,7 @@
                                         <td><strong>{{  $employe->Prenom}} &nbsp{{ $employe->Nom}}</strong></td>
                                         <td>{{  $employe->service->Nom}}</td>
                                         <td>qwerty111223</td>
-                                        <td > <span class="status orange"></span> reparation</td>
+                                        <td > reparation</td>
                                     
                                     </tr>
                               

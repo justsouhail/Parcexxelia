@@ -10,9 +10,7 @@ class Ordinateur extends Model
     protected $table = 'ordinateur';
 
     use HasFactory;
-    public function employes(){ 
-        return $this->belongsTo(Employes::class);
-    }
+   
     public function Service(){
         return $this->belongsTo(Service::class);
     }    
@@ -47,4 +45,7 @@ class Ordinateur extends Model
     public function logiciel(){
         return $this->belongsToMany(Logiciel::class , 'logiciel__ordinateur');
     }    
+    public function employes(){ 
+        return $this->belongsToMany(Employes::class , 'Historique') ;
+    }
 }

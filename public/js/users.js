@@ -1,13 +1,24 @@
-document.addEventListener('DOMContentLoaded', function() {
 
+function setFormAction(url) {
+  document.getElementById('myForm').action = url;
+  document.getElementById('myForm').submit();
+
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('modalButton').addEventListener('click', function(event) {
+    event.stopPropagation(); // Stop event propagation
+  
+});
 
     const input =  document.querySelector('.bar-recherche input');
     var table_rows = document.querySelectorAll('tbody tr');
     var table_head = document.querySelectorAll('thead td');
             // search
 
-            console.log(input);
-    input.addEventListener('input' , function (e){
+                input.addEventListener('input' , function (e){
         table_rows.forEach((row , i)=>{
             let row_data = row.textContent;
             let input_data =  input.value;
@@ -48,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }).map(sorted_row => document.querySelector('tbody').appendChild(sorted_row));
     }
 
- 
+
 
 })
 
@@ -113,7 +124,33 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
 
+document.addEventListener('DOMContentLoaded', function() {
 
+      
+    var checkall = document.getElementById("checkall");
+    checkall.addEventListener("click", function() {
+      if (this.checked) {
+        var checkitems = document.querySelectorAll('.checkitem');
+     
+          console.log(checkitems);
+        checkitems.forEach(function(item) {
+          item.checked = true;
+        
+        });
+      } else {
+        var checkitems = document.querySelectorAll('.checkitem');
+        console.log('false');
 
+        checkitems.forEach(function(item) {
+          item.checked = false;
+          
+        });
+      }
+    
+    });
   
+    });
+
+    
+
 

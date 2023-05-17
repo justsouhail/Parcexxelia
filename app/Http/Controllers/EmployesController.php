@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Collective\Html\FormFacade as Form;
 use App\Models\Employes;
+use App\Models\Ordinateur;
 use App\Models\Service;
 
 class EmployesController extends Controller
@@ -46,17 +47,18 @@ class EmployesController extends Controller
     }
 
     public function display_employe_info($id){
+        
         $employe = Employes::findOrFail($id);
-        if(count($employe->Ordinateur) > 0){
-            $data= true;
-        }
-else{
-    $data= false;
-}
+//         if(count($employe->Ordinateur)> 0){
+//             $data= true;
+//         }
+// else{
+//     $data= false;
+// }
         $services_tables = Service::all();
 
 // dd($employe->Ordinateur[0]->antivirus[0]->Antivirus_Nom);
-       return view('employes.employe_info' , compact('employe' , 'services_tables' , 'data'));
+       return view('employes.employe_info' , compact('employe' , 'services_tables' ));
     }
     public function updateEmployes_traitement(Request $request , $id){
         $services_tables = Service::all();
@@ -88,15 +90,13 @@ else{
     }
     public function deleteEmployes_traitement($id){
 
-
         $employe = Employes::findOrFail($id);
-           
+        Ordinateur::where('employes_id', $id)->update(['employes_id' => null]);
+
         $employe->delete();
 
        return redirect('/Employes/')->with('status' , 'L\'utilisateur a bien été supprimé avec succes. ');
-
-      
-        
+   
     }
 
 }

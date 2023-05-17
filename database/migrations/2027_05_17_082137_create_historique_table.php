@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('logiciel__ordinateur', function (Blueprint $table) {
-            $table->integer('ordinateur_id')->unsigned()->nullable();;
-            $table->integer('logiciel_id')->unsigned()->nullable();;
-            
+        Schema::create('historique', function (Blueprint $table) {
+            $table->integer('ordinateur_id')->unsigned()->nullable();
+            $table->integer('employes_id')->unsigned()->nullable();
+            $table->date('date_affectation')->nullable();
+            $table->string('file')->nullable();
+
             $table->foreign('ordinateur_id')->references('id')->on('ordinateur')
 
             ->onDelete('cascade');
     
-        $table->foreign('logiciel_id')->references('id')->on('logiciel')
+            
+        $table->foreign('employes_id')->references('id')->on('employes')
     
             ->onDelete('cascade');
             $table->timestamps();
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('logiciel__ordinateur');
+        Schema::dropIfExists('historique');
     }
 };

@@ -31,7 +31,6 @@ return new class extends Migration
             $table->integer('role_id')->unsigned();
             $table->integer('marque_id')->unsigned();
             $table->integer('post_id')->unsigned();
-            $table->integer('employes_id')->unsigned()->nullable();
 
 
 
@@ -45,7 +44,6 @@ return new class extends Migration
             $table->foreign('role_id')->references('id')->on('role');
             $table->foreign('marque_id')->references('id')->on('marque');
             $table->foreign('post_id')->references('id')->on('post');
-            $table->foreign('employes_id')->references('id')->on('employes');
 
             $table->timestamps();
         });

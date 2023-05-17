@@ -8,8 +8,10 @@
 
 <div class="wrapper">
 <div class="logo">
-      <h1><span ><img src="/images/favicon-exxelia.png" alt="" style="width: 39px; height: 39px;" id="img-logo" ></span> <span>ParcInfo</span></h1>
+      <h1><span ><img src="/images/favicon-exxelia.png" alt="" style="width: 39px; height: 39px;" id="img-logo" ></span> <span style="color: black;">ParcInfo</span></h1>
 </div>
+
+
     <h4 id="insc">S'indentifier</h4>
     <form method="POST" action="{{ route('login') }}">
     {{ csrf_field() }}

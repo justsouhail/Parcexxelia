@@ -29,24 +29,29 @@
             @endif
 
 
-
+            <form action="" method="post" id="myForm">
+                @csrf
             <div class="users">
             <div class="carte-header">
-                            <h2 id="gerer"  >Ordinateurs</h2>
-                            
+                          
                             <div class="bar-recherche" class="cartes" >
                     <span><ion-icon name="search-outline"></ion-icon></span>
                      <input type="search" placeholder="Chercher Ici" >
                  </div>
-                 <div class="excel" style="margin-left: 180px;">
-                            <span class="status green">
-                            <img src="/images/icons8-excel-22.png"/>
-                            </span>
-                            </div>                           
+                 <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="setFormAction('/Materiel/Ordinateur/export')">
+                    <span class="status green">
+                        <img src="/images/icons8-excel-22.png" alt="Submit"/>
+                    </span> 
+                    </div>
+                 <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="setFormAction('/Materiel/Ordinateur/DeleteAll')">
+                    <span class="status green">
+                        <img src="/images/icons8-trash-22.png" alt="Submit"/>
+                    </span>
+                    </div>                        
 
-                           <button class="cartes"  data-bs-toggle="modal" data-bs-target="#AddOrdinateurModal">Ajouter un Ordinateur <span >
+                    <a href="/add" id="modalButton" >        <button type="button">Ajouter un Ordinateur <span >
                            <ion-icon id="arrow" name="add-circle-outline"></ion-icon>
-                                </span></button>
+                                </span></button></a>
 
                      
                         </div>
@@ -55,6 +60,9 @@
                                 
                             <thead>
                                     <tr >
+                                    <td>
+                                    <input type="checkbox" id="checkall" class="larger-checkbox" > 
+                                     </td>
                                         <td>N° de serie <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
                                         <td>Marque<span class="arrow">&UpArrow;</span></td>
                                         <td>Service <span class="arrow">&UpArrow;</span></td>
@@ -66,15 +74,55 @@
                                 </thead>
                                 <tbody>
                                 @foreach($ordinateur as $ord)
-                                   <tr class="hoverable" onclick="window.location='/Ordinateur/{{$ord->id}}'"    class="mydivouter" >
-                                        
-                                        <td> {{$ord->N°_de_serie}}</td>
-                                        <td>{{$ord->Marque->Marque_Nom}}</td>
-                                        <td>{{$ord->Service->Nom}}</td>
-                                        <td>{{$ord->employes->Prenom}}&nbsp;{{$ord->employes->Nom}}</td>
-                                        <td>{{$ord->Type->Type_Nom}}</td>
-                                        <td>{{$ord->Role->Role_Nom}}</td>
-                                        <td></td>
+
+                                   <tr class="hoverable" onclick="if(event.target.tagName !== 'INPUT') { window.location='/Materiel/Ordinateur/{{$ord->id}}'; }"   class="mydivouter" >
+                                   <td>
+                                   <input type="checkbox" class="larger-checkbox checkitem" name="ids[{{ $ord->id }}]" value="{{$ord->id}}">
+                                     </td>
+
+                                        <td>
+                                            @if(isset($ord->N°_de_serie))
+                                               {{$ord->N°_de_serie}}
+                                               @else
+                                    <span style="color: red;">Non disponible</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                            @if(isset($ord->Marque->Marque_Nom))
+                                               {{$ord->Marque->Marque_Nom}}
+                                               @else
+                                    <span style="color: red;">Non disponible</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                            @if(isset($ord->Service->Nom))
+                                               {{$ord->Service->Nom}}
+                                               @else
+                                    <span style="color: red;">Non disponible</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if (isset($ord->employes) && $ord->employes->isNotEmpty())
+                                            {{$ord->employes()->latest('date_affectation')->first()->Prenom}}&nbsp;{{$ord->employes()->latest('date_affectation')->first()->Nom}}
+                                        @else
+                                            <span style="color: red;">Non disponible</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                            @if(isset($ord->Type->Type_Nom))
+                                            {{$ord->Type->Type_Nom}}
+                                            @else
+                                    <span style="color: red;">Non disponible</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                            @if(isset($ord->Role->Role_Nom))
+                                            {{$ord->Role->Role_Nom}}
+                                               @else
+                                    <span style="color: red;">Non disponible</span>
+                                        @endif
+                                    </td>
+                                      
 
                                     
                                     </tr>
@@ -91,7 +139,7 @@
              
             </div>
            
-   
+            </form>
 
             
             @push('scripts')
@@ -99,12 +147,11 @@
   
       <script src="{{ asset('/js/users.js')}}"></script>
       <script src="{{ asset('/js/virtual-select.min.js')}}"></script>
-
+     
             @endpush
 
 
           
 
               </div>
-              @include('modal.create_ordinateur')
     @endsection

@@ -1,19 +1,42 @@
+@extends('layouts.app')
 
-<form action="/Ordinateur/traitement" method="post" enctype="multipart/form-data" >
+
+
+    @section('content')
+    @push('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <link rel="stylesheet" href="/css/nav_sidebar.css">
+    <link rel="stylesheet" href="/css/employe_info.css">
+    <link rel="stylesheet" href="/css/ordinateur_update.css">
+    <link rel="stylesheet" href="/css/virtual-select.min.css" />
+    <link rel="stylesheet" href="/css/users.css">
+
+
+     @endpush
+     <input type="checkbox" id="menu-toogle">
+        <!-- sidebar -->
+
+        @include('sidebar')
+            <!-- navbar -->
+            @include('nav')
+            <!-- main -->
+            
+            <div class="main-content">
+            @if(session('status'))
+                <div class="alert {{ session('error') ? 'alert-danger' : 'alert-success' }}">
+                    @if(session('error'))
+                        <strong>Error: </strong>
+                    @endif
+                    {{ session('status') }}
+                </div>
+            @endif
+            <div class="users" >
+
+<form action="/Materiel/Ordinateur/traitement" method="post" enctype="multipart/form-data" >
     @csrf
        
-        <div class="modal fade" id="AddOrdinateurModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document" >
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Ajouter un nouveau Ordinateur</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-
-
-                
-                <div class="modal-body">
+        
+    <div style="text-align: center; padding-bottom: 20px;"><h4 ><b>Ajouter un ordinateur</b></h4></div>
 
 
 <div class="row">
@@ -51,21 +74,17 @@
   </div>
   <div class="col-4">
     <div class="form-group">
-      <label for="Employes" ><strong>{{ __('Utilisateur') }}</strong></label>
-      <select name="Employes" class="form-control @error('Employes') is-invalid @enderror " id="Employes">
-        <option value="">Choisir un Employes</option>
-        @foreach($Employes_tables as $Employes)
-          <option value="{{ $Employes->id }}" {{ old('Employes') == $Employes->id ? 'selected' : '' }}>{{ $Employes->Nom }}&nbsp;{{ $Employes->Prenom }}</option>
-          @endforeach
-          </select>
-          @error('Employes')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+      <label for="Moniteur"><strong>{{ __('Moniteur') }}</strong></label>
+      <select name="Moniteur" class="form-control   " id="Moniteur">
+        <option value="">Choisir un Moniteur</option>
+        @foreach($Moniteur_tables as $Moniteur)
+          <option value="{{ $Moniteur->id }}" {{ old('Moniteur') == $Moniteur->id ? 'selected' : '' }}>{{ $Moniteur->Moniteur_Nom }}</option>
+        @endforeach
+      </select>
+
     </div>
   </div>
-</div>
-
-
+  </div>
 
 <div class="row">
   <div class="col-4">
@@ -314,25 +333,10 @@
 <!-- --- -->
 <div class="row">
 
-  <div class="col-4">
-    <div class="form-group">
-      <label for="Moniteur"><strong>{{ __('Moniteur') }}</strong></label>
-      <select name="Moniteur" class="form-control   " id="Moniteur">
-        <option value="">Choisir un Moniteur</option>
-        @foreach($Moniteur_tables as $Moniteur)
-          <option value="{{ $Moniteur->id }}" {{ old('Moniteur') == $Moniteur->id ? 'selected' : '' }}>{{ $Moniteur->Moniteur_Nom }}</option>
-        @endforeach
-      </select>
 
-    </div>
-  </div>
-  <div class="col-4">
-    <div class="form-group">
-      <label for="Logiciel"><strong>{{ __('Logiciels installés') }}</strong></label>
 
-    </div>
   </div>
-</div>
+
 
                     
            
@@ -349,4 +353,11 @@
             </div>
          </div>
 </form>
+</div>
+  </div>
+  @push('scripts')
+      <script src="{{ asset('/js/users.js')}}"></script>
+      <script src="{{ asset('/js/virtual-select.min.js')}}"></script>
 
+      @endpush
+    @endsection

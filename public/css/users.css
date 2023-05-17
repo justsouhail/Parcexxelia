@@ -366,3 +366,8 @@ thead td.active , tbody td.active  {
    background:var(--second-color)
 
 }
+
+.larger-checkbox {
+   transform: scale(1.5); /* Increase the scale value as needed to make the checkbox larger */
+ }
+ 
