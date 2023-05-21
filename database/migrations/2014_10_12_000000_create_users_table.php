@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id()->unique();
             $table->string('Nom');
             $table->string('Prenom');
-            $table->string('Societe');
+            $table->string('Branche_Societe');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

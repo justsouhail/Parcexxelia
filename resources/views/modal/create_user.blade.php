@@ -74,7 +74,7 @@
                     
            
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Annuler') }}</button>
+                        <button type="button" class="btn btn-secondary" >{{ __('Annuler') }}</button>
                         <button type="submit" class="btn btn-primary">Ajouter</button>
                     </div>
                 </div>

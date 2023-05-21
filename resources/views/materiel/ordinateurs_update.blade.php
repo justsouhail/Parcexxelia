@@ -45,37 +45,27 @@
 
 </div>
 
-
-
-  <div class="col-4">
+<div class="col-4">
     <div class="form-group">
-      <label for="Service" ><strong>{{ __('Service') }}</strong></label>
-      <select name="Service" class="form-control @error('Service') is-invalid @enderror"  id="Service">
-        <option value="">Choisir un Service</option>
-        @foreach($services_tables as $Service)
-          <option value="{{ $Service->id }}" {{  $Service->id = $ordinateurs->service_id ? 'selected' : '' }}>{{ $Service->Nom }}</option>
+      <label for="Moniteur"><strong>{{ __('Moniteur') }}</strong></label>
+      <select name="Moniteur" class="form-control   " id="Moniteur">
+        <option value="">Choisir un Moniteur</option>
+        @foreach($Moniteur_tables as $Moniteur)
+          <option value="{{ $Moniteur->id }}" {{ old('Moniteur') == $Moniteur->id ? 'selected' : '' }}>{{ $Moniteur->Moniteur_Nom }}</option>
         @endforeach
       </select>
-      @error('Service')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
- 
+
     </div>
   </div>
+
   <div class="col-4">
     <div class="form-group">
-      <label for="Employes" ><strong>{{ __('Utilisateur') }}</strong></label>
-      <select name="Employes" class="form-control @error('Employes') is-invalid @enderror " id="Employes">
-        <option value="">Choisir un Employes</option>
-        @foreach($Employes_tables as $Employes)
-        <option value="{{ $Employes->id }}" {{ $Employes->id == $ordinateurs->employes_id ? 'selected' : '' }}>{{ $Employes->Nom }}&nbsp;{{ $Employes->Prenom }}</option>
-          @endforeach
-          </select>
-          @error('Employes')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+      <label for="Status"><strong>{{ __('Status ') }}</strong></label>
+      <input type="text" name="Status" class="form-control " id="Status" placeholder="Status"  value="{{ $ordinateurs->Status }}">
     </div>
   </div>
+
+
 </div>
 
 
@@ -269,12 +259,7 @@
 </div> 
 <!-- ----------------------------- -->
  <div class="row">
-                <div class="col-4">
-    <div class="form-group">
-      <label for="Status"><strong>{{ __('Status ') }}</strong></label>
-      <input type="text" name="Status" class="form-control " id="Status" placeholder="Status"  value="{{ $ordinateurs->Status }}">
-    </div>
-  </div>
+   
   <div class="col-4">
   <div class="form-group">
     <label for="Antivirus"><strong>{{ __('Antivirus installés') }}</strong></label>
@@ -322,24 +307,8 @@
 <!-- --- -->
 <div class="row">
 
-  <div class="col-4">
-    <div class="form-group">
-      <label for="Moniteur"><strong>{{ __('Moniteur') }}</strong></label>
-      <select name="Moniteur" class="form-control   " id="Moniteur">
-        <option value="">Choisir un Moniteur</option>
-        @foreach($Moniteur_tables as $Moniteur)
-          <option value="{{ $Moniteur->id }}" {{ old('Moniteur') == $Moniteur->id ? 'selected' : '' }}>{{ $Moniteur->Moniteur_Nom }}</option>
-        @endforeach
-      </select>
 
-    </div>
-  </div>
-  <div class="col-4">
-    <div class="form-group">
-      <label for="Logiciel"><strong>{{ __('Logiciels installés') }}</strong></label>
-
-    </div>
-  </div>
+ 
 </div>
 
                     

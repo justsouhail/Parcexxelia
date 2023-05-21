@@ -5,13 +5,57 @@ function setFormAction(url) {
 
 }
 
+function handleCheckboxChange(checkbox) {
+  var excelDivs = document.querySelectorAll('.excel');
+  var isChecked = checkbox.checked;
 
+  if (isChecked) {
+      excelDivs.forEach(function (div) {
+          div.style.cursor = 'pointer';
+      });
+      checkbox.parentElement.classList.remove('inactive');
+  } else {
+      excelDivs.forEach(function (div) {
+          div.style.cursor = 'default';
+      });
+      checkbox.parentElement.classList.add('inactive');
+  }
+}
+
+
+
+function handleExport(element) {
+  var checkbox = document.querySelector('.larger-checkbox.checkitem');
+  if (checkbox.checked) {
+      // Perform the export action
+      setFormAction('/Materiel/Ordinateur/export');
+      // ...
+  }
+}
+
+function handleDelete(element, action) {
+  var checkbox = document.querySelector('.larger-checkbox.checkitem');
+  if (checkbox.checked) {
+      // Display a confirmation dialog
+      var confirmed = confirm('Confirmez la suppression ?');
+      
+      // Check if the user confirmed the deletion
+      if (confirmed) {
+          // Perform the delete action based on the specified action parameter
+          if (action === 'ordinateur') {
+              setFormAction('/Materiel/Ordinateur/DeleteAll');
+          } else if (action === 'imprimante') {
+              setFormAction('/Materiel/Imprimante/DeleteAll');
+          }
+      }
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('modalButton').addEventListener('click', function(event) {
-    event.stopPropagation(); // Stop event propagation
+//   document.getElementById('modalButton').addEventListener('click', function(event) {
+//     event.stopPropagation(); // Stop event propagation
   
-});
+// });
 
     const input =  document.querySelector('.bar-recherche input');
     var table_rows = document.querySelectorAll('tbody tr');
@@ -19,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // search
 
                 input.addEventListener('input' , function (e){
-        table_rows.forEach((row , i)=>{
+        table_rows.forEach((row , i)=>{ 
             let row_data = row.textContent;
             let input_data =  input.value;
 
@@ -61,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-})
+});
 
 
 
@@ -124,9 +168,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
 
-document.addEventListener('DOMContentLoaded', function() {
 
-      
+document.addEventListener('DOMContentLoaded', function() {
+     
     var checkall = document.getElementById("checkall");
     checkall.addEventListener("click", function() {
       if (this.checked) {

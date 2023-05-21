@@ -12,15 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('moniteur', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('Moniteur_Nom');
-            $table->string('resolution');
-            $table->float('refresh_rate');
-            $table->string('marque_moniteur');
+            $table->increments('id')->nullable();;
+            $table->string('N°_de_serie')->nullable();;
+            $table->string('resolution')->nullable();;
+            $table->float('Cout')->nullable();;
+            $table->string('Data_achat')->nullable();
             $table->integer('ordinateur_id')->unsigned()->nullable();
+            $table->integer('categorie_id')->unsigned()->nullable();;
+            $table->integer('marque_id')->unsigned()->nullable();;
+            $table->integer('model_id')->unsigned();
 
 
             $table->foreign('ordinateur_id')->references('id')->on('ordinateur')->nullable();
+            $table->foreign('marque_id')->references('id')->on('marque')->nullable();;
+            $table->foreign('categorie_id')->references('id')->on('categorie')->nullable();;
+            $table->foreign('model_id')->references('id')->on('model')->nullable();;
 
             $table->timestamps();
         });

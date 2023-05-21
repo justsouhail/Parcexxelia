@@ -11,9 +11,7 @@ class Ordinateur extends Model
 
     use HasFactory;
    
-    public function Service(){
-        return $this->belongsTo(Service::class);
-    }    
+  
     public function Model(){
         return $this->belongsTo(Models::class);
     }       

@@ -29,7 +29,6 @@ class MaterielController extends Controller
     {
         $ordinateur =  Ordinateur::all();
         $Roles_tables=Role::all();
-        $services_tables = Service::all();
         $Employes_tables=Employes::all();
         $Type_tables=Type::all();
         $Marque_tables=Marque::all();
@@ -43,7 +42,6 @@ class MaterielController extends Controller
         return [
             'ordinateur' => $ordinateur,
             'Roles_tables' => $Roles_tables,
-            'services_tables' => $services_tables,
             'Employes_tables' => $Employes_tables,
             'Type_tables' => $Type_tables,
             'Marque_tables' => $Marque_tables,
@@ -58,20 +56,8 @@ class MaterielController extends Controller
     private function validateData(Request $request)
     {
         $request->validate([    
-            'Role' => 'required',
-            'Type' => 'required',
-            'Marque' => 'required',
-            'Model' => 'required',
-            'N°_de_serie' => 'required|min:5|max:10',
-            'Nom' => 'required|min:3|max:30',
-            'RAM' => 'required|numeric|min:1',
-            'Stockage' => 'required|numeric|min:1',
-            'Processeur' => 'required',
-            'Os' => 'required',
-            'Nombre_de_moniteur' => 'required|numeric|min:0',
-            'Adresse_MAC' => 'required|regex:/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/',
-            'Adresse_IP' => 'required|ip',
-            'Post' => 'required',
+            
+            
         ]);
     }
     private function saveOrdinateurData(Request $request, Ordinateur $ordinateur , $cdt)
@@ -85,8 +71,7 @@ class MaterielController extends Controller
         $ordinateur->Addresse_MAC = $request->Adresse_MAC;
         $ordinateur->Addresse_IP = $request->Adresse_IP;
         $ordinateur->Nb_Moniteur = $request->Nombre_de_moniteur;
-        $ordinateur->Status = $request->Status;
-        $ordinateur->service_id = $request->Service;
+        $ordinateur->Commentaire = $request->Status;
         $ordinateur->model_id = $request->Model;
         $ordinateur->processeur_id = $request->Processeur;
         $ordinateur->os_id = $request->Os;
@@ -94,6 +79,7 @@ class MaterielController extends Controller
         $ordinateur->role_id = $request->Role;
         $ordinateur->marque_id = $request->Marque;
         $ordinateur->post_id = $request->Post;
+        $ordinateur->categorie_id = 1;
      if($cdt == 'save'){
         
         $ordinateur->save();
@@ -175,7 +161,7 @@ try{
                                         return redirect('/Materiel/ordinateurs' )->with('status' , 'L\'ordinateur a bien été ajouté avec succes. ' );
                 }
                 catch (\Exception $e) {
-                    return redirect('/Materiel/ordinateurs')
+                    return redirect('/add')
                     ->with('status', 'Une erreur est survenue lors de l\'ajout de l\'ordinateur: ' . $e->getMessage())
                     ->with('error', true)
                                         ->withInput();                }
@@ -239,7 +225,7 @@ try{
         // Set custom page size and margins
         $pdf->setPaper('A4', 'portrait')->setOptions(['margin_top' => 1, 'margin_bottom' => 1]);
     
-        return $pdf->stream();
+        return $pdf->stream();  
     }
 
     public function DeleteAll(Request $request){

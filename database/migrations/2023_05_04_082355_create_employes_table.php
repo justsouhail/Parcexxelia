@@ -18,10 +18,10 @@ return new class extends Migration
         Schema::create('employes', function (Blueprint $table) {
           $table->increments('id');
 
-            $table->string('Nom');
-            $table->string('Prenom');
-            $table->string('CIN');
-            $table->unsignedInteger('service_id');
+            $table->string('Nom')->nullable();
+            $table->string('Prenom')->nullable();
+            $table->string('CIN')->nullable();
+            $table->unsignedInteger('service_id')->nullable();
             $table->foreign('service_id')->references('id')->on('services');
             $table->timestamps();
         });

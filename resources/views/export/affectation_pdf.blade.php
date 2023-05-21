@@ -54,23 +54,27 @@
   <div>
 
   <p class="decharge">
-            Je soussigné,<strong> {{$user->Prenom}}&nbsp;{{$user->Nom}}</strong>, responsable informatique de <strong>{{$user->Societe}}</strong>, déclare par la présente que j'ai remis le materiel informatique suivant à <strong>{{$employe->Nom}}&nbsp;{{$employe->Nom}}</strong>  :  </p>
+  <p>
+    Je soussigné, <strong>{{$user->Prenom}}&nbsp;{{$user->Nom}}</strong>, responsable informatique de <strong>{{$user->Societe}}</strong>,
+    déclare par la présente que j'ai remis le matériel informatique de type <strong>{{$tag}}</strong> à
+    <strong>{{$employe->Prenom}}&nbsp;{{$employe->Nom}}</strong>:
+</p>
 <br>
-            <div style="font-size: 17px !important; ">
-            <ul>
-                <li>  Marque et modèle de l'ordinateur : <strong>{{$ordinateur->Marque->Marque_Nom}}&nbsp; {{$ordinateur->Model->Model_Nom}}</strong> </li>
-                <li>Numéro de série : <strong>{{$ordinateur->N°_de_serie}} </strong> </li>
-                <li> Type : <strong>{{$ordinateur->Type->Type_Nom}}</strong> </li>
-                <li>RAM  : <strong>{{$ordinateur->RAM}}&nbsp;(Go) &nbsp;</strong></li>
-                <li> Stockage : <strong>{{$ordinateur->Stockage}}&nbsp;(Go)</strong> </li>
-                @if(isset($ordinateur->Status))
-                    <li>Status:<strong> {{$ordinateur->Status}}</strong></li>
-                @else
-                    <li>[]</li>
-                @endif
+<div style="font-size: 17px !important;">
+    <ul>
+        <li>Marque et modèle de {{$tag}}:
+            <strong>{{ isset($data2->Marque->Marque_Nom) ? $data2->Marque->Marque_Nom : '' }}
+                {{ isset($data2->Model->Model_Nom) ? $data2->Model->Model_Nom : '' }}</strong>
+        </li>
+        <li>Numéro de série: <strong>{{ isset($data2->N°_de_serie) ? $data2->N°_de_serie : '' }}</strong></li>
+        <li>Service: <strong>{{ isset($employe->Service->Nom) ? $employe->Service->Nom : '' }}</strong></li>
+        @if (isset($data2->Status))
+            <li>Status: <strong>{{$data2->Status}}</strong></li>
+        @else
+            <li>[]</li>
+        @endif
+    </ul>
 
-
-            </ul>
             </div>
 
            <p  class="decharge"> L'employé susmentionné reconnaît avoir reçu l'ordinateur en bon état de fonctionnement et s'engage à en faire un usage approprié conformément aux politiques et aux règles de sécurité de l'entreprise. <br>

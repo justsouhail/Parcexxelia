@@ -12,4 +12,8 @@ class Models extends Model
     public function ordinateur(){
         return $this->hasMany(Ordinateur::class);
     }
+    public function categorie(){
+        return $this->hasMany(Categorie::class);
+    }
+    
 }

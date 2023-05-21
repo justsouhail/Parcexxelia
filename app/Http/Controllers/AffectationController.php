@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use PDF;
 use App\Models\Employes;
@@ -15,8 +14,10 @@ class AffectationController extends Controller
 {
     public function index(){
         $Employes_tables = Employes::all();
-        return view('Affectation' ,  compact('Employes_tables'));
+        return view('affectation.index' ,  compact('Employes_tables'));
     }
+
+    
     public function affectation(Request $request){
       try{
         $ordinateur = Ordinateur::where('N°_de_serie', $request->N°_de_serie)->first();

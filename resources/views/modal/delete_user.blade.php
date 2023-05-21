@@ -14,7 +14,7 @@
       <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Annuler') }}</button>
 
-        <a href="/Employes/delete/{{$employe->id}}"><button type="button" class="btn btn-primary">Confirmer</button></a>
+     <button type="button" class="btn btn-primary">Confirmer</button></a>
     </div>
     
     </div>

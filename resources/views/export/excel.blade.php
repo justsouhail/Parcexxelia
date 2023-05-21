@@ -41,24 +41,23 @@
 
 
 
-                                        <td>{{ $ord->Nom }}</td>
-                                        <td>{{ $ord->Service->Nom }}</td>
-                                        <td>{{ $ord->Role->Role_Nom }}</td>
-                                        <td>{{ $ord->Type->Type_Nom }}</td>
-                                        <td>{{ $ord->Post->Post_Nom}}</td>
-                                        
-  <td>{{$ord->Nb_Moniteur}}</td>
-  <td>{{$ord->Model->Model_Nom}}</td>
-  <td>{{$ord->Marque->Marque_Nom}}</td>
-  <td>{{$ord->RAM}} &nbsp; (Go)</td>
-  <td>{{$ord->Stockage}}&nbsp; (Go)</td>
-  <td>{{$ord->Processeur->Processeur_Nom}}</td>
-  <td>{{$ord->Os->Os_Nom}}</td>
-  <td>{{$ord->Addresse_MAC}}</td>
-  <td>{{$ord->Addresse_IP}}</td>
-  <td>{{$ord->Cout}}</td>
-  <td>{{$ord->Date_Achat}}</td>
-  <td>{{$ord->Status}}</td>
+                                        <td>{{ isset($ord->Nom) ? $ord->Nom : '' }}</td>
+                                        <td>{{ isset($ord->employes->Service) ? $ord->employes->Service : ''}}</td>
+                                        <td>{{ isset($ord->Type->Type_Nom) ? $ord->Type->Type_Nom : '' }}</td>
+                                        <td>{{ isset($ord->Post->Post_Nom) ? $ord->Post->Post_Nom : '' }}</td>
+
+                                        <td>{{ isset($ord->Nb_Moniteur) ? $ord->Nb_Moniteur : '' }}</td>
+                                        <td>{{ isset($ord->Model->Model_Nom) ? $ord->Model->Model_Nom : '' }}</td>
+                                        <td>{{ isset($ord->Marque->Marque_Nom) ? $ord->Marque->Marque_Nom : '' }}</td>
+                                        <td>{{ isset($ord->RAM) ? $ord->RAM . '&nbsp;(Go)' : '' }}</td>
+                                        <td>{{ isset($ord->Stockage) ? $ord->Stockage . '&nbsp;(Go)' : '' }}</td>
+                                        <td>{{ isset($ord->Processeur->Processeur_Nom) ? $ord->Processeur->Processeur_Nom : '' }}</td>
+                                        <td>{{ isset($ord->Os->Os_Nom) ? $ord->Os->Os_Nom : '' }}</td>
+                                        <td>{{ isset($ord->Addresse_MAC) ? $ord->Addresse_MAC : '' }}</td>
+                                        <td>{{ isset($ord->Addresse_IP) ? $ord->Addresse_IP : '' }}</td>
+                                        <td>{{ isset($ord->Cout) ? $ord->Cout : '' }}</td>
+                                        <td>{{ isset($ord->Date_Achat) ? $ord->Date_Achat : '' }}</td>
+                                        <td>{{ isset($ord->Commentaire) ? $ord->Commentaire : '' }}</td>
 
 
         </tr>

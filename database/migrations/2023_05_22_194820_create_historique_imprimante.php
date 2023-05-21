@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('historique', function (Blueprint $table) {
-            $table->integer('ordinateur_id')->unsigned()->nullable();
+        Schema::create('historique_imprimante', function (Blueprint $table) {
+            $table->integer('imprimante_id')->unsigned()->nullable();
             $table->integer('employes_id')->unsigned()->nullable();
             $table->date('date_affectation')->nullable();
 
-            $table->foreign('ordinateur_id')->references('id')->on('ordinateur')
+            $table->foreign('imprimante_id')->references('id')->on('imprimante')
 
             ->onDelete('cascade');
     
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('historique');
+        Schema::dropIfExists('historique_imprimante');
     }
 };

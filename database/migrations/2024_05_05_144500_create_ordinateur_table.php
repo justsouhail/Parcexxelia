@@ -13,30 +13,29 @@ return new class extends Migration
     {
         Schema::create('ordinateur', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('N°_de_serie');
+            $table->string('N°_de_serie')->nullable();
             $table->float('Cout')->nullable();
             $table->date('Date_Achat')->nullable();
-            $table->float('RAM');
-            $table->float('Stockage');
-            $table->string('Nom');
-            $table->string('Addresse_MAC');
-            $table->string('Addresse_IP');
-            $table->integer('Nb_Moniteur');
-            $table->string('Status')->nullable();
-            $table->integer('service_id')->unsigned()->nullable();;
-            $table->integer('model_id')->unsigned();
-            $table->integer('processeur_id')->unsigned();
-            $table->integer('os_id')->unsigned();
-            $table->integer('type_id')->unsigned();
-            $table->integer('role_id')->unsigned();
-            $table->integer('marque_id')->unsigned();
-            $table->integer('post_id')->unsigned();
+            $table->float('RAM')->nullable();;
+            $table->float('Stockage')->nullable();;
+            $table->string('Nom')->nullable();;
+            $table->string('Addresse_MAC')->nullable();;
+            $table->string('Addresse_IP')->nullable();;
+            $table->integer('Nb_Moniteur')->nullable();;
+            $table->string('Commentaire')->nullable();
+            $table->integer('model_id')->unsigned()->nullable();
+            $table->integer('processeur_id')->unsigned()->nullable();;
+            $table->integer('os_id')->unsigned()->nullable();;
+            $table->integer('type_id')->unsigned()->nullable();;
+            $table->integer('role_id')->unsigned()->nullable();;
+            $table->integer('marque_id')->unsigned()->nullable();;
+            $table->integer('post_id')->unsigned()->nullable();
+            $table->integer('categorie_id')->unsigned()->nullable();
 
 
 
             
             
-            $table->foreign('service_id')->references('id')->on('services');
             $table->foreign('model_id')->references('id')->on('model');
             $table->foreign('processeur_id')->references('id')->on('processeur');
             $table->foreign('os_id')->references('id')->on('os');
@@ -44,6 +43,7 @@ return new class extends Migration
             $table->foreign('role_id')->references('id')->on('role');
             $table->foreign('marque_id')->references('id')->on('marque');
             $table->foreign('post_id')->references('id')->on('post');
+            $table->foreign('categorie_id')->references('id')->on('categorie');
 
             $table->timestamps();
         });

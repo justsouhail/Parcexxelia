@@ -38,29 +38,14 @@
                     <span><ion-icon name="search-outline"></ion-icon></span>
                      <input type="search" placeholder="Chercher Ici" >
                  </div>
-                 <!-- <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="setFormAction('/Materiel/Ordinateur/export')">
-                    <span class="status green">
-                        <img src="/images/icons8-excel-22.png" alt="Submit"/>
-                    </span> 
-                    </div>
-                 <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="setFormAction('/Materiel/Ordinateur/DeleteAll')">
-                    <span class="status green">
-                        <img src="/images/icons8-trash-22.png" alt="Submit"/>
-                    </span>
-                    </div>                         -->
-                    <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="handleExport(this)">
-                        <span class="status green">
-                            <img src="/images/icons8-excel-22.png" alt="Submit"/>
-                        </span> 
-                    </div>
-
-                    <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="handleDelete(this, 'ordinateur')">
+                   <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="handleDelete(this, 'imprimante')">
     <span class="status green">
         <img src="/images/icons8-trash-22.png" alt="Submit"/>
     </span>
 </div>
 
-                    <a href="/add" id="modalButton" >        <button type="button">Ajouter un Ordinateur <span >
+
+                    <a href="/add_imprimante" id="modalButton" >        <button type="button">Ajouter une imprimantes <span >
                            <ion-icon id="arrow" name="add-circle-outline"></ion-icon>
                                 </span></button></a>
 
@@ -72,7 +57,6 @@
                             <thead>
                                     <tr >
                                     <td>
-                                    <!-- <input type="checkbox" id="checkall" class="larger-checkbox" >  -->
                                     <input type="checkbox" id="checkall" class="larger-checkbox" onchange="handleCheckboxChange(this)">
 
                                      </td>
@@ -80,15 +64,14 @@
                                         <td>Marque<span class="arrow">&UpArrow;</span></td>
                                         <td>Modele <span class="arrow">&UpArrow;</span></td>
                                         <td>Utilisateur<span class="arrow">&UpArrow;</span></td>
-                                        <td>Type <span class="arrow">&UpArrow;</span></td>
-                                        <td>Role <span class="arrow">&UpArrow;</span></td>
+                                        <td>URL  <span class="arrow">&UpArrow;</span></td>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($ordinateur as $ord)
+                                @foreach($imprimantes as $ord)
 
-                                   <tr class="hoverable" onclick="if(event.target.tagName !== 'INPUT') { window.location='/Materiel/Ordinateur/{{$ord->id}}'; }"   class="mydivouter" >
+                                   <tr class="hoverable" onclick="if(event.target.tagName !== 'INPUT') { window.location='/Materiel/imprimate/{{$ord->id}}'; }"   class="mydivouter" >
                                    <td>
                                    <input type="checkbox" class="larger-checkbox checkitem" name="ids[{{ $ord->id }}]" value="{{$ord->id}}">
                                      </td>
@@ -121,20 +104,15 @@
                                             <span style="color: red;">Non disponible</span>
                                         @endif
                                     </td>
+
                                     <td>
-                                            @if(isset($ord->Type->Type_Nom))
-                                            {{$ord->Type->Type_Nom}}
+                                            @if(isset($ord->Adresse_IP))
+                                            {{$ord->$ord->Adresse_IP}}
                                             @else
                                     <span style="color: red;">Non disponible</span>
                                         @endif
                                     </td>
-                                    <td>
-                                            @if(isset($ord->Role->Role_Nom))
-                                            {{$ord->Role->Role_Nom}}
-                                               @else
-                                    <span style="color: red;">Non disponible</span>
-                                        @endif
-                                    </td>
+                                 
                                       
 
                                     

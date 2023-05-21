@@ -1,15 +1,41 @@
+@extends('layouts.app')
 
+
+
+    @section('content')
+    @push('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <link rel="stylesheet" href="/css/nav_sidebar.css">
+    <link rel="stylesheet" href="/css/employe_info.css">
+    <link rel="stylesheet" href="/css/ordinateur_update.css">
+    <link rel="stylesheet" href="/css/virtual-select.min.css" />
+    <link rel="stylesheet" href="/css/users.css">
+
+
+     @endpush
+     <input type="checkbox" id="menu-toogle">
+        <!-- sidebar -->
+
+        @include('sidebar')
+            <!-- navbar -->
+            @include('nav')
+            <!-- main -->
+            
+            <div class="main-content">
+            @if(session('status'))
+                <div class="alert {{ session('error') ? 'alert-danger' : 'alert-success' }}">
+                    @if(session('error'))
+                        <strong>Error: </strong>
+                    @endif
+                    {{ session('status') }}
+                </div>
+            @endif
+            <div class="users" >
 
 <form action="/Employes/update/{{$employe->id}}" method="post" enctype="multipart/form-data" >
     @csrf
-       
-        <div class="modal fade" id="updateEmployesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document" >
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Mise á jour  d'utilisateur</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+
+    <div style="text-align: center; padding-bottom: 20px;"><h4 ><b>Modifier un utilisateur</b></h4></div>
 
 
 
@@ -85,3 +111,11 @@
          </div>
 </form>
 
+</div>
+  </div>
+  @push('scripts')
+      <script src="{{ asset('/js/users.js')}}"></script>
+      <script src="{{ asset('/js/virtual-select.min.js')}}"></script>
+
+      @endpush
+    @endsection

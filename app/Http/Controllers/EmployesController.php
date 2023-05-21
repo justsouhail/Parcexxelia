@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Collective\Html\FormFacade as Form;
 use App\Models\Employes;
+use App\Models\Historique;
 use App\Models\Ordinateur;
 use App\Models\Service;
+use Illuminate\Support\Facades\DB;
 
 class EmployesController extends Controller
 {
@@ -49,27 +51,28 @@ class EmployesController extends Controller
     public function display_employe_info($id){
         
         $employe = Employes::findOrFail($id);
-//         if(count($employe->Ordinateur)> 0){
-//             $data= true;
-//         }
-// else{
-//     $data= false;
-// }
-        $services_tables = Service::all();
 
-// dd($employe->Ordinateur[0]->antivirus[0]->Antivirus_Nom);
-       return view('employes.employe_info' , compact('employe' , 'services_tables' ));
+        $services_tables = Service::all();
+        $historique = DB::table('historique')
+        ->join('ordinateur', 'ordinateur.id', '=', 'historique.ordinateur_id')
+        ->join('marque', 'marque.id', '=', 'ordinateur.marque_id')
+        ->join('model', 'model.id', '=', 'ordinateur.model_id')
+        ->where('historique.employes_id', $id)
+        ->select('historique.*', 'ordinateur.*', 'marque.Marque_Nom', 'model.Model_Nom')
+        ->get();
+    
+
+                       return view('employes.employe_info' , compact('employe' , 'services_tables' , 'historique' ));
     }
     public function updateEmployes_traitement(Request $request , $id){
-        $services_tables = Service::all();
+    
         
 
 
         $request->validate([
             'Nom' => 'required' ,
             'Prenom' => 'required' ,
-            'CIN' => 'required' ,
-            'Service' => 'required' ,
+           
         ]);
      
         $employe = Employes::findOrFail($id);
@@ -88,10 +91,14 @@ class EmployesController extends Controller
       ;
         
     }
+    public function updateEmployes($id){
+        $employe = Employes::findOrFail($id);
+        $services_tables = Service::all();
+        return view('employes.update_user' , compact('employe' ,'services_tables' ));
+    }
     public function deleteEmployes_traitement($id){
 
         $employe = Employes::findOrFail($id);
-        Ordinateur::where('employes_id', $id)->update(['employes_id' => null]);
 
         $employe->delete();
 

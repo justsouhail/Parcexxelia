@@ -24,5 +24,8 @@ class Employes extends Model
     public function Ordinateurs(){
         return $this->belongsToMany(Ordinateur::class, 'Historique');
     }
+    public function Imprimante(){
+        return $this->belongsToMany(Imprimante::class, 'historique_imprimante');
+    }
   
 }

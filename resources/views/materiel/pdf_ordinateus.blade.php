@@ -67,76 +67,93 @@
                                             <span style="color: red;">Non disponible</span>
                                         @endif</td>
     </tr>
-    <tr>
-      <th>Service</th>
-      <td>{{$ordinateur->Service->Nom}} </td>
-    </tr>
+  
     <tr>
       <th>ROLE</th>
       <td>{{$ordinateur->Role->Role_Nom}}</td>
     </tr>
     <tr>
-      <th>TYPE</th>
-      <td>{{$ordinateur->Type->Type_Nom}}</td>
-    </tr>
-    <tr>
-      <th>POST</th>
-      <td>{{$ordinateur->Post->Post_Nom }}</td>
-    </tr>
-    <tr>
-      <th>MONITEUR</th>
-      <td>@foreach($Moniteur_tables as $Mon)
-                             {{ $Mon->Moniteur_Nom }} <br>
-                            @endforeach </td>
-    </tr>
-     <tr>
-      <th>NOMBRE DE MONITEUR</th>
-      <td>{{$ordinateur->Nb_Moniteur}}</td>
-    </tr>
-    <tr>
-      <th>MODELE</th>
-      <td>{{$ordinateur->Model->Model_Nom}}</td>
-    </tr>
-     <tr>
-      <th>MARQUE</th>
-      <td>{{$ordinateur->Marque->Marque_Nom}}</td>
-    </tr> 
-    <tr>
-      <th>RAM</th>
-      <td>{{$ordinateur->RAM}}&nbsp; (Go)</td>
-    </tr>
-      <tr>
-      <th>STOCKAGE</th>
-      <td>{{$ordinateur->Stockage}} &nbsp;(Go)</td>
-    </tr>  
-     <tr>
-      <th>PROCESSEUR</th>
-      <td>{{$ordinateur->Processeur->Processeur_Nom}}</td>
-    </tr> 
-      <tr>
-      <th>WINDOWS INSTALLÉ</th>
-      <td>{{$ordinateur->Os->Os_Nom}}</td>
-    </tr>   <tr>
-      <th>ADRESSE MAC</th>
-      <td>{{$ordinateur->Addresse_MAC}}</td>
-    </tr>  
-     <tr>
-      <th>ADRESSE IP</th>
-      <td>{{$ordinateur->Addresse_IP}}</td>
-    </tr>   
-    <tr>
-      <th>ANTIVIRUS INSTALLÉS</th>
-      <td>@foreach($ordinateur->antivirus as $Anti)
-                             {{ $Anti->Antivirus_Nom }} &nbsp;-
-                            @endforeach </td>
-    </tr> 
-      <tr>
-      <th>LOGICIELS INSTALLÉS</th>
-      <td>@foreach($ordinateur->logiciel as $log)
-                             {{ $log->Logiciel_Nom }}  &nbsp;-
-                             
-                            @endforeach</td>
-    </tr>    
+    <th>TYPE</th>
+    <td>{{ isset($ordinateur->Type->Type_Nom) ? $ordinateur->Type->Type_Nom : '' }}</td>
+</tr>
+<tr>
+    <th>POST</th>
+    <td>{{ isset($ordinateur->Post->Post_Nom) ? $ordinateur->Post->Post_Nom : '' }}</td>
+</tr>
+<tr>
+    <th>MONITEUR</th>
+    <td>
+        @if (count($Moniteur_tables) > 0)
+            @foreach($Moniteur_tables as $Mon)
+                {{ $Mon->Moniteur_Nom }} <br>
+            @endforeach
+        @else
+            <span style="color: red;">Non disponible</span>
+        @endif
+    </td>
+</tr>
+<tr>
+    <th>NOMBRE DE MONITEUR</th>
+    <td>{{ isset($ordinateur->Nb_Moniteur) ? $ordinateur->Nb_Moniteur : '' }}</td>
+</tr>
+<tr>
+    <th>MODELE</th>
+    <td>{{ isset($ordinateur->Model->Model_Nom) ? $ordinateur->Model->Model_Nom : '' }}</td>
+</tr>
+<tr>
+    <th>MARQUE</th>
+    <td>{{ isset($ordinateur->Marque->Marque_Nom) ? $ordinateur->Marque->Marque_Nom : '' }}</td>
+</tr>
+<tr>
+    <th>RAM</th>
+    <td>{{ isset($ordinateur->RAM) ? $ordinateur->RAM : '' }}&nbsp;(Go)</td>
+</tr>
+<tr>
+    <th>STOCKAGE</th>
+    <td>{{ isset($ordinateur->Stockage) ? $ordinateur->Stockage : '' }}&nbsp;(Go)</td>
+</tr>
+<tr>
+    <th>PROCESSEUR</th>
+    <td>{{ isset($ordinateur->Processeur->Processeur_Nom) ? $ordinateur->Processeur->Processeur_Nom : '' }}</td>
+</tr>
+<tr>
+    <th>WINDOWS INSTALLÉ</th>
+    <td>{{ isset($ordinateur->Os->Os_Nom) ? $ordinateur->Os->Os_Nom : '' }}</td>
+</tr>
+
+
+<tr>
+    <th>ADRESSE MAC</th>
+    <td>{{ isset($ordinateur->Addresse_MAC) ? $ordinateur->Addresse_MAC : '' }}</td>
+</tr>
+<tr>
+    <th>ADRESSE IP</th>
+    <td>{{ isset($ordinateur->Addresse_IP) ? $ordinateur->Addresse_IP : '' }}</td>
+</tr>
+<tr>
+    <th>ANTIVIRUS INSTALLÉS</th>
+    <td>
+        @if (count($ordinateur->antivirus) > 0)
+            @foreach($ordinateur->antivirus as $Anti)
+                {{ $Anti->Antivirus_Nom }} <br>
+            @endforeach
+        @else
+            <span style="color: red;">Non disponible</span>
+        @endif
+    </td>
+</tr>
+<tr>
+    <th>LOGICIELS INSTALLÉS</th>
+    <td>
+        @if (count($ordinateur->logiciel) > 0)
+            @foreach($ordinateur->logiciel as $log)
+                {{ $log->Logiciel_Nom }} <br>
+            @endforeach
+        @else
+            <span style="color: red;">Non disponible</span>
+        @endif
+    </td>
+</tr> 
       
 
     

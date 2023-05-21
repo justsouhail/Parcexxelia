@@ -25,7 +25,7 @@
                 </div>
             @endif
                 <div class="users">
-                  
+                    
                 <div class="container">
 <div id="content" class="content p-0">
 <div class="profile-header" style="position: absolute; left: 0; right: 0; z-index: 1;">
@@ -64,25 +64,15 @@
 </tr> 
 </thead>
 <tbody>
-<tr>
-<td class="field">SERVICE</td>
-<td class="value">
-<div class="m-b-5">
-@if(isset($ordinateur->Service->Nom))
-                                               {{$ordinateur->Service->Nom}}
-                                               @else
-                                    <span style="color: red;">Non disponible</span>
-                                        @endif
 
-</div>
-</td>
-</tr>
 <tr>
-<td class="field">ROLE</td>
-<td class="value">
-<div class="m-b-5" >
-{{$ordinateur->Role->Role_Nom}}
-</div>
+                            <td class="field">ROLE</td>
+                            <td class="value">
+                                <div class="m-b-5">
+                                    {{ isset($ordinateur->Role->Role_Nom) ? $ordinateur->Role->Role_Nom : '' }}
+                                </div>
+                            </td>
+                        </tr>
 
 </td>
 </tr>
@@ -90,13 +80,20 @@
 <td class="field">TYPE</td>
 <td class="value">
 <div class="m-b-5">
-{{$ordinateur->Type->Type_Nom}}</div></td>
+{{ isset($ordinateur->Type->Type_Nom) ? $ordinateur->Type->Type_Nom : '' }}
+</div></td>
 </tr>
 <tr>
-<td class="field">POST</td>
-<td class="value">
-<div class="m-b-5">
-{{$ordinateur->Post->Post_Nom }}</div></td>
+                            <td class="field">MONITEUR</td>
+                            <td class="value">
+                                @if (count($Moniteur_tables) > 0)
+                                    @foreach($Moniteur_tables as $Mon)
+                                        {{ $Mon->Moniteur_Nom }} <br>
+                                    @endforeach
+                                @else
+                                    <span style="color: red;">Non disponible</span>
+                                @endif
+                            </td>
 </tr>
 
 <tr>
@@ -118,11 +115,10 @@
 
 </tr>
 <tr>
-<td class="field">NOMBRE DE MONITEUR</td>
-<td class="value">
-{{$ordinateur->Nb_Moniteur}}
-</td>
-
+                            <td class="field">NOMBRE DE MONITEUR</td>
+                            <td class="value">
+                                {{ isset($ordinateur->Nb_Moniteur) ? $ordinateur->Nb_Moniteur : '' }}
+                            </td>
 </tr>
 </tbody>
 </table>
@@ -134,57 +130,53 @@
 </thead>
 <tbody>
 <tr>
-<td class="field">MODELE</td>
-<td class="value">
-{{$ordinateur->Model->Model_Nom}}
-</td>
-</tr>
-<tr>
-<td class="field">MARQUE</td>
-<td class="value">
-{{$ordinateur->Marque->Marque_Nom}}
-
-</td>
-</tr>
-<tr>
-<td class="field">RAM</td>
-<td class="value">
-{{$ordinateur->RAM}}&nbsp; (Go)
-</td>
-</tr>
-<tr>
-<td class="field">STOCKAGE</td>
-<td class="value">
-{{$ordinateur->Stockage}} &nbsp;(Go)
-</td>
-</tr>
-<tr>
-<td class="field">PROCESSEUR</td>
-<td class="value">
-{{$ordinateur->Processeur->Processeur_Nom}}
-</td>
-</tr>
-<tr>
-<td class="field">WINDOWS INSTALLÉ</td>
-<td class="value">
-{{$ordinateur->Os->Os_Nom}}
-</td>
-</tr>
-
-<tr>
-<td class="field">ADRESSE MAC</td>
-<td class="value">
-{{$ordinateur->Addresse_MAC}}
-</td>
-</tr>
-
-<tr>
-<td class="field">ADRESSE IP</td>
-<td class="value">
-{{$ordinateur->Addresse_IP}}
-</td>
-
-</tr>
+                            <td class="field">MODELE</td>
+                            <td class="value">
+                                {{ isset($ordinateur->Model->Model_Nom) ? $ordinateur->Model->Model_Nom : '' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">MARQUE</td>
+                            <td class="value">
+                                {{ isset($ordinateur->Marque->Marque_Nom) ? $ordinateur->Marque->Marque_Nom : '' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">RAM</td>
+                            <td class="value">
+                                {{ isset($ordinateur->RAM) ? $ordinateur->RAM : '' }}&nbsp;(Go)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">STOCKAGE</td>
+                            <td class="value">
+                                {{ isset($ordinateur->Stockage) ? $ordinateur->Stockage : '' }}&nbsp;(Go)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">PROCESSEUR</td>
+                            <td class="value">
+                                {{ isset($ordinateur->Processeur->Processeur_Nom) ? $ordinateur->Processeur->Processeur_Nom : '' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">WINDOWS INSTALLÉ</td>
+                            <td class="value">
+                                {{ isset($ordinateur->Os->Os_Nom) ? $ordinateur->Os->Os_Nom : '' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">ADRESSE MAC</td>
+                            <td class="value">
+                                {{ isset($ordinateur->Addresse_MAC) ? $ordinateur->Addresse_MAC : '' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">ADRESSE IP</td>
+                            <td class="value">
+                                {{ isset($ordinateur->Addresse_IP) ? $ordinateur->Addresse_IP : '' }}
+                            </td>
+                        </tr>
 
 </tbody>
 </table>
@@ -250,8 +242,8 @@
 </li>
 <li>
 <div class="field" style="color: #666666;">Etat</div>
-@if (isset($ordinateur->Status))
-    {{ $ordinateur->Status }}
+@if (isset($ordinateur->Commentaire))
+    {{ $ordinateur->Commentaire }}
   @else
   <span style="color: red;">Non disponible</span>
   @endif

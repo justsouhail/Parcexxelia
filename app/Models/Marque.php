@@ -11,4 +11,5 @@ class Marque extends Model
     public function ordinateur(){
         return $this->hasMany(Ordinateur::class);
     }
+    
 }
