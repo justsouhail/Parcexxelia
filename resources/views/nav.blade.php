@@ -5,9 +5,12 @@
             <header>
                 <h2  style="display: flex; align-items: center;">
                     <label style="vertical-align: middle; "  for="menu-toogle"> <span style="cursor: pointer;"><ion-icon name="menu-outline" id="menu"></ion-icon></span></label> 
-                   
+                    <span style="font-size: 18px; margin-bottom: 0.7rem; margin-left: 10px;" class="current-route">
+    
+</span>
  
                 </h2> 
+     
                 
 
 
@@ -32,6 +35,9 @@
                                         @csrf
                                     </form>
                                 </div>
+                                
+   
+
                                 </div>
                             
                 </div>

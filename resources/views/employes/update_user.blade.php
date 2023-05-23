@@ -81,7 +81,7 @@
                                 <select name="Service" class="form-control @error('Service') is-invalid @enderror" id="Service">
                                     <option value="">Select a service</option>
                                     @foreach($services_tables as $service)
-                                        <option value="{{ $service->id }}" {{ old('Service') == $service->id ? 'selected' : '' }}>{{ $service->Nom }}</option>
+                                        <option value="{{ $service->id }}" {{ old('Service') == $employe->service_id ? 'selected' : '' }}>{{ $service->Nom }}</option>
                                     @endforeach
                                 </select>
                                 @error('Service')

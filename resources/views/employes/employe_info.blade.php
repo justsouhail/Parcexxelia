@@ -4,7 +4,6 @@
 
     @section('content')
     @push('css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
     <link rel="stylesheet" href="/css/nav_sidebar.css">
     <link rel="stylesheet" href="/css/employe_info.css">
      @endpush
@@ -78,7 +77,7 @@
             <!-- add here -->
             <div class="col-md-6">
                 <div class="mt-custum">
-                <h3 class="mt-5">Ordinateur Info</h3>
+                <h3 class="mt-5">Ordinateur Info </h3>
                 </div>
                 
                 <div class="details">
@@ -97,17 +96,18 @@
                     </div>
 
                     <div class="mt-custum">
-                <h3 class="mt-5">Autres materiel Info</h3>
+                <h3 class="mt-5">Imprimante Info</h3>
                 </div>
                 
                 <div class="details">
-                    @foreach($employe->Ordinateurs as $ord)
-                        <div class="row">
+                    @foreach($historique_imprimante as $im)
+                    <div class="row" style="margin-bottom: 1rem;">
                             <div class="col-8">
                                 
+                            {{$im->Marque_Nom}} &nbsp;  {{$im->Model_Nom}}&nbsp; {{$im->N°_de_serie}}
                                                     </div>
                             <div class="col-4">
-                           
+                            {{$im->date_affectation}}
                             
                             </div>
                         </div>

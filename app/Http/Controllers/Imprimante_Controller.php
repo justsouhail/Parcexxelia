@@ -7,13 +7,12 @@ use App\Models\Marque;
 use App\Models\Models;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use PDF;
 class Imprimante_Controller extends Controller
 {
 
     private function fetchData()
     {
-        $imprimantes =  Imprimante::all();
         $Marque_tables=Marque::all();
         $Model_tables=DB::table('model')
         ->join('categorie', 'model.categorie_id', '=', 'categorie.id')
@@ -22,7 +21,6 @@ class Imprimante_Controller extends Controller
         ->get();
 
         return [
-            'imprimantes' => $imprimantes,
             'Marque_tables' => $Marque_tables,
             'Model_tables' => $Model_tables,
         ];
@@ -69,6 +67,8 @@ class Imprimante_Controller extends Controller
 
     public function imprimantes(){
         $imprimantes = Imprimante::all();
+        // dd($imprimantes)  ;
+
         return view('imprimantes.index_imprimate' ,compact('imprimantes') );
     }
     public function imprimantes_add(){
@@ -79,6 +79,10 @@ class Imprimante_Controller extends Controller
     public function addimprimante_traitement(Request $request){
         try{
 
+            $request->validate([    
+            'Marque' => 'required'
+            
+            ]);
         
                 $imprimante = new Imprimante();
                        $this->saveImprimanteData($request, $imprimante , 'save');
@@ -106,12 +110,39 @@ class Imprimante_Controller extends Controller
 
 
     public function imprimante_info($id){
-        $imprimante = Imprimante::findOrFail($id);      
+        $imprimante = Imprimante::findOrFail($id);    
         return view('imprimantes.imprimante_info' , compact('imprimante'));    }
 
         public function imprimantes_update($id){
             $data = $this->fetchData();
             $imprimante = Imprimante::findOrFail($id);
             return view('imprimantes.imprimantes_update' , $data ,compact('imprimante')  );
+        }
+
+        public function updateImprimante_traitement(Request $request  , $id){
+            $Imprimante = Imprimante::findOrFail($id);
+            $this->saveImprimanteData($request, $Imprimante , 'update');
+            return redirect('/Materiel/imprimante/'.$id )->with('status' , 'L\'imprimante a bien été Modifié avec succes. ');
+
+        }
+
+        public  function imprimantes_delete($id){
+                $imprimante = Imprimante::findorfail($id);
+               $imprimante->delete();
+               return redirect('/Materiel/imprimante')->with('status' , 'L\'imprimante a bien été supprimé   avec succes. ');
+        }
+
+        public function imprimante_pdf($id)
+        {
+            $Imprimante = Imprimante::findOrFail($id);
+        
+            $pdf = PDF::loadView('imprimantes.pdf_imprimante', [
+                'Imprimante' => $Imprimante,
+            ])->setOptions(['defaultFont' => 'sans-serif']);
+        
+            // Set custom page size and margins
+            $pdf->setPaper('A4', 'portrait')->setOptions(['margin_top' => 1, 'margin_bottom' => 1]);
+        
+            return $pdf->stream();  
         }
 }

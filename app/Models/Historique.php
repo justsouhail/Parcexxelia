@@ -9,5 +9,14 @@ class Historique extends Model
 {
     protected $table = 'historique';
 
+    public function ordinateur()
+    {
+        return $this->belongsTo(Ordinateur::class, 'ordinateur_id');
+    }
+    public function employes()
+    {
+        return $this->belongsTo(Employes::class, 'employes_id');
+    }
+
     use HasFactory;
 }

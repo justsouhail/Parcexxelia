@@ -38,14 +38,14 @@
                     <span><ion-icon name="search-outline"></ion-icon></span>
                      <input type="search" placeholder="Chercher Ici" >
                  </div>
-                   <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="handleDelete(this, 'imprimante')">
+                   <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="handleDelete(this, 'moniteurs')">
     <span class="status green">
         <img src="/images/icons8-trash-22.png" alt="Submit"/>
     </span>
 </div>
 
 
-                    <a href="/add_imprimante" id="modalButton" >        <button type="button">Ajouter une imprimantes <span >
+                    <a href="/add_moniteurs" id="modalButton" >        <button type="button">Ajouter un moniteur <span >
                            <ion-icon id="arrow" name="add-circle-outline"></ion-icon>
                                 </span></button></a>
 
@@ -63,15 +63,15 @@
                                         <td>N° de serie <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
                                         <td>Marque<span class="arrow">&UpArrow;</span></td>
                                         <td>Modele <span class="arrow">&UpArrow;</span></td>
-                                        <td>Utilisateur<span class="arrow">&UpArrow;</span></td>
-                                        <td>Adresse IP  <span class="arrow">&UpArrow;</span></td>
+                                        <td>Ordinateur<span class="arrow">&UpArrow;</span></td>
+                                        <td>Resolution  <span class="arrow">&UpArrow;</span></td>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($imprimantes as $ord)
+                                @foreach($moniteurs as $ord)
 
-                                   <tr class="hoverable" onclick="if(event.target.tagName !== 'INPUT') { window.location='/Materiel/imprimante/{{$ord->id}}'; }"   class="mydivouter" >
+                                   <tr class="hoverable" onclick="if(event.target.tagName !== 'INPUT') { window.location='/Materiel/Moniteur/{{$ord->id}}'; }"   class="mydivouter" >
                                    <td>
                                    <input type="checkbox" class="larger-checkbox checkitem" name="ids[{{ $ord->id }}]" value="{{$ord->id}}">
                                      </td>
@@ -98,20 +98,20 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if (isset($ord->employes) && $ord->employes->isNotEmpty())
-                                            {{$ord->employes()->latest('date_affectation')->first()->Prenom}}&nbsp;{{$ord->employes()->latest('date_affectation')->first()->Nom}}
+                                        @if (isset($ord->ordinateur))
+                                            {{isset($ord->ordinateur->Marque->Marque_Nom) ? $ord->ordinateur->Marque->Marque_Nom : ''}}  {{isset($ord->ordinateur->Model->Model_Nom) ? $ord->ordinateur->Model->Model_Nom : ''}}  ({{isset($ord->ordinateur->N°_de_serie) ? ($ord->ordinateur->N°_de_serie) : ''}})
                                         @else
                                             <span style="color: red;">Non disponible</span>
                                         @endif
                                     </td>
 
                                     <td>
-                                            @if(isset($ord->Addresse_IP))
-                                                {{$ord->Addresse_IP}}
+                                            @if(isset($ord->resolution))
+                                            {{$ord->resolution}}
                                             @else
                                     <span style="color: red;">Non disponible</span>
                                         @endif
-                     </td>
+                                    </td>
                                  
                                       
 

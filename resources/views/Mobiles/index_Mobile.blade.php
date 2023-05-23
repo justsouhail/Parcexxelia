@@ -38,14 +38,14 @@
                     <span><ion-icon name="search-outline"></ion-icon></span>
                      <input type="search" placeholder="Chercher Ici" >
                  </div>
-                   <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="handleDelete(this, 'imprimante')">
+                   <div class="excel" style="margin-left: 180px; cursor: pointer;" onclick="handleDelete(this, 'mobile')">
     <span class="status green">
         <img src="/images/icons8-trash-22.png" alt="Submit"/>
     </span>
 </div>
 
 
-                    <a href="/add_imprimante" id="modalButton" >        <button type="button">Ajouter une imprimantes <span >
+                    <a href="/add_mobile" id="modalButton" >        <button type="button">Ajouter un Appareil <span >
                            <ion-icon id="arrow" name="add-circle-outline"></ion-icon>
                                 </span></button></a>
 
@@ -64,14 +64,14 @@
                                         <td>Marque<span class="arrow">&UpArrow;</span></td>
                                         <td>Modele <span class="arrow">&UpArrow;</span></td>
                                         <td>Utilisateur<span class="arrow">&UpArrow;</span></td>
-                                        <td>Adresse IP  <span class="arrow">&UpArrow;</span></td>
+                                        <td>Type <span class="arrow">&UpArrow;</span></td>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($imprimantes as $ord)
+                                @foreach($Mobiles as $ord)
 
-                                   <tr class="hoverable" onclick="if(event.target.tagName !== 'INPUT') { window.location='/Materiel/imprimante/{{$ord->id}}'; }"   class="mydivouter" >
+                                   <tr class="hoverable" onclick="if(event.target.tagName !== 'INPUT') { window.location='/Materiel/Mobile/{{$ord->id}}'; }"   class="mydivouter" >
                                    <td>
                                    <input type="checkbox" class="larger-checkbox checkitem" name="ids[{{ $ord->id }}]" value="{{$ord->id}}">
                                      </td>
@@ -106,12 +106,14 @@
                                     </td>
 
                                     <td>
-                                            @if(isset($ord->Addresse_IP))
-                                                {{$ord->Addresse_IP}}
-                                            @else
+                                    @if($ord->is_smartphone)
+                                        Smartphone
+                                    @elseif($ord->is_tablet)
+                                         Tablette
+                                    @else
                                     <span style="color: red;">Non disponible</span>
                                         @endif
-                     </td>
+                                    </td>
                                  
                                       
 

@@ -6,7 +6,9 @@ use App\Models\Categorie;
 use App\Models\Employes;
 use App\Models\Historique;
 use App\Models\historique_imprimante;
+use App\Models\historique_mobile;
 use App\Models\Imprimante;
+use App\Models\Mobile;
 use App\Models\Ordinateur;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,14 +35,13 @@ class MakeMultistep extends Component
     {   
         $ord_id = Categorie::where('Categorie_Nom', 'Ordinateur')->value('id');
         $print_id = Categorie::where('Categorie_Nom', 'Imprimante')->value('id');
-        $scan_id = Categorie::where('Categorie_Nom', 'Scanner')->value('id');
-        $categorie_tables =  Categorie::all();
+        $mob_id = Categorie::where('Categorie_Nom', 'Mobile')->value('id');
+        $categorie_tables = Categorie::where('Categorie_Nom', '!=', 'Moniteur')->get();
         $selectedCategorie = $this->Categorie;
         $data1=[];
         $users = [];
         $tag = '';
 
-        if ($selectedCategorie == $ord_id) {
             if ($selectedCategorie == $ord_id) {
                 $data1 = Ordinateur::with('Marque', 'Model')
                     ->leftJoin('historique', 'ordinateur.id', '=', 'historique.ordinateur_id')
@@ -57,8 +58,7 @@ class MakeMultistep extends Component
             }
             
         
-        }
-        
+            
         elseif($selectedCategorie == $print_id){
             $data1  = Imprimante::with('Marque')
             ->leftJoin('historique_imprimante', 'imprimante.id', '=', 'historique_imprimante.imprimante_id')
@@ -74,8 +74,19 @@ class MakeMultistep extends Component
               ->get();
               $tag = 'Imprimantes';
         }
-        elseif($selectedCategorie == $scan_id){
-
+        elseif($selectedCategorie == $mob_id){
+            $data1  = Mobile::with('Marque')
+            ->leftJoin('historique_mobile', 'mobile.id', '=', 'historique_mobile.mobile_id')
+            ->select('mobile.*')
+            ->whereNull('historique_mobile.mobile_id')
+            ->get();
+            
+            $users =  DB::table('Employes')
+            ->leftJoin('historique_mobile', 'employes.id', '=', 'historique_mobile.employes_id')
+            ->select('employes.*')
+             ->whereNull('historique_mobile.employes_id')
+              ->get();
+              $tag = 'Appareil Mobile';
         }
 
        
@@ -135,7 +146,7 @@ class MakeMultistep extends Component
         }
         $ord_id = Categorie::where('Categorie_Nom', 'Ordinateur')->value('id');
         $print_id = Categorie::where('Categorie_Nom', 'Imprimante')->value('id');
-        $scan_id = Categorie::where('Categorie_Nom', 'Scanner')->value('id');
+        $mob_id = Categorie::where('Categorie_Nom', 'Mobile')->value('id');
         $selectedCategorie = $this->Categorie;
 
         if ($selectedCategorie == $ord_id) {
@@ -160,8 +171,15 @@ class MakeMultistep extends Component
           $tag = "Imprimante";
 
         }
-        elseif($selectedCategorie == $scan_id){
-            dd('dd');
+        elseif($selectedCategorie == $mob_id){
+            $historique   = new historique_mobile();
+            $historique->mobile_id = $this->materiel;
+            $historique->employes_id = $this->utilisateur;
+            $historique->date_affectation = date('Y-m-d');
+            $historique->save();
+            $data2 = Mobile::where('id',$this->materiel)->first();
+            $tag = ($data2->is_tablet) ? "Tablette" : (($data2->is_smartphone) ? "Smartphone" : "Appareil Mobile");
+
         }
 
         $user = Auth::user();

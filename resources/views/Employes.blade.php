@@ -43,10 +43,9 @@
                             <thead>
                                     <tr >
                                         <td>CIN <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
-                                        <td>Nom & Prenom <span class="arrow">&UpArrow;</span></td>
+                                        <td>Nom & Prenom  <span class="arrow">&UpArrow;</span></td>
                                         <td>Service <span class="arrow">&UpArrow;</span></td>
-                                        <td>Nom d'ordinateur <span class="arrow">&UpArrow;</span></td>
-                                        <td>Status <span class="arrow">&UpArrow;</span></td>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,8 +54,7 @@
                                         <td>{{$employe->CIN}}</td>
                                         <td><strong>{{  $employe->Prenom}} &nbsp{{ $employe->Nom}}</strong></td>
                                         <td>{{  $employe->service->Nom}}</td>
-                                        <td>qwerty111223</td>
-                                        <td > reparation</td>
+                                    
                                     
                                     </tr>
                               

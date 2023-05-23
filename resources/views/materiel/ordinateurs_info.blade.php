@@ -25,7 +25,7 @@
                 </div>
             @endif
                 <div class="users">
-                    
+
                 <div class="container">
 <div id="content" class="content p-0">
 <div class="profile-header" style="position: absolute; left: 0; right: 0; z-index: 1;">
@@ -47,8 +47,9 @@
 </div>
 <ul class="profile-header-tab nav nav-tabs" style="justify-content: center; padding-right: 100px;">
 <li class="nav-item "><a href="/Materiel/Ordinateur/update/{{$ordinateur->id}}"  class="nav-link_">Mise á jour</a></li>
-<li class="nav-item "><a href="#" data-bs-toggle="modal" data-bs-target="#deletePCModal" class="nav-link_">Supprimer</a>
-</li>
+<li class="nav-item">
+  <a class="nav-link_" onclick="handleOneDelete(this, 'ordinateur' ,({{$ordinateur->id}}) )">Supprimer</a>
+</li></li>
 <li class="nav-item"><a class="nav-link_">Historique</a></li>
 </ul>
 </div>

@@ -32,47 +32,51 @@
             @endif
             <div class="users" >
 
-<form action="/Materiel/imprimante/traitement" method="post" enctype="multipart/form-data" >
+<form action="/Materiel/Imprimante/update/traitement/{{$imprimante->id}} " method="post" enctype="multipart/form-data" >
     @csrf
        
         
-    <div style="text-align: center; padding-bottom: 20px;"><h4 ><b>Modifier votre imprimate</b></h4></div>
+    <div style="text-align: center; padding-bottom: 20px;"><h4><b>Modifier votre imprimante</b></h4></div>
 
 
 
 
 <div class="row">
   
-  <div class="col-4">
-    <div class="form-group">
-      <label for="Marque" ><strong>{{ __('Marque') }}</strong></label>
-      <select name="Marque" class="form-control  @error('Marque') is-invalid @enderror " id="Marque" value="{{ $imprimante->Marque->Marque_Nom }}">
-        <option value="">Choisir un Marque</option>
-        @foreach($Marque_tables as $Marque)
-          <option value="{{ $Marque->id }}" {{ old('Marque') == $Marque->id ? 'selected' : '' }}>{{ $Marque->Marque_Nom }}</option>
-        @endforeach
-      </select>
-      @error('Marque')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-    </div>
+<div class="col-4">
+  <div class="form-group">
+    <label for="Marque"><strong>{{ __('Marque') }}</strong></label>
+    <select name="Marque" class="form-control @error('Marque') is-invalid @enderror" id="Marque">
+      <option value="">Choisir une Marque</option>
+      @foreach($Marque_tables as $Marque)
+        <option value="{{ $Marque->id }}" {{ isset($imprimante->Marque->id) && $imprimante->Marque->id == $Marque->id ? 'selected' : '' }}>
+          {{ $Marque->Marque_Nom }}
+        </option>
+      @endforeach
+    </select>
+    @error('Marque')
+      <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
   </div>
+</div>
+
   <div class="col-4">
-    <div class="form-group">
-      <label for="Model" ><strong>{{ __('Model') }}</strong></label>
-      <select name="Model" class="form-control @error('Model') is-invalid @enderror " id="Model" value="{{ isset($imprimante->Model->Model_Nom) ? $imprimante->Model->Model_Nom : '' }}" >
-
-        <option value="">Choisir un Model</option>
-        @foreach($Model_tables as $Model)
-          <option value="{{ $Model->id }}" {{ old('Model') == $Model->id ? 'selected' : '' }}>{{ $Model->Model_Nom }}</option>
-        @endforeach
-      </select>
-      @error('Model')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-
-    </div>
+  <div class="form-group">
+    <label for="Model"><strong>{{ __('Model') }}</strong></label>
+    <select name="Model" class="form-control @error('Model') is-invalid @enderror" id="Model">
+      <option value="">Choisir un Model</option>
+      @foreach($Model_tables as $Model)
+        <option value="{{ $Model->id }}" {{ isset($imprimante->Model->id) && $imprimante->Model->id == $Model->id ? 'selected' : '' }}>
+          {{ $Model->Model_Nom }}
+        </option>
+      @endforeach
+    </select>
+    @error('Model')
+      <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
   </div>
+</div>
+
   <div class="col-4">
     <div class="form-group" >
       <label for="N°_de_serie"  ><strong>{{ __('N° de serie') }}</strong> </label>
@@ -126,7 +130,7 @@
  <div class="col-4">
     <div class="form-group">
       <label for="type_connextion" ><strong>{{ __('type_connexion ') }}</strong></label>
-      <input type="text" name="type_connextion" class="form-control @error('type_connextion') is-invalid @enderror" id="type_connextion" placeholder="type_connextion" value="{{ $imprimante->type_connextion}}">
+      <input type="text" name="type_connextion" class="form-control @error('type_connextion') is-invalid @enderror" id="type_connextion" placeholder="type_connextion" value="{{ $imprimante->type_Connextion}}">
       @error('type_connextion')
         <div class="invalid-feedback">{{ $message }}</div>
       @enderror
@@ -173,7 +177,8 @@
     <div class="form-group">
         <label for="Couleur"><strong>{{ __('Couleur') }}</strong></label>
         <div class="form-check">
-            <input type="checkbox" name="Couleur" class="form-check-input @error('Couleur') is-invalid @enderror" id="Couleur" value="{{ $imprimante->Couleur}}"> >
+            <input type="checkbox" name="Couleur" class="form-check-input @error('Couleur') is-invalid @enderror" id="Couleur" value="{{ $imprimante->Couleur}}"> 
+
             <label class="form-check-label" for="Couleur">{{ __('') }}</label>
         </div>
         @error('Couleur')

@@ -12,5 +12,14 @@ class Moniteur extends Model
     public function ordinateur(){
         return $this->belongsTo(Ordinateur::class);
     } 
+
+    public function Marque(){
+        return $this->belongsTo(Marque::class);
+    }   
+    public function Model(){
+        return $this->belongsTo(Models::class);
+    } 
+    
+
     use HasFactory;
 }

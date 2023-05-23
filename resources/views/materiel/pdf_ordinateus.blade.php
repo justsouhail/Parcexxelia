@@ -41,7 +41,7 @@
             </div>
 
   <div style="text-align: center; margin-top: 0;">
-    <h2 style=" margin-bottom: 2rem; color: #08473C;"><u>Fiche descriptive</u></h2>
+    <h2 style=" margin-bottom: 2rem; color: #08473C;"><u>Fiche descriptive d'ordinateur</u></h2>
   </div>
   <div>
 

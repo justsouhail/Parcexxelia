@@ -39,7 +39,7 @@
                         <a href="/Materiel/ordinateurs">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
+                            <h1>{{isset($count_ord) ? $count_ord : 0}} </h1>
                                 <span>Ordinateurs</span>
                             </div>
                             <div>
@@ -49,7 +49,7 @@
                         <a href="/Materiel/imprimante">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
+                                <h1>{{isset($count_imprimante) ? $count_imprimante : 0}} </h1>
                                 <span>Imprimantes</span>
                             </div>
                             <div>
@@ -66,11 +66,11 @@
                             <span><img src="/images/icons8-scanner-96.png"/></span>                            </div>
                         </div>
                         </a>           
-                        <a href="">
+                        <a href="/Materiel/Mobile">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
-                                <span>Tablette</span>
+                            <h1>{{isset($count_mobile) ? $count_mobile : 0}} </h1>
+                                <span>Appareil Mobile </span>
                             </div>
                             <div>
                             <span><img src="/images/icons8-ipad-96.png"/></span>                            </div>
@@ -89,17 +89,17 @@
                         <a href="">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
+                            <h1>11 </h1>
                                 <span>Telephone fixe</span>
                             </div>
                             <div>
                             <span><img src="/images/icons8-office-phone-96.png"/></span>                            </div>
                         </div>
                         </a>               
-                        <a href="">
+                        <a href="/Materiel/Moniteur">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
+                            <h1>{{isset($count_moniteurs) ? $count_moniteurs : 0}} </h1>
                                 <span>Moniteur</span>
                             </div>
                             <div>

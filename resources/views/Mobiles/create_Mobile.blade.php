@@ -32,11 +32,11 @@
             @endif
             <div class="users" >
 
-<form action="/Materiel/imprimante/traitement" method="post" enctype="multipart/form-data" >
+<form action="/Materiel/Mobile/traitement" method="post" enctype="multipart/form-data" >
     @csrf
        
         
-    <div style="text-align: center; padding-bottom: 20px;"><h4 ><b>Ajouter une imprimante</b></h4></div>
+    <div style="text-align: center; padding-bottom: 20px;"><h4 ><b>Ajouter une appareil Mobile</b></h4></div>
 
 
 
@@ -89,9 +89,9 @@
  
   <div class="col-4">
     <div class="form-group ">
-        <label for="Status" ><strong>{{ __('Commentaire') }}</strong></label>
-        <input type="text" name="Status" class="form-control @error('Status') is-invalid @enderror" id="Status" placeholder="Status" value="{{ old('Status') }}">
-        @error('Status')
+        <label for="Os" ><strong>{{ __('System operant') }}</strong></label>
+        <input type="text" name="Os" class="form-control @error('Os') is-invalid @enderror" id="Os" placeholder="Os" value="{{ old('Os') }}">
+        @error('Os')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
@@ -100,58 +100,24 @@
 
   <div class="col-4">
     <div class="form-group">
-      <label for="Login" ><strong>{{ __('Login') }}</strong> </label>
-      <input type="text" name="Login" class="form-control @error('Login') is-invalid @enderror" id="Login" placeholder="Login" value="{{ old('Login') }}">
-      @error('Login')
+      <label for="Stockage" ><strong>{{ __('Stockage') }}</strong> </label>
+      <input type="number" name="Stockage" class="form-control @error('Stockage') is-invalid @enderror" id="Stockage" placeholder="Stockage" value="{{ old('Stockage') }}">
+      @error('Stockage')
         <div class="invalid-feedback">{{ $message }}</div>
       @enderror
     </div>
   </div>
   <div class="col-4">
     <div class="form-group">
-      <label for="mdp" ><strong>{{ __('mdp ') }}</strong></label>
-      <input type="text" name="mdp" class="form-control @error('mdp') is-invalid @enderror" id="mdp" placeholder="mdp" value="{{ old('mdp') }}">
-      @error('mdp')
+      <label for="taille_ecran" ><strong>{{ __('Taille ecran ') }}</strong></label>
+      <input type="text" name="taille_ecran" class="form-control @error('taille_ecran') is-invalid @enderror" id="taille_ecran" placeholder="taille_ecran" value="{{ old('taille_ecran') }}">
+      @error('taille_ecran')
         <div class="invalid-feedback">{{ $message }}</div>
       @enderror
     </div>
   </div>
 
 </div>
-<!-- ----------------- -->
-
-
- <div class="row">
- <div class="col-4">
-    <div class="form-group">
-      <label for="type_connextion" ><strong>{{ __('type_connexion ') }}</strong></label>
-      <input type="text" name="type_connextion" class="form-control @error('type_connextion') is-invalid @enderror" id="type_connextion" placeholder="type_connextion" value="{{ old('type_connextion') }}">
-      @error('type_connextion')
-        <div class="invalid-feedback">{{ $message }}</div>
-      @enderror
-    </div>
-  </div>
-                <div class="col-4">
-    <div class="form-group">
-      <label for="Nombre_de_cartouche" ><strong>{{ __('Nombre de cartouche ') }}</strong></label>
-      <input type="number" name="Nombre_de_cartouche" class="form-control @error('Nombre_de_cartouche') is-invalid @enderror" id="Nombre_de_cartouche" placeholder="Nombre_de_cartouche"value="{{ old('Nombre_de_cartouche') }}">
-      @error('Nombre_de_cartouche')
-        <div class="invalid-feedback">{{ $message }}</div>
-      @enderror
-    </div>
-  </div>
-  
-  <div class="col-4">
-    <div class="form-group" >
-      <label for="Adresse_IP"  ><strong>{{ __('Adresse IP ') }}</strong></label>
-      <input type="text" name="Adresse_IP" class="form-control @error('Adresse_IP') is-invalid @enderror" id="Adresse_IP" placeholder="255.255.255.255" value="{{ old('Adresse_IP') }}">
-      @error('Adresse_IP')
-        <div class="invalid-feedback">{{ $message }}</div>
-      @enderror
-    </div>
-  </div>
-</div>
-
 
 <div class="row">
                 <div class="col-4">
@@ -170,16 +136,21 @@
   </div>
   <div class="col-4">
     <div class="form-group">
-        <label for="Couleur"><strong>{{ __('Couleur') }}</strong></label>
+        <label for="Type"><strong>{{ __('Type') }}</strong></label>
         <div class="form-check">
-            <input type="checkbox" name="Couleur" class="form-check-input @error('Couleur') is-invalid @enderror" id="Couleur" {{ old('Couleur') ? 'checked' : '' }}>
-            <label class="form-check-label" for="Couleur">{{ __('') }}</label>
+            <input type="radio" name="Type" class="form-check-input @error('Type') is-invalid @enderror" id="tablette" value="tablette" {{ old('Type') === 'tablette' ? 'checked' : '' }}>
+            <label class="form-check-label" for="tablette">{{ __('Tablette') }}</label>
         </div>
-        @error('Couleur')
+        <div class="form-check">
+            <input type="radio" name="Type" class="form-check-input @error('Type') is-invalid @enderror" id="smartphone" value="smartphone" {{ old('Type') === 'smartphone' ? 'checked' : '' }}>
+            <label class="form-check-label" for="smartphone">{{ __('Smartphone') }}</label>
+        </div>
+        @error('Type')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
 </div>
+
 
  
 </div> 
@@ -189,7 +160,7 @@
                     
            
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <button type="button" class="btn btn-secondary" style="text-decoration: none !important; color: white; "><a href="/Materiel/imprimante">{{ __('Annuler') }}</a></button>
+                        <button type="button" class="btn btn-secondary" style="text-decoration: none !important; color: white; "><a href="/Materiel/Mobile">{{ __('Annuler') }}</a></button>
                         <button type="submit" class="btn btn-primary">Ajouter</button>
                     </div>
                 </div>

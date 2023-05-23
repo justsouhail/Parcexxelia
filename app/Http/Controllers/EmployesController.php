@@ -60,9 +60,18 @@ class EmployesController extends Controller
         ->where('historique.employes_id', $id)
         ->select('historique.*', 'ordinateur.*', 'marque.Marque_Nom', 'model.Model_Nom')
         ->get();
-    
 
-                       return view('employes.employe_info' , compact('employe' , 'services_tables' , 'historique' ));
+        $historique_imprimante = DB::table('historique_imprimante')
+        ->join('imprimante', 'historique_imprimante.imprimante_id', '=', 'imprimante.id')
+        ->join('marque', 'imprimante.marque_id', '=', 'marque.id')
+        ->join('model', 'imprimante.model_id', '=', 'model.id')
+        ->where('historique_imprimante.employes_id', $id)
+        ->select('historique_imprimante.*', 'imprimante.*', 'marque.Marque_Nom', 'model.Model_Nom')
+        ->get();
+    
+   
+
+                       return view('employes.employe_info' , compact('employe' , 'services_tables' , 'historique'  , 'historique_imprimante'));
     }
     public function updateEmployes_traitement(Request $request , $id){
     

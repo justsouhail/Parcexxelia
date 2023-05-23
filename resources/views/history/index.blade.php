@@ -4,8 +4,10 @@
     @section('content')
 
     @push('css')
-    <link rel="stylesheet" href="/css/history_index.css">
+    
     <link rel="stylesheet" href="/css/nav_sidebar.css">
+    <link rel="stylesheet" href="/css/history.css">
+
 
      @endpush
      <input type="checkbox" id="menu-toogle">
@@ -17,79 +19,34 @@
 
             <!-- main -->
             <div class="main-content" >
-
-            <div class="users" style="min-height: 600px;">
-                <div style="text-align: center; margin-top: 1rem;" >
-                 <h1>Consulter historique par : </h1>
+            @if(session('status'))
+                <div class="alert {{ session('error') ? 'alert-danger' : 'alert-success' }}">
+                    @if(session('error'))
+                        <strong>Error: </strong>
+                    @endif
+                    {{ session('status') }}
                 </div>
+            @endif
+                <div class="d-flex justify-content-center align-items-center" >
+
+@livewire('history-multistep')
+                </div>
+               
+      
+   
+
             
-            <div style="">
-                   
-            <form  action="/history/traitement" method="POST"  class="cartes">
-       @csrf
-      <div class="carte_container">
-                        
-                        <div class="carte">
-                            <div class="info-carte">
-                                
-                                <span>Ordinateur</span>
-                            </div>
-                            <div>
-                            <span><img src="/images/icons8-workstation-96.png"/></span>                            </div>
+      @push('scripts')
+     
 
-                        </div>
-                            <div>
-                            <input type="text" class="form-control" placeholder="N° de serie" name="N°_de_serie" value="{{ old('N°_de_serie') }}" id="Input">
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-                            </div>
-                        
+      <script src="{{ asset('/js/affectation.js')}}"></script>
+   
+      @endpush
+      </div>
+    
 
-                        
-
-                        </div>             
-
-                    <div class="carte_container">
-                        
-                        <div class="carte">
-                            <div class="info-carte">
-                                
-                                <span>Utilisateur</span>
-                            </div>
-                            <div>
-                            <span><img src="/images/icons8-conference-96.png"/></span>                            </div>
-
-                        </div>
-                            <div>
-
-                            <select class="form-control select2" name="emp" id="empSelect">
-                           <option value="">Choisir un utilisateur</option> 
-                           @foreach($Employes_tables->sortBy('Nom') as $emp)
-                        <option value="{{ $emp->id }}" {{ old('emp') == $emp->id ? 'selected' : '' }}>{{ $emp->Nom }} &nbsp; {{ $emp->Nom }}</option>
-                        @endforeach
-                           </select>
-
-                            </div>
-                            </div>
-                            
-
-                            <div style="display: flex; justify-content: center; margin-top: 9rem; margin-left: 30rem;">
-                    <button type="submit" class="submit-btn" id="boutton" class="btn btn-primary">Consulter</button>
-                </div>
-
-      </form>
-                     
-
-                    </div>
-                   
-
-            @push('scripts')
-            <script src="{{ asset('/js/history.js')}}"></script>
+        </div>
         
-
-            @endpush
-
-          
-
-              </div>
-              </div>
-    @endsection
+@endsection

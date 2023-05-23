@@ -27,5 +27,8 @@ class Employes extends Model
     public function Imprimante(){
         return $this->belongsToMany(Imprimante::class, 'historique_imprimante');
     }
+    public function Mobile(){ 
+        return $this->belongsToMany(Mobile::class , 'Historique_mobile') ;
+    }
   
 }

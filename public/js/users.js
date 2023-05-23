@@ -47,9 +47,42 @@ function handleDelete(element, action) {
           } else if (action === 'imprimante') {
               setFormAction('/Materiel/Imprimante/DeleteAll');
           }
+          else if(action === 'moniteurs'){
+            setFormAction('/Materiel/Moniteur/DeleteAll');
+
+          }
+          else if (action === 'mobile'){
+            setFormAction('/Materiel/Mobile/DeleteAll');
+
+          }
       }
   }
 }
+
+ function handleOneDelete(element, action , id){
+
+    // Display a confirmation dialog
+    var confirmed = confirm('Confirmez la suppression ?');
+    
+    // Check if the user confirmed the deletion
+    if (confirmed) {
+      // Perform the delete action based on the specified action parameter
+      if (action === 'ordinateur') {
+        window.location.href = '/Materiel/Ordinateur/delete/' + id;
+      } else if (action === 'imprimante') {
+        window.location.href = '/Materiel/Imprimante/delete/' + id;
+      }
+      else if (action === 'moniteur'){
+        window.location.href = '/Materiel/Moniteur/delete/' + id;
+      }
+      else if (action === 'Mobile'){
+        window.location.href = '/Materiel/Mobile/delete/' + id;
+
+      }
+    }
+  }
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
 //   document.getElementById('modalButton').addEventListener('click', function(event) {

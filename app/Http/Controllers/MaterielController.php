@@ -21,6 +21,8 @@ use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Dompdf\Adapter\PDFLib;
 use Illuminate\Http\Request;
 use App\Exports\OrdinateurExport;
+use App\Models\Imprimante;
+use App\Models\Mobile;
 use Maatwebsite\Excel\Facades\Excel;
 
 class MaterielController extends Controller
@@ -56,7 +58,7 @@ class MaterielController extends Controller
     private function validateData(Request $request)
     {
         $request->validate([    
-            
+            'Role' =>'required',
             
         ]);
     }
@@ -114,14 +116,22 @@ class MaterielController extends Controller
 
 
     public function index(){
+            $route = '/Materiel';
+
+        $count_ord = Ordinateur::count();
+        $count_imprimante = Imprimante::count();
+        $count_moniteurs = Moniteur::count();
+        $count_mobile = Mobile::count();
 
     
-    return view('materiel.index');
+    return view('materiel.index' , compact('count_ord' , 'count_imprimante' , 'count_moniteurs' , 'route'));
     }
 
     public function ordinateurs(){
+        $route = '/Materiel/Ordinateurs';
+
         $ordinateur =  Ordinateur::all();
-        return view('materiel.ordinateurs'  , compact('ordinateur') );
+        return view('materiel.ordinateurs'  , compact('ordinateur' , 'route') );
 
     }
 
@@ -170,17 +180,21 @@ try{
     }
 
     public function ordinateurs_info($id){
+        $route = '/Materiel/Ordinateurs/Details';
+
         $ordinateur = Ordinateur::findOrFail($id);
         $Moniteur_tables = Moniteur::where('ordinateur_id', $id)->get();
                          
-        return view('materiel.ordinateurs_info' , compact('ordinateur' , 'Moniteur_tables'));
+        return view('materiel.ordinateurs_info' , compact('ordinateur' , 'Moniteur_tables' , 'route'));
     }
 
     public function ordinateurs_update($id){
+        $route = '/Materiel/Ordinateurs/Modification';
+
         $data = $this->fetchData();
         $Moniteur_tables = Moniteur::whereNull('ordinateur_id')->get();
         $ordinateurs = Ordinateur::findOrFail($id);
-        return view('materiel.ordinateurs_update' , $data ,compact('ordinateurs' , 'Moniteur_tables')  );
+        return view('materiel.ordinateurs_update' , $data ,compact('ordinateurs' , 'Moniteur_tables' , 'route')  );
     }
     public function updateOrdinateur_traitement(Request $request , $id){
         $this->validateData($request);
@@ -238,6 +252,8 @@ try{
     }
 
     public function ordinateurs_add(){
+        $route = '/Materiel/Ordinateurs/Ajout';
+
         $data = $this->fetchData();
 
      
@@ -248,10 +264,11 @@ try{
       else{
         $check=false;
       }   
-           return view('materiel.create_ordinateur' ,$data  , compact('Moniteur_tables') );
+           return view('materiel.create_ordinateur' ,$data  , compact('Moniteur_tables' , 'route') );
     }
 
     public function ordinateurs_excel(Request $request){
+
         $ordinateurIds = $request->input('ids'); 
         $ordinateurData = Ordinateur::whereIn('id', $ordinateurIds)->get();
         $response =  Excel::download(new OrdinateurExport($ordinateurData) , 'ordinateurs.xlsx' );
