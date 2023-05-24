@@ -126,14 +126,21 @@
     #menu-toogle:checked +.sidebar .sidebar_menu   a li span{
         padding-left: 0rem;
     }
-      
+    #menu-toogle:checked ~ .foot{
+        margin-left: 100px !important   ;
+    }
     #menu-toogle:checked ~ .main-content{
         margin-left: 100px;
     }
     #menu-toogle:checked ~.navigation header{
         width: calc(100%-100px);
         margin-left: 100px;
+
     }
+    #menu-toogle:checked ~ footer{
+        margin-left: 100px !important   ;
+    }
+
 
 
 #menu-toogle {
@@ -141,6 +148,18 @@
     top: -9999px;
     left: -9999px;
   }
+  footer{
+    margin-left: 350px;
+    background-color: #083C47;
+    
+    font-family: 'Poppins', sans-serif;
+    padding-top: 20px;
+   
+    /* margin-top: auto; */
+    color: white;
+    bottom: 0;
+     
+   }
   .navigation header{
     margin-left: 350px;
     display: flex;

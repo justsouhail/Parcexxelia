@@ -122,9 +122,8 @@ class MaterielController extends Controller
         $count_imprimante = Imprimante::count();
         $count_moniteurs = Moniteur::count();
         $count_mobile = Mobile::count();
-
     
-    return view('materiel.index' , compact('count_ord' , 'count_imprimante' , 'count_moniteurs' , 'route'));
+    return view('materiel.index' , compact('count_ord' , 'count_imprimante' , 'count_moniteurs' , 'route' , 'count_mobile'));
     }
 
     public function ordinateurs(){

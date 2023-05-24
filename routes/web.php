@@ -78,6 +78,11 @@ Route::get('/Materiel/Mobile/delete/{id}', [App\Http\Controllers\Mobile_Controll
 Route::get('/Materiel/Mobile/pdf/{id}', [App\Http\Controllers\Mobile_Controller::class, 'Mobile_pdf'])->middleware('auth');
 
 
+Route::get('/admin', [App\Http\Controllers\Admin_Controller::class, 'index'])->middleware('auth');
+Route::post('/admin/SendEmail', [App\Http\Controllers\Admin_Controller::class, 'send'])->middleware('auth');
+
+
+
 Route::get('/Attribution', [App\Http\Controllers\AffectationController::class, 'index'])->middleware('auth');
 Route::post('/Attribution/traitement', [App\Http\Controllers\AffectationController::class, 'affectation'])->middleware('auth');
 

@@ -35,164 +35,153 @@
                         <a href="">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
-                                <span>Ordinateurs</span>
+                                <h1>{{$cate}}</h1>
+                                <span>Categories</span>
                             </div>
                             <div>
-                            <span><img src="/images/icons8-workstation-96.png"/></span>                            </div>
+      
+                            <span><img src="/images/icons8-categorize-96.png"/></span>                            </div>
                         </div>
                         </a>
+                      
                         <a href="">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
-                                <span>Imprimantes</span>
+                                <h1>{{$total}}</h1>
+                                <span>Composantes</span>
                             </div>
                             <div>
-                            <span><img src="/images/icons8-print-96.png"/></span>                            </div>
+                            <span><img src="/images/icons8-technology-96.png"/></span>                            </div>
                         </div>
-                        </a>
+                        </a>        
                         <a href="">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
-                                <span>Autres</span>
+                                <h1>{{$marque}}</h1>
+                                <span>Marques</span>
                             </div>
                             <div>
-                            <span><img src="/images/icons8-view-more-96.png"/></span>                            </div>
+                            <span><img src="/images/icons8-brand-96.png"/></span>                            </div>
                         </div>
-                        </a>                                                                      
+                        </a>                                    
+                                                                        
                     </div>
                     <!-- tables users -->
                     <div class="users">
-                        <div class="carte-header">
-                            <h2>Utilisateurs</h2>
-                            <button>Voir tous <span><img src="/images/icons8-arrow-16.png" alt="" id="arrow"></span></button>
-                        </div>
-                        <div class="carte-body">
-                            <table style="width: 100%;">
-                                <thead>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>NOM</td>
-                                        <td>Ordinateur</td>
-                                        <td>Date d'utilisation</td>
-                                        <td>Status</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status orange"></span> reparation</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td ><span class="status red"></span> passif </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status red"></span> passif</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>                                                                                                                                                
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1234</td>
-                                        <td>souhail aroud</td>
-                                        <td>qwerty-11</td>
-                                        <td>12/12/1212</td>
-                                        <td > <span class="status green"></span> active</td>
-                                    </tr>                                                                                                                                                                                                                                                                                               
+                    <div class="chart-container">
+    <div id="piechart1" class="chart"></div>
+    <div id="piechart2" class="chart"></div>
+    <div id="piechart3" class="chart"></div>
+   
+</div>
 
-                                    
-                                </tbody>
-                            </table>
-                        </div>
+</div>
+
                     </div>
+                    <footer class="foot">
+                <div class="footercontent">
+                <h3><span ><img src="/images/favicon-exxelia.png" alt="" style="width: 39px; height: 39px;" id="ex" ></span> <span>ParcInfo</span></h3>
+                    <p>À propos de l'application ParcInfo développée par souhail AROUD pour Exxelia,
+                         cette solution permet à la société de surveiller de manière proactive son parc informatique.
+                         Avec une interface conviviale et des fonctionnalités avancées,
+                          cette application offre une expérience utilisateur optimale pour assurer une surveillance efficace des systèmes informatiques de l'entreprise.  </p>
+                          
+               
+                <ul class="list">
+                    <li><a href="mailto:souhailaroud09@gmail.com us">Contact</a></li>
+                    <li><a href="https://exxelia.com/en/" target="_blank">Exxelia</a></li>
+                </ul>
+                </div>
+                <div class="footer-bottom">
+                   <div>
+                   <p>Copyright &copy;2023 ParcInfo . Developped by <span>Souhail AROUD</span> </p>
+                   </div>
+                </div>
+</footer>
+        
     </div>
             <!-- footer -->
-          @include('footer')
-        
+  
        
     </body>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    </html>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+     if (navigator.onLine) {
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawCharts);
+    } else {
+        console.log('off');
+        document.getElementById('noInternetMessage').style.display = 'block';
+        document.getElementById('chartContainer').style.display = 'none';
+    }
+
+
+    function drawCharts() {
+      
+
+        var data1 = google.visualization.arrayToDataTable([
+            ['Task', 'Count'],
+            ['Ordinateur', <?php echo $count_ord; ?>],
+            ['Imprimante', <?php echo $count_imprimante; ?>],
+            ['Moniteur', <?php echo $count_moniteurs; ?>],
+            ['Mobile', <?php echo $count_mobile; ?>]
+        ]);
+
+        var options1 = {
+            title: 'Les types du materiel' ,
+            is3D: true,
+
+            width: 400,
+            height: 400
+        };
+
+        var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+        chart1.draw(data1, options1);
+
+        var data2 = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+          <?php echo $services; ?>
+        ]);
+
+        var options2 = {
+            title: 'Les Services ' ,
+            is3D: true,
+
+            width: 400,
+            height: 400
+        };
+
+        var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+        chart2.draw(data2, options2);
+
+        var data3 = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+          <?php echo $models; ?>
+        ]);
+
+        var options3 = {
+            title: 'Les Models les plus répondus' ,
+            is3D: true,
+
+            width: 400,
+            height: 400
+        };
+
+        var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+        chart3.draw(data3, options3);
+    }
+ 
+
+</script>
+
+
+
+
+
+
+
+    
     @endsection
