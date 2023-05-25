@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('Prenom');
             $table->string('Branche_Societe')->default('');
             $table->string('email')->unique();
+            $table->boolean('is_admin')->default(0);
+
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

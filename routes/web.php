@@ -79,12 +79,16 @@ Route::get('/Materiel/Mobile/pdf/{id}', [App\Http\Controllers\Mobile_Controller:
 
 
 Route::get('/admin', [App\Http\Controllers\Admin_Controller::class, 'index'])->middleware('auth');
+Route::get('/admin/verify', [App\Http\Controllers\Admin_Controller::class, 'VerifyView'])->middleware('auth');
 Route::post('/admin/SendEmail', [App\Http\Controllers\Admin_Controller::class, 'send'])->middleware('auth');
+Route::get('/admin/backup', [App\Http\Controllers\Admin_Controller::class, 'backupView'])->middleware('auth');
+Route::get('/admin/parametre', [App\Http\Controllers\Admin_Controller::class, 'parametreView'])->middleware('auth');
 
 
 
 Route::get('/Attribution', [App\Http\Controllers\AffectationController::class, 'index'])->middleware('auth');
 Route::post('/Attribution/traitement', [App\Http\Controllers\AffectationController::class, 'affectation'])->middleware('auth');
+
 
 
 

@@ -1,0 +1,101 @@
+body{
+    background: rgb(25,21,79) !important;
+    background: linear-gradient(90deg, rgba(25,21,79,1) 0%, rgba(26,35,58,1) 49%, rgba(25,21,79,1) 100%)!important;
+}
+
+.users{margin-top:20px;
+    color: #bcd0f7;
+        background: #272E48   !important;
+    }
+    .account-settings .user-profile {
+        margin: 0 0 1rem 0;
+        padding-bottom: 1rem;
+        text-align: center;
+    }
+    .account-settings .user-profile .user-avatar {
+        margin: 0 0 1rem 0;
+    }
+    .account-settings .user-profile .user-avatar img {
+        width: 90px;
+        height: 90px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+    }
+    .account-settings .user-profile h5.user-name {
+        margin: 0 0 0.5rem 0;
+    }
+    .account-settings .user-profile h6.user-email {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 400;
+    }
+    .account-settings .about {
+        margin: 1rem 0 0 0;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    .card {
+        background: #272E48 !important;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        border: 0;
+        margin-bottom: 1rem;
+    }
+    .form-control {
+        border: 1px solid #596280 !important;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        font-size: .825rem;
+        background: #1A233A;
+        color: #bcd0f7;
+    }
+
+    .cartes{
+        display: grid;
+        grid-template-columns: repeat(2 , 1fr);
+        grid-gap: 2rem;
+        margin-right: 20px;
+        margin-top: 2rem;
+        
+    }
+    .carte{
+        display: flex;
+        border-radius: 20px;
+        justify-content: space-between;
+        padding: 0.4rem;
+        font-family: 'Schibsted Grotesk', sans-serif;
+        background-color: var(--second-color);
+        color: white;
+        width: 12rem;
+        padding-left: 20px;
+    }
+    .carte:hover{   
+        background-color:white;
+        color:  var(--second-color);
+    }
+    .cartos{
+        display: flex;
+        border-radius: 20px;
+        justify-content: space-between;
+        padding: 0.4rem;
+        font-family: 'Schibsted Grotesk', sans-serif;
+    background-color: var(--anti-color);
+        color: white;
+        width: 9rem;
+        padding-left: 20px;
+    }
+    .cartos:hover{   
+        background-color:white;
+        color:  var(--anti-color);
+    }
+    .cartess{
+        display: grid;
+        grid-template-columns: repeat(3 , 1fr);
+        grid-gap: 2rem;
+        margin-right: 20px;
+        margin-top: 2rem;
+        
+    }

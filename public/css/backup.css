@@ -1,0 +1,37 @@
+body{
+    background: rgb(25,21,79) !important;
+    background: linear-gradient(90deg, rgba(25,21,79,1) 0%, rgba(26,35,58,1) 49%, rgba(25,21,79,1) 100%)!important;
+}
+.con{
+    margin: 4rem;
+    border-radius: 10px;
+    margin: 1rem;
+    backdrop-filter: blur(10px);
+    margin-right: 2rem;
+    position: relative;
+}
+
+.card {
+    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+.avatar.sm {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: .818125rem;
+}
+.table-nowrap .table td, .table-nowrap .table th {
+    white-space: nowrap;
+}
+.table>:not(caption)>*>* {
+    padding: 0.75rem 1.25rem;   
+    border-bottom-width: 1px;
+}
+table th {
+    font-weight: 600;
+    background-color: #eeecfd !important;
+}
+
+#tt{
+    background:#eee !important;
+
+}
