@@ -24,7 +24,7 @@
                 </div>
             
             <div class="cartes">
-                        <a href="">
+                        <!-- <a href="">
                         <div class="carte">
                             <div class="info-carte">
                                 <h1>10</h1>
@@ -35,7 +35,7 @@
 
                             </div>
                         </div>
-                        </a>
+                        </a> -->
                         <a href="/Materiel/ordinateurs">
                         <div class="carte">
                             <div class="info-carte">
@@ -56,7 +56,7 @@
                             <span><img src="/images/icons8-print-96.png"/></span>                            </div>
                         </div>
                         </a>
-                        <a href="">
+                        <!-- <a href="">
                         <div class="carte">
                             <div class="info-carte">
                                 <h1>10</h1>
@@ -65,7 +65,7 @@
                             <div>
                             <span><img src="/images/icons8-scanner-96.png"/></span>                            </div>
                         </div>
-                        </a>           
+                        </a>            -->
                         <a href="/Materiel/Mobile">
                         <div class="carte">
                             <div class="info-carte">
@@ -76,7 +76,7 @@
                             <span><img src="/images/icons8-ipad-96.png"/></span>                            </div>
                         </div>
                         </a>  
-                        <a href="">
+                        <!-- <a href="">
                         <div class="carte">
                             <div class="info-carte">
                                 <h1>10</h1>
@@ -85,8 +85,8 @@
                             <div>
                             <span><img src="/images/icons8-ticket-96.png"/></span>                            </div>
                         </div>
-                        </a>         
-                        <a href="">
+                        </a>          -->
+                        <!-- <a href="">
                         <div class="carte">
                             <div class="info-carte">
                             <h1>11 </h1>
@@ -95,7 +95,7 @@
                             <div>
                             <span><img src="/images/icons8-office-phone-96.png"/></span>                            </div>
                         </div>
-                        </a>               
+                        </a>                -->
                         <a href="/Materiel/Moniteur">
                         <div class="carte">
                             <div class="info-carte">

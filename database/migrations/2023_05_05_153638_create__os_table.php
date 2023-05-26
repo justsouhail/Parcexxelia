@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('os', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Os_Nom');
+            $table->string('Os_Nom')->nullable();;
             $table->timestamps();
         });
     }

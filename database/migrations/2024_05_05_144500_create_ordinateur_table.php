@@ -31,6 +31,7 @@ return new class extends Migration
             $table->integer('marque_id')->unsigned()->nullable();;
             $table->integer('post_id')->unsigned()->nullable();
             $table->integer('categorie_id')->unsigned()->nullable();
+            $table->softDeletes();
 
 
 

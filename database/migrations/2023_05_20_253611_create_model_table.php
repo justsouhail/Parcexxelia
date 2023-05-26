@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('model', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Model_Nom');
+            $table->string('Model_Nom')->nullable();;
             $table->integer('categorie_id')->unsigned()->nullable();
 
             $table->foreign('categorie_id')->references('id')->on('categorie');

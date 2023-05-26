@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Imprimante extends Model
 {
@@ -19,5 +20,5 @@ class Imprimante extends Model
     public function employes(){ 
         return $this->belongsToMany(Employes::class , 'historique_imprimante') ;
     } 
-    use HasFactory;
+    use HasFactory ,SoftDeletes;
 }

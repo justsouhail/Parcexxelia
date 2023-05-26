@@ -27,16 +27,21 @@
    <div class="container_form">
    
     <div class="container">
-      <form action="" method="POST">
-      <h3  style="margin-left: 50px;">codewithFaraz</h3>
+      <form action="/admin/param/add?Param={{$tag}}" method="POST">
+        @csrf
+        <div style="display: flex; justify-content: center;">
+        <h3 style="color: white;" >{{$tag }}</h3>
+        </div>
       <div id="formfield">
-        <input type="text" name="text" class="text" size="50" placeholder="Name" required>
-       
+      @foreach($data as $index => $serv)
+    <input type="text" name="services[{{ $serv['id'] }}]" class="text" size="50" placeholder="Name" value="{{ $serv['name'] }}">
+@endforeach
+
       </div>
-      <input name="submit" type="Submit" value="Submit">
+      <input name="submit" type="Submit" value="Envoyer">
     </form>
       <div class="controls">
-        <button class="add" onclick="add()"><i class="fa fa-plus"></i>Add</button>
+        <button class="add" onclick="add()">Ajouter</button>
       </div>
     </div>
 

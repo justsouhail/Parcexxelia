@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ordinateur extends Model
 {
     protected $table = 'ordinateur';
 
-    use HasFactory;
+    use HasFactory  ,SoftDeletes;
    
   
     public function Model(){

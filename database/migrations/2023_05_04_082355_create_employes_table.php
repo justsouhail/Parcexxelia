@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('Prenom')->nullable();
             $table->string('CIN')->nullable();
             $table->unsignedInteger('service_id')->nullable();
-            $table->foreign('service_id')->references('id')->on('services');
+            $table->softDeletes();
+            $table->foreign('service_id')->references('id')->on('services')->nullable();
             $table->timestamps();
         });
     }

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('is_tablet')->nullable();
             $table->date('data_achat')->nullable();
             $table->float('Cout')->nullable();;
+            $table->softDeletes();
 
 
             $table->foreign('marque_id')->references('id')->on('marque')->nullable();;

@@ -20,10 +20,10 @@
             <div class="main-content" >
                 <!-- cartes section -->
                     <div class="cartes">
-                        <a href="">
+                        <a href="/Employes">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
+                                <h1>{{$user_num}}</h1>
                                 <span>Utilisateurs</span>
                             </div>
                             <div>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         </a>
-                        <a href="">
+                        <a href="/Materiel">
                         <div class="carte">
                             <div class="info-carte">
                                 <h1>{{$cate}}</h1>
@@ -44,7 +44,7 @@
                         </div>
                         </a>
                       
-                        <a href="">
+                        <a href="/Materiel">
                         <div class="carte">
                             <div class="info-carte">
                                 <h1>{{$total}}</h1>
@@ -54,7 +54,7 @@
                             <span><img src="/images/icons8-technology-96.png"/></span>                            </div>
                         </div>
                         </a>        
-                        <a href="">
+                        <a href="/Materiel">
                         <div class="carte">
                             <div class="info-carte">
                                 <h1>{{$marque}}</h1>
@@ -72,7 +72,8 @@
     <div id="piechart1" class="chart"></div>
     <div id="piechart2" class="chart"></div>
     <div id="piechart3" class="chart"></div>
-   
+    <div id="piechart4" class="chart"></div>
+
 </div>
 
 </div>
@@ -134,8 +135,8 @@
             title: 'Les types du materiel' ,
             is3D: true,
 
-            width: 400,
-            height: 400
+             width: 500,
+    height: 400
         };
 
         var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
@@ -150,12 +151,14 @@
             title: 'Les Services ' ,
             is3D: true,
 
-            width: 400,
-            height: 400
+            width: 500,
+    height: 400
         };
 
         var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
         chart2.draw(data2, options2);
+
+
 
         var data3 = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
@@ -166,12 +169,30 @@
             title: 'Les Models les plus répondus' ,
             is3D: true,
 
-            width: 400,
-            height: 400
+            width: 500,
+    height: 400
         };
 
         var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
         chart3.draw(data3, options3);
+
+
+
+        var data4 = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+          <?php echo $marques; ?>
+        ]);
+
+        var options4 = {
+            title: 'Les marque les plus répondus' ,
+            is3D: true,
+
+            width: 500,
+    height: 400
+        };
+
+        var chart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
+        chart4.draw(data4, options4);
     }
  
 

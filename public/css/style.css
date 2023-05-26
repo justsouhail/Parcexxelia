@@ -104,6 +104,8 @@ table{
     margin-top: 4rem;
     background-color: white;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
 }
 .carte-header, .carte-body{
     padding: 1rem;
@@ -238,7 +240,7 @@ table{
         justify-content: space-between;
         width: 100%; */
         display: grid;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(2,1fr);
 
     }
 

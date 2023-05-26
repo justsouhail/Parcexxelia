@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('post', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Post_Nom');
+            $table->string('Post_Nom')->nullable();
             $table->timestamps();
         });
     }

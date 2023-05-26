@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Mobile extends Model
 {
@@ -17,5 +18,5 @@ class Mobile extends Model
     public function Marque(){
         return $this->belongsTo(Marque::class);
     }  
-    use HasFactory;
+    use HasFactory ,SoftDeletes;
 }

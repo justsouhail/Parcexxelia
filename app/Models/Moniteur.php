@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Moniteur extends Model
 {
@@ -21,5 +22,5 @@ class Moniteur extends Model
     } 
     
 
-    use HasFactory;
+    use HasFactory ,SoftDeletes;
 }

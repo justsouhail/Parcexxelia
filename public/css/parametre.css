@@ -33,7 +33,7 @@ body{
     margin: 40px auto;
     padding: 10px;
     border-radius: 5px;
-    background: white;
+    background: #A3205F;
     box-shadow: 0px 10px 40px 0px rgba(47,47,47,.1);
   }
   
@@ -46,6 +46,7 @@ body{
     background: none;
     width: 274px;
     color: black;
+    background-color: #e9f4fb;
   }
   
   input[type="text"]:focus {

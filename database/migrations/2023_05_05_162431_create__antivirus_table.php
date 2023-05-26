@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('antivirus', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Antivirus_Nom');
+            $table->string('Antivirus_Nom')->nullable();
             $table->timestamps();
         });
     }

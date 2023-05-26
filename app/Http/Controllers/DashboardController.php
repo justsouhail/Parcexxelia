@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
+use App\Models\Employes;
 use App\Models\Imprimante;
 use App\Models\Marque;
 use App\Models\Mobile;
@@ -19,10 +20,11 @@ class DashboardController extends Controller
         $count_moniteurs = Moniteur::count();
         $count_mobile = Mobile::count();
 
+
         $cate = Categorie::count();
         $marque = Marque::count();
         $total = $count_ord +  $count_imprimante + $count_moniteurs +  $count_mobile ;
-
+        $user_num = Employes::count();
 
         $result = DB::table('services')
         ->join('employes', 'services.id', '=', 'employes.service_id')
@@ -44,8 +46,20 @@ class DashboardController extends Controller
         foreach ($result_2 as $md) {
             $models .= "['" . $md->Model_Nom . "', " . $md->model_count . "],";
         }
+
+        $result_3 = DB::table('marque')
+        ->join('ordinateur', 'ordinateur.marque_id', '=', 'marque.ID')
+        ->select(DB::raw('COUNT(ordinateur.marque_id) as marque_count'), 'marque.Marque_Nom')
+        ->groupBy('ordinateur.marque_id', 'marque.Marque_Nom')
+        ->get();
+    
+    $marques = "";
+    foreach ($result_3 as $md) {
+        $marques .= "['" . $md->Marque_Nom . "', " . $md->marque_count . "],";
+    }
+    
                 
         
-        return view('Dashboard' , compact('count_ord' , 'count_imprimante' , 'count_moniteurs' , 'count_mobile' , 'services' , 'models' , 'cate' , 'marque' , 'total'));
+        return view('Dashboard' , compact('count_ord' , 'count_imprimante' , 'count_moniteurs' , 'count_mobile' , 'services' , 'marques' , 'models' , 'cate' , 'marque' , 'total' ,'user_num'));
     }
 }

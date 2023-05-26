@@ -3,6 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Employes;
+use App\Models\Imprimante;
+use App\Models\Mobile;
+use App\Models\Ordinateur;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +23,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        Employes::factory(10)->create();
+        Mobile::factory(10)->create();
+        Ordinateur::factory(10)->create();
+
+        Mobile::factory(10)->create();
+
+        Imprimante::factory(10)->create();
+
+
     }
 }

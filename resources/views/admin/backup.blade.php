@@ -29,37 +29,34 @@
         <div class="col-12 mb-3 mb-lg-5">
             <div class="overflow-hidden card table-nowrap table-card" id="tt">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">New customers</h5>
+                    <h5 class="mb-0">{{ $tag}}</h5>
                 </div>
                 <div class="table-responsive">
-                    <table class="table mb-0">
-                        <thead class="small text-uppercase bg-body text-muted">
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Country</th>
-                                <th>Payment method</th>
-                                <th>Created Date</th>
-                              
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="align-middle">
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div style="margin-top: 5px;">
-                                            <div class="h6 mb-0 lh-1">Mark Voldov</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>mvoges@email.com</td>
-                                <td> <span class="d-inline-block align-middle">Russia</span></td>
-                                <td><span>****6231</span></td>
-                                <td>21 Sep, 2021</td>
-                            </tr>
-                           
-                        </tbody>
-                    </table>
+                <table class="table mb-0">
+    <thead class="small text-uppercase bg-body text-muted">
+        <tr>
+            <th></th> <!-- Placeholder for the action column -->
+            @foreach($columns as $cl)
+                <th>{{$cl}}</th>
+            @endforeach
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($data as $dt)
+            <tr class="align-middle">
+                <td>
+                    <a href="/admin/restore/{{$dt->id}}?category={{$tag}}">
+                        <span><img src="/images/icons8-data-backup-22.png"/></span>
+                    </a>
+                </td>
+                @foreach($columns as $cl)
+                    <td>{{$dt->$cl}}</td>
+                @endforeach
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+
                 </div>
             </div>
         </div>

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('categorie_id')->unsigned()->nullable();;
             $table->integer('marque_id')->unsigned()->nullable();;
             $table->integer('model_id')->unsigned()->nullable();
+            $table->softDeletes();
 
 
             $table->foreign('ordinateur_id')->references('id')->on('ordinateur')->nullable();
