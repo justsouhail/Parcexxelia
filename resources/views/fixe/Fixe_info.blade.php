@@ -33,10 +33,10 @@
 <div class="profile-header-content" style="text-align: center;">
 
 <div class="profile-header-info">
-<h4 class="m-t-sm">{{$imprimante->N°_de_serie}} </h4>
+<h4 class="m-t-sm">{{$Fixe->N°_de_serie}} </h4>
 <p class="m-b-sm">     
-                                        @if (isset($imprimante->employes) && $imprimante->employes->isNotEmpty())
-                                            {{$imprimante->employes()->latest('date_affectation')->first()->Prenom}}&nbsp;{{$imprimante->employes()->latest('date_affectation')->first()->Nom}}
+                                        @if (isset($Fixe->employes) && $Fixe->employes->isNotEmpty())
+                                            {{$Fixe->employes()->latest('date_affectation')->first()->Prenom}}&nbsp;{{$Fixe->employes()->latest('date_affectation')->first()->Nom}}
                                         @else
                                             <span style="color: red;">Non disponible</span>
                                         @endif
@@ -45,9 +45,9 @@
 </div>
 </div>
 <ul class="profile-header-tab nav nav-tabs" style="justify-content: center; padding-right: 100px;">
-<li class="nav-item "><a href="/Materiel/Imprimante/update/{{$imprimante->id}}"  class="nav-link_">Mise á jour</a></li>
+<li class="nav-item "><a href="/Materiel/Fixe/update/{{$Fixe->id}}"  class="nav-link_">Mise á jour</a></li>
     <li class="nav-item">
-    <a href="/Materiel/Imprimante/delete/{{$imprimante->id}}" class="nav-link_" onclick="handleOneDelete(this, 'imprimante', {{ $imprimante->id }})">Supprimer</a>
+    <a href="/Materiel/Fixe/delete/{{$Fixe->id}}" class="nav-link_" onclick="handleOneDelete(this, 'Fixe', {{ $Fixe->id }})">Supprimer</a>
     </li>
 </ul>
 </div>
@@ -56,45 +56,7 @@
 <div class="col-md-8">
 <div class="tab-content p-0">
 <div class="tab-pane active show" id="profile-about">
-<table class="table table-profile">
-<thead>
-<tr>
-<th colspan="2">ENVIRONNEMENT D'IMPRIMANTE</th>
-</tr> 
-</thead>
-<tbody>
 
-
-<tr>
-<td class="field">URL</td>
-<td class="value">
-<div class="m-b-5">
-@if(isset($imprimante->Addresse_IP))
-<a href="http://{{$imprimante->Addresse_IP}}/" target="_blank">Page de configuration</a>
-                                            @else
-                                    <span style="color: red;">Non disponible</span>
-                                        @endif
-</div></td>
-</tr>
-<tr>
-<td class="field">Login</td>
-<td class="value">
-<div class="m-b-5">
-{{ isset($imprimante->Login) ? $imprimante->Login : '' }}
-</div></td>
-</tr>
-<tr>
-<td class="field">mdp</td>
-<td class="value">
-<div class="m-b-5">
-{{ isset($imprimante->mdp) ? $imprimante->mdp : '' }}
-</div></td>
-</tr>
-
-
-
-</tbody>
-</table>
 <table class="table table-profile">
 <thead>
 <tr>
@@ -105,37 +67,63 @@
 <tr>
                             <td class="field">MODELE</td>
                             <td class="value">
-                                {{ isset($imprimante->Model->Model_Nom) ? $imprimante->Model->Model_Nom : '' }}
+                                {{ isset($Fixe->Model->Model_Nom) ? $Fixe->Model->Model_Nom : '' }}
                             </td>
                         </tr>
                         <tr>
                             <td class="field">MARQUE</td>
                             <td class="value">
-                                {{ isset($imprimante->Marque->Marque_Nom) ? $imprimante->Marque->Marque_Nom : '' }}
+                                {{ isset($Fixe->Marque->Marque_Nom) ? $Fixe->Marque->Marque_Nom : '' }}
+                            </td>
+                        </tr>
+                      
+                
+                        <tr>
+                            <td class="field">N°_de_serie</td>
+                            <td class="value">
+                                {{ isset($Fixe->N°_de_serie) ? $Fixe->N°_de_serie : '' }}
                             </td>
                         </tr>
                         <tr>
-                            <td class="field">TYPE CONNEXION</td>
+                            <td class="field">astreinte telephonique</td>
                             <td class="value">
-                                {{ isset($imprimante->type_Connextion) ? $imprimante->type_Connextion : '' }}
+                                {{ isset($Fixe->astreinte) ? $Fixe->astreinte : '' }}&nbsp; 
                             </td>
                         </tr>
                         <tr>
-                            <td class="field">COULEUR</td>
+                        <td class="field">Autorisation</td>
                             <td class="value">
-                            {{ isset($imprimante->Couleur) ? ($imprimante->Couleur ? 'oui' : 'non') : '' }}
+                                {{ isset($Fixe->Autorisation) ? $Fixe->Autorisation : '' }}&nbsp; 
                             </td>
                         </tr>
                         <tr>
-                            <td class="field">Nombre de CARTOUCHE</td>
+                            <td class="field">Addresse_IP</td>
                             <td class="value">
-                                {{ isset($imprimante->Nb_cartouche) ? $imprimante->Nb_cartouche : '' }}
+                                {{ isset($Fixe->Addresse_IP) ? $Fixe->Addresse_IP : '' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">Cout</td>
+                            <td class="value">
+                                {{ isset($Fixe->Cout) ? $Fixe->Cout : '' }} &nbsp;DH
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">data_achat</td>
+                            <td class="value">
+                                {{ isset($Fixe->Date_Achat) ? $Fixe->Date_Achat : '' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">Date_Installation</td>
+                            <td class="value">
+                                {{ isset($Fixe->Date_Installation) ? $Fixe->Date_Installation : '' }}
                             </td>
                         </tr>
                         <tr>
                             <td class="field">Commentaire</td>
                             <td class="value">
-                                {{ isset($imprimante->Status) ? $imprimante->Status : '' }}
+                                {{ isset($Fixe->Commentaire) ? $Fixe->Commentaire : '' }}
                             </td>
                         </tr>
                      
@@ -144,7 +132,7 @@
 </table>
 
 
-<a  href="/Materiel/Imprimante/pdf/{{$imprimante->id}}" id="boutton" class="btn btn-xs btn-primary mb-3">IMPRIMER FICHE TECHNIQUE</a>
+<a  href="/Materiel/Fixe/pdf/{{$Fixe->id}}" id="boutton" class="btn btn-xs btn-primary mb-3">IMPRIMER FICHE TECHNIQUE</a>
 
 </div>
 </div>

@@ -45,7 +45,7 @@
             </div>
 
   <div style="text-align: center; margin-top: 0;">
-    <h2 style=" margin-bottom: 2rem; color: #08473C;"><u>Fiche descriptive d'une imprimante</u></h2>
+    <h2 style=" margin-bottom: 2rem; color: #08473C;"><u>Fiche descriptive d'ordinateur</u></h2>
   </div>
   <div>
 
@@ -58,59 +58,61 @@
     
     <tr>
       <th>N°_de_serie</th>
-      <td>{{$Imprimante->N°_de_serie}}</td>
+      <td>{{$Fixe->N°_de_serie}}</td>
     </tr>
     <tr>
       <th>Utilisateur</th>
-      <td> @if (isset($Imprimante->employes) && $Imprimante->employes->isNotEmpty())
-                                            {{$Imprimante->employes()->latest('date_affectation')->first()->Prenom}}&nbsp;{{$Imprimante->employes()->latest('date_affectation')->first()->Nom}}
+      <td> @if (isset($Fixe->employes) && $Fixe->employes->isNotEmpty())
+                                            {{$Fixe->employes()->latest('date_affectation')->first()->Prenom}}&nbsp;{{$Fixe->employes()->latest('date_affectation')->first()->Nom}}
                                         @else
                                             <span style="color: red;">Non disponible</span>
                                         @endif</td>
     </tr>
   
-   
+  
+
     <tr>
     <th>MODELE</th>
-    <td>{{ isset($Imprimante->Model->Model_Nom) ? $Imprimante->Model->Model_Nom : '' }}</td>
+    <td>{{ isset($Fixe->Model->Model_Nom) ? $Fixe->Model->Model_Nom : '' }}</td>
 </tr>
-
-<tr>
-    <th>NOMBRE DE CARTOUCHE</th>
-    <td>{{ isset($Imprimante->Nb_cartouche) ? $Imprimante->Nb_cartouche : '' }}</td>
-</tr>
-
 <tr>
     <th>MARQUE</th>
-    <td>{{ isset($Imprimante->Marque->Marque_Nom) ? $Imprimante->Marque->Marque_Nom : '' }}</td>
-</tr>
-
-<tr>
-    <th>Login</th>
-    <td>{{ isset($Imprimante->Login) ? $Imprimante->Login : '' }}&nbsp;</td>
+    <td>{{ isset($Fixe->Marque->Marque_Nom) ? $Fixe->Marque->Marque_Nom : '' }}</td>
 </tr>
 <tr>
-    <th>mdp</th>
-    <td>{{ isset($Imprimante->mdp) ? $Imprimante->mdp : '' }}</td>
+      <th>astreinte telephonique</th>
+      <td>{{ isset($Fixe->astreinte) ? $Fixe->astreinte : '' }}</td>
+    </tr>
+    <tr>
+    <th>Date_Installation</th>
+    <td>{{ isset($Fixe->Date_Installation) ? $Fixe->Date_Installation : '' }}</td>
 </tr>
 <tr>
-    <th>TYPE DE CONNEXION</th>
-    <td>{{ isset($Imprimante->type_Connextion) ? $Imprimante->type_Connextion : '' }}</td>
+    <th>Commentaire</th>
+    <td>{{ isset($Fixe->Commentaire) ? $Fixe->Commentaire : '' }}</td>
 </tr>
-
 
 
 <tr>
     <th>ADRESSE IP</th>
-    <td>{{ isset($Imprimante->Addresse_IP) ? $Imprimante->Addresse_IP : '' }}</td>
+    <td>{{ isset($Fixe->Addresse_IP) ? $Fixe->Addresse_IP : '' }}</td>
 </tr>
 <tr>
-    <th>COULEUR</th>
-    <td>{{ isset($Imprimante->Couleur) ? ($Imprimante->Couleur ? 'oui' : 'non') : '' }}</td>
-    </tr>
-
-
-
+    <th>Date_Achat</th>
+    <td>{{ isset($Fixe->Date_Achat) ? $Fixe->Date_Achat : '' }}</td>
+</tr>
+<tr>
+    <th>Date_Installation</th>
+    <td>{{ isset($Fixe->Date_Installation) ? $Fixe->Date_Installation : '' }}</td>
+</tr>
+<tr>
+    <th>Cout</th>
+    <td>{{ isset($Fixe->Cout) ? $Fixe->Cout : '' }}  DH</td>
+</tr>
+<tr>
+    <th>Autorisation</th>
+    <td>{{ isset($Fixe->Autorisation) ? $Fixe->Autorisation : '' }}  DH</td>
+</tr>
       
 
     

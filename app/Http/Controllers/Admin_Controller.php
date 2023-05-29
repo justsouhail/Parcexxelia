@@ -16,6 +16,7 @@ use App\Models\Os;
 use App\Models\Post;
 use App\Models\Role;
 use App\Models\Service;
+use App\Models\Tel_fixe;
 use App\Models\verifytoken;
 use Illuminate\Support\Facades\Mail;
 
@@ -30,36 +31,45 @@ use Spatie\LaravelIgnition\Recorders\DumpRecorder\DumpHandler;
 class Admin_Controller extends Controller
 {  
     public function  VerifyView(){
+        $user = Auth::user();
 
+        if($user->is_admin){
+            return redirect('/admin');
+
+        }
+        else{
+
+        
             return  view('admin.verify');
+        }
     }
+
 
     public function send(Request $request){
-        
-        $validToken = rand(10,100..'2022');
-        
-        $get_token=new verifytoken();
-        $get_token->token=$validToken;
-        $get_token->email=$request->email;
-        $get_token->save();
-        $get_user_email = $request->email;
-        $get_user_name = 'admin';
-        
-        Mail::send('admin.mailmessage' ,['token' => $validToken] , function($message){
-            $message->to('souhailaroud09@gmail.com' , 'online')->subject('sujet');
-        });
-    }
-    
-    public function index()    {
-
         $user = Auth::user();
-        if($user->is_admin){
-            return view('admin.index' , compact('user'));
+        $password = $request->pswd;
+
+        if (Hash::check($password, auth()->user()->password)) {
+            $user->is_admin=1;
+            $user->save();
+            return redirect('/admin');
         }
-    else{
-        return redirect('/admin/verify');
+        else{
+            return back()->with('status' , 'Mot de passe incorrecte , Vous devez entrer mot de passe d\'authentification ');
+        }
+      
     }
+    public function index()    {
+        $user = Auth::user();
+
+        if($user->is_admin){
+
         
+            return view('admin.index' , compact('user'));}
+            else {
+               return redirect('/admin/verify');
+            }
+    
     }
 
 
@@ -95,11 +105,23 @@ class Admin_Controller extends Controller
             $columns = Schema::getColumnListing('moniteur');
                 $data =  Moniteur::onlyTrashed()->get();
         }
+        else  if($category == 'tel_fixes'){
+            $tag='Telephone_Fixe';
+            $columns = Schema::getColumnListing('tel_fixes');
+                $data =  Tel_fixe::onlyTrashed()->get();
+        }
         
         
-        // dd($columns);
+        
+        $user = Auth::user();
+        if($user->is_admin){
 
-        return view('admin.backup' , compact('columns' , 'data' , 'tag'));
+        
+            return view('admin.backup' , compact('columns' , 'data' , 'tag'));
+        }
+            else {
+               return redirect('/admin/verify');
+            }
     }
 
 
@@ -119,6 +141,10 @@ class Admin_Controller extends Controller
         }
         else  if($category == 'Moniteurs'){
             Moniteur::whereId($id)->restore();
+
+        }  
+        else  if($category == 'Telephone_Fixe'){
+            Tel_fixe::whereId($id)->restore();
         }
 
         return back();
@@ -209,7 +235,15 @@ class Admin_Controller extends Controller
         }
        }
        
+       $user = Auth::user();
+       if($user->is_admin){
+
+       
         return view('admin.parametre' , compact('data' , 'tag'));
+       }
+           else {
+              return redirect('/admin/verify');
+           }
     }
 
 
@@ -446,6 +480,7 @@ else if($para == 'Antivirus') {
     }
     }
 }
+
        return redirect()->back()->with('status', 'Modification avec succes');
 
 
@@ -470,6 +505,8 @@ public function adminupdate(Request $request){
     }
 
     $user->update();
+
+
     return redirect('/admin')->with('status' , 'Les données sont  modifiés avec succes. ' );
 
 

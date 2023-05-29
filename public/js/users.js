@@ -55,6 +55,10 @@ function handleDelete(element, action) {
             setFormAction('/Materiel/Mobile/DeleteAll');
 
           }
+          else if(action == 'fixe'){
+            setFormAction('/Materiel/fixe/DeleteAll');
+
+          }
       }
   }
 }
@@ -77,6 +81,10 @@ function handleDelete(element, action) {
       }
       else if (action === 'Mobile'){
         window.location.href = '/Materiel/Mobile/delete/' + id;
+
+      }
+      else if (action === 'Fixe'){
+        window.location.href = '/Materiel/Fixe/delete/' + id;
 
       }
     }

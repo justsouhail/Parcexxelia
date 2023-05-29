@@ -50,7 +50,6 @@
 <li class="nav-item">
   <a class="nav-link_" onclick="handleOneDelete(this, 'ordinateur' ,({{$ordinateur->id}}) )">Supprimer</a>
 </li></li>
-<li class="nav-item"><a class="nav-link_">Historique</a></li>
 </ul>
 </div>
 <div class="profile-container" style="padding-top: 190px !important">

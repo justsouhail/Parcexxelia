@@ -4,11 +4,13 @@ namespace App\Http\Livewire;
 use PDF;
 use App\Models\Categorie;
 use App\Models\Historique;
+use App\Models\Historique_fixe;
 use App\Models\historique_imprimante;
 use App\Models\historique_mobile;
 use App\Models\Imprimante;
 use App\Models\Mobile;
 use App\Models\Ordinateur;
+use App\Models\Tel_fixe;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -30,6 +32,8 @@ class HistoryMultistep extends Component
         $ord_id = Categorie::where('Categorie_Nom', 'Ordinateur')->value('id');
         $print_id = Categorie::where('Categorie_Nom', 'Imprimante')->value('id');
         $mobile_id = Categorie::where('Categorie_Nom', 'Mobile')->value('id');
+        $Fixe_id = Categorie::where('Categorie_Nom', 'Tel_Fixe')->value('id');
+
         $selectedCategorie = $this->Categorie;
 
     
@@ -65,6 +69,16 @@ class HistoryMultistep extends Component
 
                   $tag = 'Appareil Mobile';
         }
+        elseif($selectedCategorie == $Fixe_id){
+            $data1 = Tel_fixe::all();
+            $selectedFixeId = $this->materiel; 
+
+            $history = Historique_fixe::where('tel_fixe_id', $selectedFixeId)->get();
+
+
+
+                  $tag = 'Telephone Fixe';
+        }        
 
         return view('livewire.history-multistep' , [
             'categorie_tables' => $categorie_tables,
@@ -116,6 +130,8 @@ class HistoryMultistep extends Component
         $ord_id = Categorie::where('Categorie_Nom', 'Ordinateur')->value('id');
         $print_id = Categorie::where('Categorie_Nom', 'Imprimante')->value('id');
         $mobile_id = Categorie::where('Categorie_Nom', 'Mobile')->value('id');
+        $Fixe_id = Categorie::where('Categorie_Nom', 'Tel_Fixe')->value('id');
+
         $selectedCategorie = $this->Categorie;
 
         if ($selectedCategorie == $ord_id) {
@@ -138,6 +154,11 @@ class HistoryMultistep extends Component
             $history = historique_mobile::where('mobile_id', $selectedMobileId)->get();
           $tag = "Appareil Mobile";  
              }
+             elseif($selectedCategorie == $Fixe_id){
+                $selectedFixeId = $this->materiel;
+                          $history = Historique_fixe::where('tel_fixe_id', $selectedFixeId)->get();
+                        $tag = "Telephone Fixe";  
+                           }
 
 
 

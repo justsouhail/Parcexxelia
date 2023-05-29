@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -41,6 +42,14 @@ class LoginController extends Controller
 
     protected function logout(Request $request)
     {
+        $user = Auth::user();
+
+        if ($user && $user->is_admin) {
+            // Update the is_admin field to 0
+            $user->is_admin = 0;
+            $user->save();
+        }
+    
         $this->guard()->logout();
 
         $request->session()->flush();

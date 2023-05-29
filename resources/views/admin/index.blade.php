@@ -162,6 +162,18 @@
                             </div>
                         </div>
                         </a>
+                        <a href="/admin/backup?category=tel_fixes">
+                        <div class="carte">
+                            <div class="info-carte">
+                                
+                                <span>Telephone fixe</span>
+                            </div>
+                            <div>
+                                <span><img src="/images/icons8-workstation-22.png"/></span>
+
+                            </div>
+                        </div>
+                        </a>
                     </div>
 					
 						

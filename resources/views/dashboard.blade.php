@@ -54,16 +54,7 @@
                             <span><img src="/images/icons8-technology-96.png"/></span>                            </div>
                         </div>
                         </a>        
-                        <a href="/Materiel">
-                        <div class="carte">
-                            <div class="info-carte">
-                                <h1>{{$marque}}</h1>
-                                <span>Marques</span>
-                            </div>
-                            <div>
-                            <span><img src="/images/icons8-brand-96.png"/></span>                            </div>
-                        </div>
-                        </a>                                    
+                                                  
                                                                         
                     </div>
                     <!-- tables users -->

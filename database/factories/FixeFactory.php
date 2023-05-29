@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Mobile>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tel_fixe>
  */
-class MobileFactory extends Factory
+class FixeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -22,11 +22,12 @@ class MobileFactory extends Factory
             'N°_de_serie' => $this->faker->unique()->randomNumber(),
             'marque_id' => Marque::factory(),
             'model_id' => Model::factory(),
-            'Os' => $this->faker->randomElement(['Android', 'iOS']),
-            'Stockage' => $this->faker->randomFloat(2, 8, 256),
-            'taille_ecran' => $this->faker->randomElement(['5.5 inch', '6.2 inch', '6.7 inch']),
-            'is_smartphone' => $this->faker->boolean(),
-            'is_tablet' => $this->faker->boolean(),
+            'astreinte' => $this->faker->randomElement(['111', '9718', '085']),
+            'Date_Installation' => $this->faker->date(),
+            'Commentaire' => $this->faker->randomElement(['Active', 'Inactive']),
+            'Addresse_IP' => $this->faker->randomElement(['11', '111.111.111.111']),
+
+            
             'date_achat' => $this->faker->date(),
             'Cout' => $this->faker->randomFloat(2, 100, 1000),
         ];

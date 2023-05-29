@@ -77,8 +77,20 @@ Route::post('/Materiel/Mobile/update/traitement/{id}', [App\Http\Controllers\Mob
 Route::get('/Materiel/Mobile/delete/{id}', [App\Http\Controllers\Mobile_Controller::class, 'Mobiles_delete'])->middleware('auth');
 Route::get('/Materiel/Mobile/pdf/{id}', [App\Http\Controllers\Mobile_Controller::class, 'Mobile_pdf'])->middleware('auth');
 
+Route::get('/Materiel/Tel_fixe', [App\Http\Controllers\Tel_fixe_Controller::class, 'Fixe'])->middleware('auth');
+Route::post('/Materiel/fixe/DeleteAll', [App\Http\Controllers\Tel_fixe_Controller::class, 'DeleteAll'])->middleware('auth');
+Route::get('/Materiel/Fixe/{id}', [App\Http\Controllers\Tel_fixe_Controller::class, 'Fixe_info'])->middleware('auth');
+Route::get('/add_fixe', [App\Http\Controllers\Tel_fixe_Controller::class, 'Fixes_add'])->middleware('auth');
+Route::post('/Materiel/Fixe/traitement', [App\Http\Controllers\Tel_fixe_Controller::class, 'addFixe_traitement'])->middleware('auth');
+Route::get('/Materiel/Fixe/pdf/{id}', [App\Http\Controllers\Tel_fixe_Controller::class, 'Fixe_pdf'])->middleware('auth');
+Route::get('/Materiel/Fixe/update/{id}', [App\Http\Controllers\Tel_fixe_Controller::class, 'Fixe_update'])->middleware('auth');
+Route::post('/Materiel/Fixe/update/traitement/{id}', [App\Http\Controllers\Tel_fixe_Controller::class, 'updateFixe_traitement'])->middleware('auth');
+Route::get('/Materiel/Fixe/delete/{id}', [App\Http\Controllers\Tel_fixe_Controller::class, 'Fixe_delete'])->middleware('auth');
 
-Route::get('/admin', [App\Http\Controllers\Admin_Controller::class, 'index'])->middleware('auth');
+
+
+
+
 Route::get('/admin/verify', [App\Http\Controllers\Admin_Controller::class, 'VerifyView'])->middleware('auth');
 Route::post('/admin/SendEmail', [App\Http\Controllers\Admin_Controller::class, 'send'])->middleware('auth');
 Route::get('/admin/backup', [App\Http\Controllers\Admin_Controller::class, 'backupView'])->middleware('auth');;
@@ -86,6 +98,7 @@ Route::get('/admin/parametre', [App\Http\Controllers\Admin_Controller::class, 'p
 Route::post('/admin/update', [App\Http\Controllers\Admin_Controller::class, 'adminupdate'])->middleware('auth');
 Route::get('/admin/restore/{id}', [App\Http\Controllers\Admin_Controller::class, 'adminRestoreOne'])->middleware('auth');
 Route::post('/admin/param/add', [App\Http\Controllers\Admin_Controller::class, 'Paramupdate'])->middleware('auth');
+Route::get('/admin', [App\Http\Controllers\Admin_Controller::class, 'index'])->middleware('auth');
 
 
 Route::get('/Attribution', [App\Http\Controllers\AffectationController::class, 'index'])->middleware('auth');

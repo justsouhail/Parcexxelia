@@ -5,11 +5,13 @@ use PDF;
 use App\Models\Categorie;
 use App\Models\Employes;
 use App\Models\Historique;
+use App\Models\Historique_fixe;
 use App\Models\historique_imprimante;
 use App\Models\historique_mobile;
 use App\Models\Imprimante;
 use App\Models\Mobile;
 use App\Models\Ordinateur;
+use App\Models\Tel_fixe;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +38,7 @@ class MakeMultistep extends Component
         $ord_id = Categorie::where('Categorie_Nom', 'Ordinateur')->value('id');
         $print_id = Categorie::where('Categorie_Nom', 'Imprimante')->value('id');
         $mob_id = Categorie::where('Categorie_Nom', 'Mobile')->value('id');
+        $fix_id = Categorie::where('Categorie_Nom', 'Tel_Fixe')->value('id');
         $categorie_tables = Categorie::where('Categorie_Nom', '!=', 'Moniteur')->get();
         $selectedCategorie = $this->Categorie;
         $data1=[];
@@ -88,6 +91,21 @@ class MakeMultistep extends Component
               ->get();
               $tag = 'Appareil Mobile';
         }
+        elseif($selectedCategorie == $fix_id){
+            $data1  = Tel_fixe::with('Marque')
+            ->leftJoin('historique_fixes', 'tel_fixes.id', '=', 'historique_fixes.tel_fixe_id')
+            ->select('tel_fixes.*')
+            ->whereNull('historique_fixes.tel_fixe_id')
+            ->get();
+            
+            $users =  DB::table('Employes')
+            ->leftJoin('historique_fixes', 'employes.id', '=', 'historique_fixes.employes_id')
+            ->select('employes.*')
+             ->whereNull('historique_fixes.employes_id')
+              ->get();
+              $tag = 'Telephone Fixe';
+        }
+
 
        
        
@@ -147,6 +165,8 @@ class MakeMultistep extends Component
         $ord_id = Categorie::where('Categorie_Nom', 'Ordinateur')->value('id');
         $print_id = Categorie::where('Categorie_Nom', 'Imprimante')->value('id');
         $mob_id = Categorie::where('Categorie_Nom', 'Mobile')->value('id');
+        $fix_id = Categorie::where('Categorie_Nom', 'Tel_Fixe')->value('id');
+
         $selectedCategorie = $this->Categorie;
 
         if ($selectedCategorie == $ord_id) {
@@ -179,6 +199,16 @@ class MakeMultistep extends Component
             $historique->save();
             $data2 = Mobile::where('id',$this->materiel)->first();
             $tag = ($data2->is_tablet) ? "Tablette" : (($data2->is_smartphone) ? "Smartphone" : "Appareil Mobile");
+
+        }
+        elseif($selectedCategorie == $fix_id){
+            $historique   = new Historique_fixe();
+            $historique->tel_fixe_id = $this->materiel;
+            $historique->employes_id = $this->utilisateur;
+            $historique->date_affectation = date('Y-m-d');
+            $historique->save();
+            $data2 = Tel_fixe::where('id',$this->materiel)->first();
+            $tag = 'Telephone fixe';
 
         }
 

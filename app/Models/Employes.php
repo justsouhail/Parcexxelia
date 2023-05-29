@@ -32,5 +32,8 @@ class Employes extends Model
     public function Mobile(){ 
         return $this->belongsToMany(Mobile::class , 'Historique_mobile') ;
     }
+    public function Fixe(){ 
+        return $this->belongsToMany(Tel_fixe::class , 'historique_fixes') ;
+    }
   
 }

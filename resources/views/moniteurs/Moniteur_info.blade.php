@@ -42,7 +42,6 @@
     <li class="nav-item">
     <a href="/Materiel/Moniteur/delete/{{$Moniteur->id}}" class="nav-link_" onclick="handleOneDelete(this, 'moniteur', {{ $Moniteur->id }})">Supprimer</a>
     </li>
-<li class="nav-item"><a class="nav-link_">Historique</a></li>
 </ul>
 </div>
 <div class="profile-container" style="padding-top: 190px !important">

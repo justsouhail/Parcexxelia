@@ -49,7 +49,6 @@
     <li class="nav-item">
     <a href="/Materiel/Mobile/delete/{{$Mobile->id}}" class="nav-link_" onclick="handleOneDelete(this, 'Mobile', {{ $Mobile->id }})">Supprimer</a>
     </li>
-<li class="nav-item"><a class="nav-link_">Historique</a></li>
 </ul>
 </div>
 <div class="profile-container" style="padding-top: 190px !important">

@@ -21,7 +21,7 @@
 
                     <div class="nav-item dropdown" style="margin-right: 80px !important ;">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->Nom }}
+                                    {{ Auth::user()->Nom }}  {{ Auth::user()->Prenom }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

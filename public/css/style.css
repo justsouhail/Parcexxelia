@@ -69,7 +69,7 @@ main{
   
 .cartes{
     display: grid;
-    grid-template-columns: repeat(4 , 1fr);
+    grid-template-columns: repeat(3 , 1fr);
     grid-gap: 2rem;
     margin-right: 20px;
 }
@@ -324,8 +324,8 @@ table{
         background-color:#03191D;
        
         padding: 10px 0;
-        padding-left: 400px;
-        
+        display: flex;
+        justify-content: center;
        }
        .footer-bottom  p {
         font-size: 14px;

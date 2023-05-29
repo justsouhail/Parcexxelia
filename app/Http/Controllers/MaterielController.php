@@ -23,6 +23,7 @@ use Illuminate\Http\Request;
 use App\Exports\OrdinateurExport;
 use App\Models\Imprimante;
 use App\Models\Mobile;
+use App\Models\Tel_fixe;
 use Maatwebsite\Excel\Facades\Excel;
 
 class MaterielController extends Controller
@@ -122,8 +123,10 @@ class MaterielController extends Controller
         $count_imprimante = Imprimante::count();
         $count_moniteurs = Moniteur::count();
         $count_mobile = Mobile::count();
+        $count_fixe = Tel_fixe::count();
+
     
-    return view('materiel.index' , compact('count_ord' , 'count_imprimante' , 'count_moniteurs' , 'route' , 'count_mobile'));
+    return view('materiel.index' , compact('count_ord' , 'count_imprimante' , 'count_moniteurs' , 'route' , 'count_mobile' ,'count_fixe'));
     }
 
     public function ordinateurs(){

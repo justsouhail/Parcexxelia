@@ -4,7 +4,6 @@
 
     @section('content')
     @push('css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
     <link rel="stylesheet" href="/css/nav_sidebar.css">
     <link rel="stylesheet" href="/css/employe_info.css">
     <link rel="stylesheet" href="/css/ordinateur_update.css">
