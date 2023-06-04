@@ -20,6 +20,15 @@ use App\Models\Employes;
 
 
 Auth::routes();
+Route::get('/Materiel/Reseau', [App\Http\Controllers\Reseau_Controller::class, 'index'])->middleware('auth');
+Route::get('/add_Reseau', [App\Http\Controllers\Reseau_Controller::class, 'Reseaus_add'])->middleware('auth');
+Route::post('/Materiel/Reseau/traitement', [App\Http\Controllers\Reseau_Controller::class, 'addReseau_traitement'])->middleware('auth');
+Route::post('/Materiel/Reseau/DeleteAll', [App\Http\Controllers\Reseau_Controller::class, 'DeleteAll'])->middleware('auth');
+Route::get('/Materiel/Reseau/{id}', [App\Http\Controllers\Reseau_Controller::class, 'Reseau_info'])->middleware('auth');
+Route::get('/Materiel/Reseau/update/{id}', [App\Http\Controllers\Reseau_Controller::class, 'Reseaus_update'])->middleware('auth');
+Route::post('/Materiel/Reseau/update/traitement/{id}', [App\Http\Controllers\Reseau_Controller::class, 'updateReseau_traitement'])->middleware('auth');
+Route::get('/Materiel/Reseau/delete/{id}', [App\Http\Controllers\Reseau_Controller::class, 'Reseaus_delete'])->middleware('auth');
+Route::get('/Materiel/Reseau/pdf/{id}', [App\Http\Controllers\Reseau_Controller::class, 'Reseau_pdf'])->middleware('auth');
 
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->middleware('auth');
 Route::get('/Employes', [App\Http\Controllers\EmployesController::class, 'index'])->middleware('auth');
@@ -86,6 +95,19 @@ Route::get('/Materiel/Fixe/pdf/{id}', [App\Http\Controllers\Tel_fixe_Controller:
 Route::get('/Materiel/Fixe/update/{id}', [App\Http\Controllers\Tel_fixe_Controller::class, 'Fixe_update'])->middleware('auth');
 Route::post('/Materiel/Fixe/update/traitement/{id}', [App\Http\Controllers\Tel_fixe_Controller::class, 'updateFixe_traitement'])->middleware('auth');
 Route::get('/Materiel/Fixe/delete/{id}', [App\Http\Controllers\Tel_fixe_Controller::class, 'Fixe_delete'])->middleware('auth');
+
+
+Route::get('/Materiel/ticket', [App\Http\Controllers\ticket_Controller::class, 'index'])->middleware('auth');
+Route::post('/Materiel/ticket/DeleteAll', [App\Http\Controllers\ticket_Controller::class, 'DeleteAll'])->middleware('auth');
+Route::get('/Materiel/ticket/{id}', [App\Http\Controllers\ticket_Controller::class, 'ticket_info'])->middleware('auth');
+Route::get('/add_tickets', [App\Http\Controllers\ticket_Controller::class, 'tickets_add'])->middleware('auth');
+Route::post('/Materiel/ticket/traitement', [App\Http\Controllers\ticket_Controller::class, 'addticket_traitement'])->middleware('auth');
+Route::get('/Materiel/ticket/pdf/{id}', [App\Http\Controllers\ticket_Controller::class, 'ticket_pdf'])->middleware('auth');
+Route::get('/Materiel/ticket/update/{id}', [App\Http\Controllers\ticket_Controller::class, 'ticket_update'])->middleware('auth');
+Route::post('/Materiel/ticket/update/traitement/{id}', [App\Http\Controllers\ticket_Controller::class, 'updateticket_traitement'])->middleware('auth');
+Route::get('/Materiel/ticket/delete/{id}', [App\Http\Controllers\ticket_Controller::class, 'ticket_delete'])->middleware('auth');
+
+
 
 
 

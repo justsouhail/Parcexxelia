@@ -68,14 +68,14 @@
 .logo{
     color: white;
     height: 90px;
-    padding: 1.3rem 1rem 9rem 2rem;
+    padding: 0.7rem 1rem 9rem 2rem;
 
 }
 .sidebar_menu li {
     width: 100%;
     font-size: 1rem;
     margin-bottom: 50px;
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 .sidebar_menu a {
@@ -97,7 +97,7 @@
     color:var(--second-color);
 
 }  
-.sidebar_menu span {
+.sidebar_menu span  , button{
     color: white;
     font-size: 1.4rem;
     padding-right: 1rem;
@@ -213,12 +213,37 @@
     color: var(--third-color);
     display: inline-block;
 }
-.user-wrapper img{
-    border-radius: 50%;
-    margin-right: 10px;
-}
 
 .logo_nav{
     margin-top: 10px;
 }
 
+
+.dropdown-container {
+    display: none;
+    text-decoration: none;
+    width: 10rem;
+    margin-left: 2rem;
+  }
+  .side_link{
+    margin-left: 20px;
+    font-size: 17px !important;
+    padding-top: 10px;
+  }
+  .drop{
+    display: flex;
+    justify-content: space-between  ;
+  }
+
+  #dropdown{
+    cursor: pointer;    
+    background-color: var(--second-color);
+    border: none;
+    margin-left: 20px;
+ 
+  }
+
+ .contenaire{
+    margin-bottom: 50px;
+
+ }

@@ -14,7 +14,8 @@ class AffectationController extends Controller
 {
     public function index(){
         $Employes_tables = Employes::all();
-        return view('affectation.index' ,  compact('Employes_tables'));
+        $route = '/Affectation_Materiel ';
+        return view('affectation.index' ,  compact('Employes_tables' , 'route'));
     }
 
     

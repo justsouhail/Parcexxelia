@@ -1,5 +1,5 @@
-<div style="padding-top: 6rem;">
-            <form wire:submit.prevent="attribution" >
+<div style="padding-top: 9rem;">
+            <form wire:submit.prevent="attribution" id="FormId">
 
 
                     {{-- STEP 1 --}}
@@ -12,14 +12,15 @@
                                 <div class="col-md-8 mx-auto">
                                     <div class="form-group">
                                         <label for=""><h4>Choisir Categorie</h4></label>
-                                        <select class="form-control @error('Categorie') is-invalid @enderror" name="Categorie" wire:model="Categorie">
-                                        <option value="" selected>Categorie</option>
+                                        <select class="form-control @error('Categorie') is-invalid @enderror" name="Categorie" wire:model="Categorie"     >
+                                        <option value="" selected disabled style="color: red !important;"> Appuiyez ici pour selectionner une Categorie</option>
                                         @foreach($categorie_tables as $ct)
                                             <option value="{{ $ct->id }}" {!! old('Categorie') == $ct->id ? 'selected' : '' !!}>
-                                                {!! old('Categorie') == $ct->id ? '<strong>' . $ct->Categorie_Nom . '</strong>' : $ct->Categorie_Nom !!}
+                                              <strong style="color: black !important;">  {!! old('Categorie') == $ct->id ? '<strong>' . $ct->Categorie_Nom . '</strong>' : $ct->Categorie_Nom !!}</strong>
                                             </option>
                                         @endforeach
                                     </select>
+                                    
                                     <div class="text-danger">@error('Categorie'){{ $message }}@enderror</div>
 
                                     </div>
@@ -44,7 +45,7 @@
                                     <div class="form-group">
                                         <label for=""><h4> Choisir {{$tag}} </h4></label>
                                         <select class="form-control" wire:model="materiel">
-                                            <option value="" selected>{{$tag}}</option>
+                                        <option value="" selected disabled style="color: red !important;"> Appuiyez ici pour selectionnez {{$tag}}</option>
                                             @foreach($data1 as $dt)
                                             <option value="{{ isset($dt->id) ? $dt->id : '' }}" {!! old('materiel') == $dt->id ? 'selected' : '' !!}>
                                                     {{ isset($dt->Marque->Marque_Nom) ? $dt->Marque->Marque_Nom : '' }}
@@ -82,7 +83,7 @@
                                     <div class="form-group">
                                         <label for=""><h4>Choisir  utilisateur</h4></label>
                                         <select class="form-control" wire:model="utilisateur">
-                                            <option value="" selected>Utilisateur</option>
+                                        <option value="" selected disabled style="color: red !important;"> Appuiyez ici pour electionnez un utlisateur</option>
                                             @foreach($users as $dt)
                                             <option value="{{ $dt->id }}" {!! old('utilisateur') == $dt->id ? 'selected' : '' !!}>
                                                 {{ $dt->Nom}} &nbsp; {{ $dt->Prenom}} 
@@ -96,7 +97,7 @@
                                     </div>
                                     <div class="action-buttons d-flex justify-content-between pt-2 pb-2">
                                     <button type="button" class="btn btn-md btn-secondary" wire:click="decreaseStep()">Precedent</button>
-                                    <button type="submit" class="btn btn-md btn-primary">Soumettre</button>
+                                    <button type="submit"  class="btn btn-md btn-primary">Soumettre</button>
 
                                     </div>
                                 </div>
@@ -106,4 +107,5 @@
                 </div>
                 @endif
 </form>
+
 </div>

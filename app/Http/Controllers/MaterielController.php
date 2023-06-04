@@ -23,7 +23,9 @@ use Illuminate\Http\Request;
 use App\Exports\OrdinateurExport;
 use App\Models\Imprimante;
 use App\Models\Mobile;
+use App\Models\Reseau;
 use App\Models\Tel_fixe;
+use App\Models\ticket;
 use Maatwebsite\Excel\Facades\Excel;
 
 class MaterielController extends Controller
@@ -124,9 +126,12 @@ class MaterielController extends Controller
         $count_moniteurs = Moniteur::count();
         $count_mobile = Mobile::count();
         $count_fixe = Tel_fixe::count();
+        $count_reseau = Reseau::count();
+        $count_ticket = ticket::count();
 
     
-    return view('materiel.index' , compact('count_ord' , 'count_imprimante' , 'count_moniteurs' , 'route' , 'count_mobile' ,'count_fixe'));
+    return view('materiel.index' , compact('count_ord' , 'count_imprimante' ,
+    'count_reseau', 'count_moniteurs' , 'route' , 'count_mobile' ,'count_fixe' , 'count_ticket'));
     }
 
     public function ordinateurs(){
@@ -191,7 +196,7 @@ try{
     }
 
     public function ordinateurs_update($id){
-        $route = '/Materiel/Ordinateurs/Modification';
+        $route = '/Materiel/Ordinateurs/Mise_a_jour';
 
         $data = $this->fetchData();
         $Moniteur_tables = Moniteur::whereNull('ordinateur_id')->get();

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('is_smartphone')->nullable();
             $table->boolean('is_tablet')->nullable();
             $table->date('data_achat')->nullable();
-            $table->float('Cout')->nullable();;
+            $table->float('Cout')->nullable();
             $table->softDeletes();
 
 

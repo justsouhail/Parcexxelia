@@ -15,7 +15,7 @@
 
              @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
 
             <!-- main -->
             <div class="main-content" >

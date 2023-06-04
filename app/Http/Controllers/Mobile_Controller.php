@@ -67,12 +67,15 @@ class Mobile_Controller extends Controller
 
     public function Mobiles(){
         $Mobiles = Mobile::all();
+        $route = '/Materiel/Appareil_Mobile/Liste';
 
-        return view('Mobiles.index_Mobile' ,compact('Mobiles') );
+        return view('Mobiles.index_Mobile' ,compact('Mobiles' , 'route') );
     }
     public function Mobiles_add(){
         $data = $this->fetchData();
-        return view('Mobiles.create_Mobile',$data   );
+        $route = '/Materiel/Appareil_Mobile/Ajout';
+
+        return view('Mobiles.create_Mobile',$data ,compact('route')  );
     }
 
     public function addMobile_traitement(Request $request){
@@ -110,12 +113,16 @@ class Mobile_Controller extends Controller
 
     public function Mobile_info($id){
         $Mobile = Mobile::findOrFail($id);    
-        return view('Mobiles.Mobile_info' , compact('Mobile'));    }
+        $route = '/Materiel/Appareil_Mobile/Details';
+
+        return view('Mobiles.Mobile_info' , compact('Mobile' , 'route'));    }
 
         public function Mobiles_update($id){
             $data = $this->fetchData();
             $Mobile = Mobile::findOrFail($id);
-            return view('Mobiles.Mobiles_update' , $data ,compact('Mobile')  );
+            $route = '/Materiel/Appareil_Mobile/Mise_a_jour';
+
+            return view('Mobiles.Mobiles_update' , $data ,compact('Mobile' ,  'route')  );
         }
 
         public function updateMobile_traitement(Request $request  , $id){

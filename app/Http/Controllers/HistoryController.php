@@ -9,7 +9,9 @@ class HistoryController extends Controller
 {
     public function index(){
         $Employes_tables = Employes::all();
-        return view('history.index' ,  compact('Employes_tables'));
+        $route = '/Historique_du_materiel ';
+
+        return view('history.index' ,  compact('Employes_tables' , 'route'));
     }
 
     public function history_consult(Request $request){

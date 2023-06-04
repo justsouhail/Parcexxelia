@@ -4,7 +4,6 @@
 
     @section('content')
     @push('css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
     <link rel="stylesheet" href="/css/nav_sidebar.css">
     <link rel="stylesheet" href="/css/employe_info.css">
     <link rel="stylesheet" href="/css/ordinateur_update.css">
@@ -18,7 +17,7 @@
 
         @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
             <!-- main -->
             
             <div class="main-content">
@@ -176,6 +175,16 @@
             <label class="form-check-label" for="Couleur">{{ __('') }}</label>
         </div>
         @error('Couleur')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <label for="Scanner"><strong>{{ __('Scanner') }}</strong></label>
+        <div class="form-check">
+            <input type="checkbox" name="Scanner" class="form-check-input @error('Scanner') is-invalid @enderror" id="Scanner" {{ old('Scanner') ? 'checked' : '' }}>
+            <label class="form-check-label" for="Scanner">{{ __('') }}</label>
+        </div>
+        @error('Scanner')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>

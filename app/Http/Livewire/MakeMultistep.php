@@ -13,11 +13,11 @@ use App\Models\Mobile;
 use App\Models\Ordinateur;
 use App\Models\Tel_fixe;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-use PDO;
-use PhpParser\Node\Expr\CallLike;
+use Illuminate\Routing\Redirector;
 
 class MakeMultistep extends Component
 {
@@ -56,6 +56,7 @@ class MakeMultistep extends Component
                     ->leftJoin('historique', 'employes.id', '=', 'historique.employes_id')
                     ->select('employes.*')
                      ->whereNull('historique.employes_id')
+                     ->orderBy('Nom') // Order by the 'Nom' column in ascending order
                       ->get();
                       $tag = 'Ordinateurs';
             }
@@ -162,6 +163,7 @@ class MakeMultistep extends Component
 
             ]);
         }
+
         $ord_id = Categorie::where('Categorie_Nom', 'Ordinateur')->value('id');
         $print_id = Categorie::where('Categorie_Nom', 'Imprimante')->value('id');
         $mob_id = Categorie::where('Categorie_Nom', 'Mobile')->value('id');
@@ -226,12 +228,9 @@ class MakeMultistep extends Component
             'isRemoteEnabled' => true   ]);
             
             $pdf->setPaper('A4', 'portrait')->setOptions(['margin_top' => 1, 'margin_bottom' => 1]);
-      
-
             return response()->streamDownload(function () use ($pdf) {
                 echo $pdf->output();
             }, 'affectation.pdf');
-            
-            
+   
     }
 }

@@ -115,7 +115,7 @@ table{
 
 
 
- @media only screen and (max-width:1500px){
+ /* @media only screen and (max-width:1500px){
     .cartes{
         grid-template-columns: repeat(3,1fr);
     }
@@ -226,7 +226,7 @@ table{
         .sidebar:hover .sidebar_menu {
             margin-right: 100px;
         }
-    }
+    } */
 
 
     .mn{

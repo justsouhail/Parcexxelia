@@ -8,7 +8,9 @@ use App\Models\Employes;
 use App\Models\Imprimante;
 use App\Models\Mobile;
 use App\Models\Ordinateur;
+use App\Models\Reseau;
 use App\Models\Tel_fixe;
+use App\Models\ticket;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -33,6 +35,8 @@ class DatabaseSeeder extends Seeder
 
         Imprimante::factory(10)->create();
         Tel_fixe::factory(10)->create();
+        Reseau::factory(10)->create();
+        ticket::factory(10)->create();
 
 
     }

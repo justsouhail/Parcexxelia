@@ -13,21 +13,21 @@
 
              @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
 
             <!-- main -->
             <div class="main-content" >
 
             <div class="users">
                 <div style="text-align: center;">
-                 <h1>Choisissez type de machine </h1>
+                 <h1>Choisissez type de matériel </h1>
                 </div>
             
             <div class="cartes">
-                        <!-- <a href="">
+                        <a href="/Materiel/Reseau">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
+                                <h1>{{isset($count_reseau) ? $count_reseau : 0}}</h1>
                                 <span>Matériel reseau</span>
                             </div>
                             <div>
@@ -35,7 +35,7 @@
 
                             </div>
                         </div>
-                        </a> -->
+                        </a>
                         <a href="/Materiel/ordinateurs">
                         <div class="carte">
                             <div class="info-carte">
@@ -56,16 +56,7 @@
                             <span><img src="/images/icons8-print-96.png"/></span>                            </div>
                         </div>
                         </a>
-                        <!-- <a href="">
-                        <div class="carte">
-                            <div class="info-carte">
-                                <h1>10</h1>
-                                <span>Scanner</span>
-                            </div>
-                            <div>
-                            <span><img src="/images/icons8-scanner-96.png"/></span>                            </div>
-                        </div>
-                        </a>            -->
+                        
                         <a href="/Materiel/Mobile">
                         <div class="carte">
                             <div class="info-carte">
@@ -76,11 +67,11 @@
                             <span><img src="/images/icons8-ipad-96.png"/></span>                            </div>
                         </div>
                         </a>  
-                        <a href="/Materiel/Tel_fixe">
+                        <a href="/Materiel/ticket">
                         <div class="carte">
                             <div class="info-carte">
-                                <h1>10</h1>
-                                <span>Machine Ticket</span>
+                                <h1>                            {{isset($count_ticket) ? $count_ticket : 0}}   </h1>
+                                                         <span>Distributeur </span>
                             </div>
                             <div>
                             <span><img src="/images/icons8-ticket-96.png"/></span>                            </div>

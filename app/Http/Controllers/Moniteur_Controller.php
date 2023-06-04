@@ -55,19 +55,18 @@ class Moniteur_Controller extends Controller
 
 
     public function moniteurs(){
-        $route = '/Materiel/Moniteur/table' ;
+        $route = '/Materiel/Moniteur/Liste' ;
         $moniteurs = Moniteur::all();
         // dd($moniteurs[0]->ordinateur->Marque->Marque_Nom);
         return view('moniteurs.index' , compact('moniteurs', 'route'));
     }
 
     public function DeleteAll(Request $request){
-        $route = '/Materiel/Moniteur/table' ;
         $ids = $request->input('ids', []);
         foreach ($ids as $id) {
             $this->deleteMoniteur($id);
         }
-        return redirect('/Materiel/Moniteur')->with('status', 'Les Moniteurs ont bien été supprimés avec succes.')->with('route', $route);
+        return redirect('/Materiel/Moniteur')->with('status', 'Les Moniteurs ont bien été supprimés avec succes.');
     }
 
     
@@ -87,13 +86,13 @@ class Moniteur_Controller extends Controller
 
 
     public function Moniteurs_add(){
-        $route = '/Materiel/Moniteur/table' ;
+        $route = '/Materiel/Moniteur/Ajout' ;
         $data = $this->fetchData();
+        
         return view('Moniteurs.create_moniteur',$data , compact('route')  );
     }
 
     public function addMoniteur_traitement(Request $request){
-        $route = '/Materiel/Moniteur/table' ;
         try{
 
             $request->validate([    
@@ -119,20 +118,19 @@ class Moniteur_Controller extends Controller
 
 
     public function Moniteur_info($id){
-        $route = '/Materiel/Moniteur/table' ;
+        $route = '/Materiel/Moniteur/Details' ;
         $Moniteur = Moniteur::findOrFail($id);    
         // dd($Moniteur->ordinateur)  ;
-        return view('Moniteurs.Moniteur_info' , compact('Moniteur' ));    }
+        return view('Moniteurs.Moniteur_info' , compact('Moniteur' , 'route'));    }
 
         public function Moniteurs_update($id){
-            $route = '/Materiel/Moniteur/table' ;
+            $route = '/Materiel/Moniteur/Mise_a_jour' ;
             $data = $this->fetchData();
             $Moniteur = Moniteur::findOrFail($id);
-            return view('Moniteurs.Moniteurs_update' , $data ,compact('Moniteur')  );
+            return view('Moniteurs.Moniteurs_update' , $data ,compact('Moniteur' , 'route')  );
         }
 
         public function updateMoniteur_traitement(Request $request  , $id){
-            $route = '/Materiel/Moniteur/table' ;
             $Moniteur = Moniteur::findOrFail($id);
             $this->saveMoniteurData($request, $Moniteur , 'update');
             return redirect('/Materiel/Moniteur/'.$id )->with('status' , 'L\'Moniteur a bien été Modifié avec succes. ');
@@ -140,7 +138,6 @@ class Moniteur_Controller extends Controller
         }
 
         public  function Moniteurs_delete($id){
-            $route = '/Materiel/Moniteur/table' ;
                 $Moniteur = Moniteur::findorfail($id);
                $Moniteur->delete();
                return redirect('/Materiel/Moniteur')->with('status' , 'L\'Moniteur a bien été supprimé   avec succes. ');
@@ -148,7 +145,6 @@ class Moniteur_Controller extends Controller
 
         public function Moniteur_pdf($id)
         {
-            $route = '/Materiel/Moniteur/table' ;
             $Moniteur = Moniteur::findOrFail($id);
         
             $pdf = PDF::loadView('Moniteurs.pdf_Moniteur', [

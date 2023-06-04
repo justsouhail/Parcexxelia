@@ -72,11 +72,7 @@
         </li>
         <li>Numéro de série: <strong>{{ isset($data2->N°_de_serie) ? $data2->N°_de_serie : '' }}</strong></li>
         <li>Service: <strong>{{ isset($employe->Service->Nom) ? $employe->Service->Nom : '' }}</strong></li>
-        @if (isset($data2->Status))
-            <li>Status: <strong>{{$data2->Status}}</strong></li>
-        @else
-            <li>[]</li>
-        @endif
+    
     </ul>
 
             </div>

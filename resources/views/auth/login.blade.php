@@ -14,7 +14,7 @@
 
     <h4 id="insc">S'indentifier</h4>
     <form method="POST" action="{{ route('login') }}">
-    {{ csrf_field() }}
+   @csrf
         <div>
         <input type="email" placeholder="email" id="email" class=" @error('email') is-invalid @enderror" name="email"  autocomplete="email" autofocus>
                     

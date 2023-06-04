@@ -15,15 +15,16 @@ class EmployesController extends Controller
     public function index() {
         $employes =  Employes::all();
         $services_tables = Service::all();
-        return view('Employes', compact('employes', 'services_tables'));
+        $route = '/Employés/Liste ';
+
+        return view('Employes', compact('employes', 'services_tables' , 'route'));
     }
 
     public function addEmployes_traitement(Request $request){
         $request->validate([
             'Nom' => 'required' ,
             'Prenom' => 'required' ,
-            'CIN' => 'required' ,
-            'Service' => 'required' ,
+          
         ]);
       
 
@@ -69,9 +70,10 @@ class EmployesController extends Controller
         ->select('historique_imprimante.*', 'imprimante.*', 'marque.Marque_Nom', 'model.Model_Nom')
         ->get();
     
-   
+        $route = '/Employés/Details ';
 
-                       return view('employes.employe_info' , compact('employe' , 'services_tables' , 'historique'  , 'historique_imprimante'));
+
+                       return view('employes.employe_info' , compact('employe' , 'services_tables' , 'historique'  , 'historique_imprimante' , 'route'));
     }
     public function updateEmployes_traitement(Request $request , $id){
     
@@ -103,7 +105,9 @@ class EmployesController extends Controller
     public function updateEmployes($id){
         $employe = Employes::findOrFail($id);
         $services_tables = Service::all();
-        return view('employes.update_user' , compact('employe' ,'services_tables' ));
+        $route = '/Employés/Mise_a_jour ';
+
+        return view('employes.update_user' , compact('employe' ,'services_tables' ,'route'));
     }
     public function deleteEmployes_traitement($id){
 

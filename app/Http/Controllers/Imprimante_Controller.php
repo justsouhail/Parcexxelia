@@ -29,7 +29,9 @@ class Imprimante_Controller extends Controller
 
     private function saveImprimanteData(Request $request, Imprimante $Imprimante , $cdt)
     {
+        // dd($request);
         $couleur = isset($request->Couleur) ? true : false;
+        $Scanner = isset($request->is_scanner) ? true : false;
 
         $Imprimante->N°_de_serie = $request->N°_de_serie;
         $Imprimante->Cout = $request->Cout;
@@ -43,6 +45,8 @@ class Imprimante_Controller extends Controller
         $Imprimante->model_id = $request->Model;
         $Imprimante->marque_id = $request->Marque;
         $Imprimante->Couleur = $couleur;
+        $Imprimante->is_scanner = $Scanner;
+
 
      if($cdt == 'save'){
         
@@ -67,13 +71,15 @@ class Imprimante_Controller extends Controller
 
     public function imprimantes(){
         $imprimantes = Imprimante::all();
-        // dd($imprimantes)  ;
+        $route = '/Materiel/Imprimante/Liste ';
 
-        return view('imprimantes.index_imprimate' ,compact('imprimantes') );
+        return view('imprimantes.index_imprimate' ,compact('imprimantes' , 'route') );
     }
     public function imprimantes_add(){
         $data = $this->fetchData();
-        return view('imprimantes.create_imprimate',$data   );
+        $route = '/Materiel/Imprimante/Ajout ';
+
+        return view('imprimantes.create_imprimate',$data  , compact('route') );
     }
 
     public function addimprimante_traitement(Request $request){
@@ -110,13 +116,17 @@ class Imprimante_Controller extends Controller
 
 
     public function imprimante_info($id){
-        $imprimante = Imprimante::findOrFail($id);    
-        return view('imprimantes.imprimante_info' , compact('imprimante'));    }
+        $imprimante = Imprimante::findOrFail($id);   
+        $route = '/Materiel/Imprimante/Details ';
+ 
+        return view('imprimantes.imprimante_info' , compact('imprimante' , 'route'));    }
 
         public function imprimantes_update($id){
             $data = $this->fetchData();
             $imprimante = Imprimante::findOrFail($id);
-            return view('imprimantes.imprimantes_update' , $data ,compact('imprimante')  );
+            $route = '/Materiel/Imprimante/Mise_a_jour ';
+
+            return view('imprimantes.imprimantes_update' , $data ,compact('imprimante' , 'route')  );
         }
 
         public function updateImprimante_traitement(Request $request  , $id){

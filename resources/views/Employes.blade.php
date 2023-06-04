@@ -13,7 +13,7 @@
 
         @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
             <!-- main -->
             
             <div class="main-content">
@@ -38,22 +38,23 @@
                            
                         </div>
                         <div class="carte-body">
-                            <table style="width: 100%;" id="data">
+                            <table style="width: 100%; " id="data" >
                                 
                             <thead>
                                     <tr >
-                                        <td>CIN <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
+                                        <td>Matricule <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
                                         <td>Nom & Prenom  <span class="arrow">&UpArrow;</span></td>
                                         <td>Service <span class="arrow">&UpArrow;</span></td>
                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($employes as $employe)
+                                    @foreach($employes->sortBy('Prenom') as $employe)
                                    <tr class="hoverable"onclick="window.location='/Employes/{{$employe->id}}';"    class="mydivouter" >
-                                        <td>{{$employe->CIN}}</td>
-                                        <td><strong>{{  $employe->Prenom}} &nbsp{{ $employe->Nom}}</strong></td>
-                                        <td>{{  $employe->service->Nom}}</td>
+                                   <td  style="font-size: 15px  !important;">{{ isset($employe->CIN) ? $employe->CIN : '' }}</td>
+                    <td  style="font-size: 15px  !important;">{{ isset($employe->Prenom) ? $employe->Prenom : '' }} &nbsp{{ isset($employe->Nom) ? $employe->Nom : '' }}</td>
+                    <td>{{ isset($employe->service->Nom) ? $employe->service->Nom : '' }}</td>
+
                                     
                                     
                                     </tr>

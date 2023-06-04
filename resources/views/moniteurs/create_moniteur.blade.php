@@ -4,7 +4,6 @@
 
     @section('content')
     @push('css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
     <link rel="stylesheet" href="/css/nav_sidebar.css">
     <link rel="stylesheet" href="/css/employe_info.css">
     <link rel="stylesheet" href="/css/ordinateur_update.css">
@@ -18,7 +17,7 @@
 
         @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
             <!-- main -->
             
             <div class="main-content">
@@ -57,6 +56,7 @@
                     @enderror
     </div>
   </div>
+  
   <div class="col-4">
     <div class="form-group" >
       <label for="Model" ><strong>{{ __('Model') }}</strong></label>

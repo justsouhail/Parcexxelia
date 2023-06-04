@@ -14,9 +14,11 @@ use App\Models\Moniteur;
 use App\Models\Ordinateur;
 use App\Models\Os;
 use App\Models\Post;
+use App\Models\Reseau;
 use App\Models\Role;
 use App\Models\Service;
 use App\Models\Tel_fixe;
+use App\Models\ticket;
 use App\Models\verifytoken;
 use Illuminate\Support\Facades\Mail;
 
@@ -39,8 +41,9 @@ class Admin_Controller extends Controller
         }
         else{
 
-        
-            return  view('admin.verify');
+            $route = '/Admin/Verification';
+
+            return  view('admin.verify' , compact('route'));
         }
     }
 
@@ -64,8 +67,8 @@ class Admin_Controller extends Controller
 
         if($user->is_admin){
 
-        
-            return view('admin.index' , compact('user'));}
+            $route = '/Admin';
+            return view('admin.index' , compact('user' , 'route'));}
             else {
                return redirect('/admin/verify');
             }
@@ -110,14 +113,25 @@ class Admin_Controller extends Controller
             $columns = Schema::getColumnListing('tel_fixes');
                 $data =  Tel_fixe::onlyTrashed()->get();
         }
+        else  if($category == 'Reseau'){
+            $tag='Reseau';
+            $columns = Schema::getColumnListing('reseaus');
+                $data =  Reseau::onlyTrashed()->get();
+        }  
+         else  if($category == 'ticket'){
+            $tag='Distributeur de ticket';
+            $columns = Schema::getColumnListing('tickets');
+                $data =  ticket::onlyTrashed()->get();
+        }
+        
         
         
         
         $user = Auth::user();
         if($user->is_admin){
 
-        
-            return view('admin.backup' , compact('columns' , 'data' , 'tag'));
+            $route = '/Admin/Sauvegarde';
+            return view('admin.backup' , compact('columns' , 'data' , 'tag' , 'route'));
         }
             else {
                return redirect('/admin/verify');
@@ -146,7 +160,12 @@ class Admin_Controller extends Controller
         else  if($category == 'Telephone_Fixe'){
             Tel_fixe::whereId($id)->restore();
         }
-
+        else  if($category == 'Reseau'){
+            Reseau::whereId($id)->restore();
+        }
+        else  if($category == 'ticket'){
+            Reseau::whereId($id)->restore();
+        }
         return back();
     }
 
@@ -238,8 +257,9 @@ class Admin_Controller extends Controller
        $user = Auth::user();
        if($user->is_admin){
 
-       
-        return view('admin.parametre' , compact('data' , 'tag'));
+        $route = '/Admin/Parametre';
+
+        return view('admin.parametre' , compact('data' , 'tag' , 'route'));
        }
            else {
               return redirect('/admin/verify');

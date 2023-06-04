@@ -57,6 +57,14 @@ function handleDelete(element, action) {
           }
           else if(action == 'fixe'){
             setFormAction('/Materiel/fixe/DeleteAll');
+            
+          }
+          else if(action == 'ticket'){
+            setFormAction('/Materiel/ticket/DeleteAll');
+
+          }
+          else if(action == 'Reseau'){
+            setFormAction('/Materiel/Reseau/DeleteAll');
 
           }
       }
@@ -87,6 +95,15 @@ function handleDelete(element, action) {
         window.location.href = '/Materiel/Fixe/delete/' + id;
 
       }
+      else if (action === 'Reseau'){
+        window.location.href = '/Materiel/Reseau/delete/' + id;
+
+      }
+      else if (action === 'ticket'){
+        window.location.href = '/Materiel/ticket/delete/' + id;
+
+      }
+      
     }
   }
 
@@ -105,11 +122,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 input.addEventListener('input' , function (e){
         table_rows.forEach((row , i)=>{ 
-            let row_data = row.textContent;
-            let input_data =  input.value;
+          
+            let row_data = row.textContent.toLowerCase();
+            let input_data = input.value.toLowerCase();
 
             row.classList.toggle('hide' , row_data.indexOf(input_data)<0);
-            row.style.setProperty('--delay' ,i/25 +'s');
           })
     });
 
@@ -157,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
     nav.setAttribute('id', 'nav');
     data.parentNode.insertBefore(nav, data.nextSibling);
   
-    var rowsShown = 20;
+    var rowsShown = 30;
     var rowsTotal = data.getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
     var numPages = Math.ceil(rowsTotal/rowsShown);
   
@@ -217,7 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (this.checked) {
         var checkitems = document.querySelectorAll('.checkitem');
      
-          console.log(checkitems);
         checkitems.forEach(function(item) {
           item.checked = true;
         
@@ -237,5 +253,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     
+    document.addEventListener('DOMContentLoaded', function() {
 
 
+    var dropdown = document.getElementById("dropdown");
+    dropdown.addEventListener("click", function() {
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
+    });
+    });

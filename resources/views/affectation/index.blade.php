@@ -15,7 +15,7 @@
 
              @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
 
             <!-- main -->
             <div class="main-content" >
@@ -26,7 +26,7 @@
                     @endif
                     {{ session('status') }}
                 </div>
-            @endif
+    @endif
                 <div class="d-flex justify-content-center align-items-center" >
 
 @livewire('make-multistep')
@@ -39,9 +39,8 @@
       @push('scripts')
      
 
-      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-      <script src="{{ asset('/js/affectation.js')}}"></script>
+      <script src="{{ asset('/js/affecation.js')}}"></script>
    
       @endpush
       </div>

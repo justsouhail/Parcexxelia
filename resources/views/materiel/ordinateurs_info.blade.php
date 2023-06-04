@@ -15,7 +15,7 @@
 
              @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
 
             <!-- main -->
             <div class="main-content" >
@@ -83,18 +83,7 @@
 {{ isset($ordinateur->Type->Type_Nom) ? $ordinateur->Type->Type_Nom : '' }}
 </div></td>
 </tr>
-<tr>
-                            <td class="field">MONITEUR</td>
-                            <td class="value">
-                                @if (count($Moniteur_tables) > 0)
-                                    @foreach($Moniteur_tables as $Mon)
-                                        {{ $Mon->Moniteur_Nom }} <br>
-                                    @endforeach
-                                @else
-                                    <span style="color: red;">Non disponible</span>
-                                @endif
-                            </td>
-</tr>
+
 
 <tr>
 <td class="field">MONITEUR</td>

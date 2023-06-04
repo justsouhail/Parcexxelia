@@ -15,7 +15,7 @@
 
              @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
 
             <!-- main -->
             <div class="main-content" >
@@ -115,6 +115,12 @@
                             </td>
                         </tr>
                         <tr>
+                            <td class="field">Addresse IP</td>
+                            <td class="value">
+                                {{ isset($imprimante->Addresse_IP) ? $imprimante->Addresse_IP : '' }}
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="field">TYPE CONNEXION</td>
                             <td class="value">
                                 {{ isset($imprimante->type_Connextion) ? $imprimante->type_Connextion : '' }}
@@ -158,7 +164,6 @@
 
             
            @push('scripts')
-           <script src="{{ asset('/js/users.js')}}"></script>
 
            @endpush
 

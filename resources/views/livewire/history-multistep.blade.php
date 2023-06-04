@@ -6,14 +6,14 @@
                     @if($currentStep  == 1)
                 <div class="step-one ">
                 <div class="card " style="width: 50rem;">
-                        <div class="card-header bg-secondary text-white">ETAPE 1/3 - Categorie</div>
+                        <div class="card-header bg-secondary text-white">ETAPE 1/2 - Categorie</div>
                         <div class="card-body  bl " >
                             <div class="row">
                                 <div class="col-md-8 mx-auto">
                                     <div class="form-group">
-                                        <label for=""><h4 style="color: white;">Choisir Categorie</h4></label>
+                                        <label for=""><h4 style="color: white;">Choisir  categorie</h4></label>
                                         <select class="form-control @error('Categorie') is-invalid @enderror" name="Categorie" wire:model="Categorie">
-                                        <option value="" selected>Categorie</option>
+                                        <option value="" selected disabled style="color: red !important;">Appuiyez ici pour selectionnez une  categorie</option>
                                         @foreach($categorie_tables as $ct)
                                             <option value="{{ $ct->id }}" {!! old('Categorie') == $ct->id ? 'selected' : '' !!}>
                                                 {!! old('Categorie') == $ct->id ? '<strong>' . $ct->Categorie_Nom . '</strong>' : $ct->Categorie_Nom !!}
@@ -37,14 +37,14 @@
 
                 <div class="step-two ">
                 <div class="card " style="width: 50rem;">
-                        <div class="card-header bg-secondary text-white">ETAPE 2/3 - Materiel</div>
+                        <div class="card-header bg-secondary text-white">ETAPE 2/2 - Materiel</div>
                         <div class="card-body  bl " >
                             <div class="row">
                                 <div class="col-md-8 mx-auto">
                                     <div class="form-group">
                                         <label for=""><h4 style="color: white;"> Choisir {{$tag}} </h4></label>
                                         <select class="form-control" wire:model="materiel">
-                                            <option value="" selected>{{$tag}}</option>
+                                            <option value="" selected disabled style="color: red !important;"> Appuiyez ici pour selectionnez {{$tag}}</option>
                                             @foreach($data1 as $dt)
                                             <option value="{{ isset($dt->id) ? $dt->id : '' }}" {!! old('materiel') == $dt->id ? 'selected' : '' !!}>
                                                     {{ isset($dt->Marque->Marque_Nom) ? $dt->Marque->Marque_Nom : '' }}
@@ -75,9 +75,9 @@
 
 
                 <div class="step-two ">
-                <div class="card " style="width: 50rem;">                <div class="card card-custom-height" style="width: 50rem;">
-    <div class="card-header bg-secondary text-white"  style="margin-bottom: 1rem;">
-        <div class="d-flex justify-content-between align-items-center">
+                <div class="card " style="width: 50rem;  ">                <div class="card card-custom-height" style="width: 50rem;">
+    <div class="card-header bg-secondary text-white" >
+        <div class="d-flex justify-content-between align-items-center" >
             <span>Historique d'utilisation &nbsp; &nbsp; {{$tag}}</span>
             <button type="submit" class="btn btn-md btn-primary custom-button">Imprimer <span><img src="/images/icons8-printer-16.png" alt="" id="arrow"></span> </button>
         </div>
@@ -97,7 +97,6 @@
                 @endforeach
               
              
-                <!-- More table rows... -->
             </table>
         </div>
     </div>

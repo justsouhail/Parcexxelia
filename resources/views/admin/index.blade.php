@@ -12,7 +12,7 @@
 
         @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
             <!-- main -->
             
             <div class="main-content">
@@ -51,7 +51,7 @@
                 @csrf
 				<div class="row gutters" style="margin-top: 1rem;">
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-						<h6 class="mb-3 text-primary">Parametres systeme</h6>
+						<h6 class="mb-3 text-primary">Parametres Profile</h6>
 					</div>
 
                     
@@ -167,6 +167,30 @@
                             <div class="info-carte">
                                 
                                 <span>Telephone fixe</span>
+                            </div>
+                            <div>
+                                <span><img src="/images/icons8-workstation-22.png"/></span>
+
+                            </div>
+                        </div>
+                        </a>
+                        <a href="/admin/backup?category=Reseau">
+                        <div class="carte">
+                            <div class="info-carte">
+                                
+                                <span>Reseau</span>
+                            </div>
+                            <div>
+                                <span><img src="/images/icons8-workstation-22.png"/></span>
+
+                            </div>
+                        </div>
+                        </a>
+                        <a href="/admin/backup?category=ticket">
+                        <div class="carte">
+                            <div class="info-carte">
+                                
+                                <span>Distributeur de ticket</span>
                             </div>
                             <div>
                                 <span><img src="/images/icons8-workstation-22.png"/></span>

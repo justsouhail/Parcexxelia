@@ -5,7 +5,7 @@
             <header>
                 <h2  style="display: flex; align-items: center;">
                     <label style="vertical-align: middle; "  for="menu-toogle"> <span style="cursor: pointer;"><ion-icon name="menu-outline" id="menu"></ion-icon></span></label> 
-                    <span style="font-size: 18px; margin-bottom: 0.7rem; margin-left: 10px;" class="current-route">
+                    <span style="font-size: 18px; margin-bottom: 0.7rem; margin-left: 10px;" class="current-route"> <span>{{$route}}</span>
     
 </span>
  
@@ -18,6 +18,8 @@
                 
 
                 <div class="user-wrapper">
+               
+                <span ><a href="/"><span><img src="/images/icons8-home-22.png"/></span></a></span>
 
                     <div class="nav-item dropdown" style="margin-right: 80px !important ;">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -14,7 +14,7 @@
 
        @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
 
             <!-- main -->
             <div class="main-content" >
@@ -119,11 +119,17 @@
             ['Ordinateur', <?php echo $count_ord; ?>],
             ['Imprimante', <?php echo $count_imprimante; ?>],
             ['Moniteur', <?php echo $count_moniteurs; ?>],
-            ['Mobile', <?php echo $count_mobile; ?>]
-        ]);
+            ['Mobile', <?php echo $count_mobile; ?>],
+            ['Reseau', <?php echo $count_reseau; ?>],
+            ['Telephone fixe', <?php echo $count_fixe; ?>],
+            ['Distibuteur de tickets', <?php echo $count_ticket; ?>],
 
-        var options1 = {
-            title: 'Les types du materiel' ,
+
+           
+        ]);
+                
+        var options1 = {    
+            title: 'Les categories du materiel' ,
             is3D: true,
 
              width: 500,
@@ -175,7 +181,7 @@
         ]);
 
         var options4 = {
-            title: 'Les marque les plus répondus' ,
+            title: 'Les marques les plus répondus' ,
             is3D: true,
 
             width: 500,

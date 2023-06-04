@@ -64,7 +64,9 @@ class Tel_fixe_Controller extends Controller
 
     public function Fixe(){
         $fixe = Tel_fixe::all();
-        return view('fixe.index' , compact('fixe')); 
+        $route = '/Materiel/Telephone_fixe/Liste ';
+
+        return view('fixe.index' , compact('fixe' , 'route')); 
     }
 
     public function DeleteAll(Request $request){
@@ -80,7 +82,9 @@ class Tel_fixe_Controller extends Controller
 
     public function Fixes_add(){
         $data = $this->fetchData();
-        return view('fixe.create_Fixe',$data   );
+        $route = '/Materiel/Telephone_fixe/Ajout ';
+
+        return view('fixe.create_Fixe',$data  ,  compact('route')  );
     }
 
 
@@ -111,13 +115,16 @@ class Tel_fixe_Controller extends Controller
 
 
     public function Fixe_info($id){
-        $Fixe = Tel_fixe::findOrFail($id);    
-        return view('fixe.Fixe_info' , compact('Fixe'));    }
+        $Fixe = Tel_fixe::findOrFail($id); 
+        $route = '/Materiel/Telephone_fixe/Details ';
+        return view('fixe.Fixe_info' , compact('Fixe' , 'route'));    }
 
         public function Fixe_update($id){
             $data = $this->fetchData();
             $Fixe = Tel_fixe::findOrFail($id);
-            return view('fixe.fixe_update' , $data ,compact('Fixe')  );
+            $route = '/Materiel/Telephone_fixe/Mise_a_jour ';
+
+            return view('fixe.fixe_update' , $data ,compact('Fixe' , 'route')  );
         }
 
         public function updateFixe_traitement(Request $request  , $id){
@@ -134,7 +141,7 @@ class Tel_fixe_Controller extends Controller
         }
 
         public function Fixe_pdf($id)
-        {
+        {   
             $Fixe = Tel_fixe::findOrFail($id);
         
             $pdf = PDF::loadView('fixe.pdf_Fixe', [

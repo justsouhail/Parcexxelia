@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('type_Connextion')->nullable();
             $table->float('Nb_cartouche')->nullable();
             $table->boolean('Couleur')->nullable();
+            $table->boolean('is_scanner')->nullable();
             $table->integer('marque_id')->unsigned()->nullable();;
             $table->integer('model_id')->unsigned()->nullable();;
             $table->integer('categorie_id')->unsigned()->nullable();;

@@ -12,7 +12,7 @@
 
         @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
             <!-- main -->
             
             <div class="main-content">
@@ -28,25 +28,25 @@
                 <div class="profile-links">
                 <li>
                 <div>
-    <span>Nom :</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <span>Nom :</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span>{{ isset($employe->Nom) ? $employe->Nom : '' }}</span>
 </div>
                 </li>
 <li>
     <div>
-        <span>Prenom :</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <span>Prenom :</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span>{{ isset($employe->Prenom) ? $employe->Prenom : '' }}</span>
     </div>
 </li>
 <li>
     <div>
-        <span>CIN :</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <span>Matricule :</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span>{{ isset($employe->CIN) ? $employe->CIN : '' }}</span>
     </div>
 </li>
 <li>
     <div>
-        <span>Service :</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <span>Service :</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span>{{ isset($employe->service) ? $employe->service->Nom : '' }}</span>
     </div>
 
@@ -85,7 +85,7 @@
                         <div class="row" style="margin-bottom: 1rem;">
                             <div class="col-8">
                                 
-                            {{$hs->Marque_Nom}} &nbsp;  {{$hs->Model_Nom}}&nbsp; {{$hs->N°_de_serie}}
+                            {{$hs->Marque_Nom}} &nbsp; {{$hs->Model_Nom}}&nbsp; {{$hs->N°_de_serie}}
                                                     </div>
                             <div class="col-4">
                             {{$hs->date_affectation}}
@@ -120,7 +120,6 @@
                  <!-- footer -->
    
    @push('scripts')
-   <script src="{{ asset('/js/employes.js')}}"></script>
    
 
         @endpush

@@ -14,7 +14,7 @@
 
              @include('sidebar')
             <!-- navbar -->
-            @include('nav')
+            @include('nav', ['route' => $route])
 
             <!-- main -->
             <div class="main-content" >
@@ -59,11 +59,11 @@
                                     <input type="checkbox" id="checkall" class="larger-checkbox" onchange="handleCheckboxChange(this)">
 
                                      </td>
-                                        <td>N° de serie <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
                                         <td>Marque<span class="arrow">&UpArrow;</span></td>
                                         <td>utilisateur <span class="arrow">&UpArrow;</span></td>
                                         <td>Addresse IP<span class="arrow">&UpArrow;</span></td>
                                         <td>Numero Telephone  <span class="arrow">&UpArrow;</span></td>
+                                        <td>Date d'ajout <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
 
                                     </tr>
                                 </thead>
@@ -75,13 +75,6 @@
                                    <input type="checkbox" class="larger-checkbox checkitem" name="ids[{{ $ord->id }}]" value="{{$ord->id}}">
                                      </td>
 
-                                        <td>
-                                            @if(isset($ord->N°_de_serie))
-                                               {{$ord->N°_de_serie}}
-                                               @else
-                                    <span style="color: red;">Non disponible</span>
-                                        @endif
-                                    </td>
                                     <td>
                                             @if(isset($ord->Marque->Marque_Nom))
                                                {{$ord->Marque->Marque_Nom}}
@@ -115,7 +108,16 @@
                                     <span style="color: red;">Non disponible</span>
                                         @endif
                                     </td>
+                                    <td>
+                                            @if(isset($ord->created_at))
+                                               {{$ord->created_at}}
+                                               @elseif(isset($ord->updated_at))
+                                    <span>  {{$ord->updated_at}}</span>
+                                    @else 
+                                    <span style="color: red;">  Non disponible</span>
 
+                                        @endif
+                                    </td>
                                     
                                     </tr>
                                      @endforeach      
