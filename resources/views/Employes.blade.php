@@ -41,8 +41,8 @@
                             <table style="width: 100%; " id="data" >
                                 
                             <thead>
-                                    <tr >
-                                        <td>Matricule <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
+                                    <tr>
+                                        <td>Date d'ajout <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
                                         <td>Nom & Prenom  <span class="arrow">&UpArrow;</span></td>
                                         <td>Service <span class="arrow">&UpArrow;</span></td>
                                        
@@ -51,7 +51,17 @@
                                 <tbody>
                                     @foreach($employes->sortBy('Prenom') as $employe)
                                    <tr class="hoverable"onclick="window.location='/Employes/{{$employe->id}}';"    class="mydivouter" >
-                                   <td  style="font-size: 15px  !important;">{{ isset($employe->CIN) ? $employe->CIN : '' }}</td>
+                                   <td  style="font-size: 15px  !important;">   
+                                            @if(isset($employe->created_at))
+                                               {{$employe->created_at}}
+                                               @elseif(isset($employe->updated_at))
+                                    <span>  {{$employe->updated_at}}</span>
+                                    @else 
+                                    <span style="color: red;">  ------</span>
+
+                                        @endif
+                                    
+                                </td>
                     <td  style="font-size: 15px  !important;">{{ isset($employe->Prenom) ? $employe->Prenom : '' }} &nbsp{{ isset($employe->Nom) ? $employe->Nom : '' }}</td>
                     <td>{{ isset($employe->service->Nom) ? $employe->service->Nom : '' }}</td>
 

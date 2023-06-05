@@ -46,7 +46,7 @@
     <div class="form-group">
       <label for="Marque" class="required" ><strong>{{ __('Marque') }}</strong></label>
       <select name="Marque" class="form-control  @error('Marque') is-invalid @enderror " id="Marque">
-        <option value="">Choisir un Marque</option>
+        <option value="">---</option>
         @foreach($Marque_tables as $Marque)
           <option value="{{ $Marque->id }}" {{ old('Marque') == $Marque->id ? 'selected' : '' }}>{{ $Marque->Marque_Nom }}</option>
         @endforeach
@@ -60,7 +60,7 @@
     <div class="form-group" >
       <label for="Model" ><strong>{{ __('Model') }}</strong></label>
       <select name="Model" class="form-control @error('Model') is-invalid @enderror " id="Model">
-        <option value="">Choisir un Model</option>
+        <option value="">------</option>
         @foreach($Model_tables as $Model)
           <option value="{{ $Model->id }}" {{ old('Model') == $Model->id ? 'selected' : '' }}>{{ $Model->Model_Nom }}</option>
         @endforeach

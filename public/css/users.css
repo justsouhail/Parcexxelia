@@ -148,8 +148,20 @@ tbody td{
    #gerer{
       display: none;
    }
+
 }
 @media screen and (max-width: 1000px) {
+   .carte-header{
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+   }
+   .bar-recherche{
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+     
+   }
+   
   .head{
    display: none;
   }
@@ -191,32 +203,7 @@ tbody td{
   .bar-recherche {
    display: none;
 }
-.sidebar:hover{
-   width: 350px;
-   z-index: 200;
-}
 
-.sidebar:hover .logo h1 , 
-.sidebar:hover   a li{
-   padding-left: 2rem;
-   text-align: left;
-}
-.sidebar:hover .logo h1  span:last-child ,
-.sidebar:hover  .sidebar_menu   a li span:last-child{
-   display: inline;
-}
-.sidebar:hover .sidebar_menu   a li span{
-   padding-left: 1rem;
-}
-
-#gerer{
-   display: none;
-}
-.cartes {
-   display: grid;
-   grid-template-columns: 1fr;
-   
- }
  }
 
 

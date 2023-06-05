@@ -79,7 +79,6 @@ class HistoryMultistep extends Component
 
                   $tag = 'Telephone Fixe';
         }        
-
         return view('livewire.history-multistep' , [
             'categorie_tables' => $categorie_tables,
             'data1' => $data1 , 

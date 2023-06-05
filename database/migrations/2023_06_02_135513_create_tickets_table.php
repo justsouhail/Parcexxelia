@@ -19,7 +19,7 @@ return new class extends Migration
             
             $table->integer('model_id')->unsigned()->nullable();
             $table->integer('marque_id')->unsigned()->nullable();;
-            $table->integer('categorie_id')->unsigned()->nullable()->default(8);
+            $table->integer('categorie_id')->unsigned()->nullable()->default(7);
             $table->softDeletes();
             
             $table->foreign('model_id')->references('id')->on('model');

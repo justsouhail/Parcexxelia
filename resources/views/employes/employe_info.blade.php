@@ -28,25 +28,43 @@
                 <div class="profile-links">
                 <li>
                 <div>
-    <span>Nom :</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>Nom :</span>&nbsp;
     <span>{{ isset($employe->Nom) ? $employe->Nom : '' }}</span>
 </div>
                 </li>
 <li>
     <div>
-        <span>Prenom :</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>Prenom :</span>&nbsp;
         <span>{{ isset($employe->Prenom) ? $employe->Prenom : '' }}</span>
     </div>
 </li>
 <li>
     <div>
-        <span>Matricule :</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span>{{ isset($employe->CIN) ? $employe->CIN : '' }}</span>
+        <span>Matricule :</span>&nbsp;
+        <span>{{ isset($employe->Matricule) ? $employe->Matricule : '' }}</span>
     </div>
 </li>
 <li>
     <div>
-        <span>Service :</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>Sage :</span>&nbsp;
+        <span>{{ isset($employe->Sage) ? $employe->Sage : '' }}</span>
+    </div>
+</li>
+<li>
+    <div>
+        <span>Commun :</span>&nbsp;
+        <span>{{ isset($employe->commun) ? $employe->commun : '' }}</span>
+    </div>
+</li>
+<li>
+    <div>
+        <span>drive :</span>&nbsp;
+        <span>{{ isset($employe->drive) ? $employe->drive : '' }}</span>
+    </div>
+</li>
+<li>
+    <div>
+        <span>Service :</span> &nbsp;
         <span>{{ isset($employe->service) ? $employe->service->Nom : '' }}</span>
     </div>
 
@@ -54,7 +72,7 @@
                     </li>
         
                     <li id="btn">
-                   <a href="/Employes/update_show/{{$employe->id}}"> <button  >Mise á jour<span >
+                   <a href="/Employes/update_show/{{$employe->id}}"> <button class="infobtn"  >Mise á jour<span >
                     <ion-icon id="arrow" name="reload-circle-outline"></ion-icon>
                                 </span> </button></a>
                     
@@ -62,7 +80,7 @@
 
                     <li id="btn">
                     <a href="/Employes/delete/{{$employe->id}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet employé ?');">
-                            <button data-bs-toggle="modal">
+                            <button class="infobtn">
                                 Supprimer
                                 <span>
                                     <ion-icon id="arrow" name="trash-outline"></ion-icon>

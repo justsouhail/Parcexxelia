@@ -26,14 +26,15 @@ class EmployesController extends Controller
             'Prenom' => 'required' ,
           
         ]);
-      
 
 
 
             $employes = new Employes();
              $employes->Nom = $request->Nom;
             $employes->Prenom = $request->Prenom;
-            $employes->CIN = $request->CIN;
+            $employes->Matricule = $request->CIN;
+            $employes->Sage = $request->Sage;
+            $employes->commun = $request->Commun;
 
 
             $employes->service_id = $request->Service;
@@ -90,7 +91,11 @@ class EmployesController extends Controller
    
         $employe->Nom = $request->Nom;
         $employe->Prenom = $request->Prenom;
-        $employe->CIN = $request->CIN;
+        $employe->Matricule = $request->CIN;
+        $employe->Sage = $request->Sage;
+        $employe->commun = $request->Commun;
+
+
         $employe->service_id = $request->Service;
 
   

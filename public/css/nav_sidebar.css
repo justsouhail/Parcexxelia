@@ -106,8 +106,14 @@
 #menu-toogle:checked + .sidebar{
         width: 100px;
     }
-    
-    #menu-toogle:checked  + .sidebar .logo h1 , 
+    #menu-toogle:checked + .sidebar .btnbtnbtn {
+        display: none;
+        
+    }
+    #menu-toogle:checked + .sidebar #dropdown{
+        padding-right: 0px;
+    }
+     .sidebar .logo h1 , 
     #menu-toogle:checked +.sidebar   a li{
         padding-left: 0rem;
         text-align: center;
@@ -247,3 +253,45 @@
     margin-bottom: 50px;
 
  }
+
+ @media screen and (max-width: 1300px) {
+
+    .main-content{
+       margin-left: 100px !important;
+   }
+    .navigation header{
+       width: calc(100%-100px);
+       margin-left: 100px !important;
+   }
+   .sidebar{
+    width: 100px !important;
+    
+ }
+ 
+ .sidebar .logo h1 , 
+ .sidebar   a li{
+    padding-left: 0rem;
+    text-align: center;
+ }
+ .sidebar .logo h1  span:last-child ,
+ .sidebar .sidebar_menu   a li span:last-child{
+    display: none;
+ }
+ .sidebar .sidebar_menu   a li span{
+    padding-left: 0rem;
+ }
+ .btnbtnbtn {
+    display: none;
+    
+ }
+ #dropdown{
+    padding-right: 0px;
+ }
+ }
+
+ @media screen and (max-width: 1400px) {
+    .status{
+     display: none !important;
+    }
+    
+}

@@ -20,7 +20,10 @@ return new class extends Migration
 
             $table->string('Nom')->nullable();
             $table->string('Prenom')->nullable();
-            $table->string('CIN')->nullable();
+            $table->string('Matricule')->nullable();
+            $table->string('Sage')->nullable();
+            $table->string('commun')->nullable();
+            $table->string('drive')->nullable();
             $table->unsignedInteger('service_id')->nullable();
             $table->softDeletes();
             $table->foreign('service_id')->references('id')->on('services')->nullable();

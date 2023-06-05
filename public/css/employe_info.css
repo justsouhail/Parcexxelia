@@ -60,20 +60,20 @@
     margin: 100px 70px 0 70px;
     border-radius: 10px;
 }
-button{
+.infobtn{
      margin-left: 25px;
-    background-color: white;
+    
     display: inline-block;
     vertical-align: middle;
     border-radius: 10px !important;
-        color: var( #272e48);
+        color:  #272e48 !important;
         padding: 14px 20px 14px 20px ;
         font-size: 14px;
         border: none;
         cursor: pointer;
  
  }
-  button:hover{
+  .infobtn:hover{
     background-color: var(--first-color)
  }
 

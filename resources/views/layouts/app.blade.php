@@ -45,7 +45,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
 <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script> -->
 
-  
+<script src="{{ asset('js/disableBackButton.js') }}"></script>
+
 @livewireScripts
 </body>
 </html>

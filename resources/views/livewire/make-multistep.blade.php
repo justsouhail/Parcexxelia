@@ -13,7 +13,7 @@
                                     <div class="form-group">
                                         <label for=""><h4>Choisir Categorie</h4></label>
                                         <select class="form-control @error('Categorie') is-invalid @enderror" name="Categorie" wire:model="Categorie"     >
-                                        <option value="" selected disabled style="color: red !important;"> Appuiyez ici pour selectionner une Categorie</option>
+                                        <option value="" selected disabled style="color: red !important;"> ------</option>
                                         @foreach($categorie_tables as $ct)
                                             <option value="{{ $ct->id }}" {!! old('Categorie') == $ct->id ? 'selected' : '' !!}>
                                               <strong style="color: black !important;">  {!! old('Categorie') == $ct->id ? '<strong>' . $ct->Categorie_Nom . '</strong>' : $ct->Categorie_Nom !!}</strong>
@@ -45,7 +45,7 @@
                                     <div class="form-group">
                                         <label for=""><h4> Choisir {{$tag}} </h4></label>
                                         <select class="form-control" wire:model="materiel">
-                                        <option value="" selected disabled style="color: red !important;"> Appuiyez ici pour selectionnez {{$tag}}</option>
+                                        <option value="" selected disabled style="color: red !important;"> ------</option>
                                             @foreach($data1 as $dt)
                                             <option value="{{ isset($dt->id) ? $dt->id : '' }}" {!! old('materiel') == $dt->id ? 'selected' : '' !!}>
                                                     {{ isset($dt->Marque->Marque_Nom) ? $dt->Marque->Marque_Nom : '' }}
@@ -83,7 +83,7 @@
                                     <div class="form-group">
                                         <label for=""><h4>Choisir  utilisateur</h4></label>
                                         <select class="form-control" wire:model="utilisateur">
-                                        <option value="" selected disabled style="color: red !important;"> Appuiyez ici pour electionnez un utlisateur</option>
+                                        <option value="" selected disabled style="color: red !important;"> ------</option>
                                             @foreach($users as $dt)
                                             <option value="{{ $dt->id }}" {!! old('utilisateur') == $dt->id ? 'selected' : '' !!}>
                                                 {{ $dt->Nom}} &nbsp; {{ $dt->Prenom}} 

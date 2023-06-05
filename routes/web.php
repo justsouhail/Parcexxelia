@@ -1,6 +1,6 @@
 
 <?php
-
+use Illuminate\Auth\Middleware\disableback;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\Employes;
@@ -19,7 +19,11 @@ use App\Models\Employes;
 
 
 
-Auth::routes();
+Route::middleware(['disableback'])->group(function () {
+    Auth::routes();
+});
+
+
 Route::get('/Materiel/Reseau', [App\Http\Controllers\Reseau_Controller::class, 'index'])->middleware('auth');
 Route::get('/add_Reseau', [App\Http\Controllers\Reseau_Controller::class, 'Reseaus_add'])->middleware('auth');
 Route::post('/Materiel/Reseau/traitement', [App\Http\Controllers\Reseau_Controller::class, 'addReseau_traitement'])->middleware('auth');

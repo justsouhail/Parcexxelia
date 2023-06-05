@@ -9,25 +9,31 @@
                     <a href="/Employes" class=""> <li style="display: flex; align-items: center;"><span style="vertical-align: middle;"><ion-icon name="people-outline"></ion-icon></span> <span>Employés</span> </li></a>
                            
                   <div class="contenaire">  <button id="dropdown"> <span style="vertical-align: middle;">
-                    <ion-icon name="people-outline"></ion-icon></span>
-                     <span>Materiel</span>
-                     <ion-icon name="caret-down-outline"></ion-icon>
-</button> 
+                  <ion-icon name="laptop-outline"></ion-icon></span>
+                     <span class="btnbtnbtn">Materiel</span>
+                    <span  class="btnbtnbtn"  style="vertical-align: middle;">  <ion-icon  name="caret-down-outline"></ion-icon></span></button> 
                     <div class="dropdown-container">
                                         <a href="/Materiel" class="side_link">Tout</a>
                                         <a href="/Materiel/ordinateurs" class="side_link">Ordinateur</a>
                                         <a href="/Materiel/imprimante" class="side_link">Imprimante</a>
-                                        <a href="/Materiel/Reseau" class="side_link">Reseau</a>
+                                <a href="/Materiel/Reseau" class="side_link">Reseau</a>
                                         <a href="/Materiel/Tel_fixe" class="side_link">Telephone_Fixe</a>
                                         <a href="/Materiel/Moniteur" class="side_link">Mobile</a>
                                         <a href="/Materiel/ticket" class="side_link">Distributeur</a>
                                         <a href="/Materiel/Moniteur" class="side_link">Moniteur</a>
 
                              </div></div>
-                    <a href="/Attribution"> <li style="display: flex; align-items: center;"><span style="vertical-align: middle;"><ion-icon name="pencil-outline"></ion-icon></span><span>Affectation  </span></li></a>
+                    <a href="/Attribution"> <li   style="display: flex; align-items: center;"><span style="vertical-align: middle;"><ion-icon name="pencil-outline"></ion-icon></span><span>Affectation  </span></li></a>
                     <a href="/history"> <li style="display: flex; align-items: center;"><span style="vertical-align: middle;"><ion-icon name="calendar-outline"></ion-icon></span><span>Historique </span></li></a>
                     <a href="/admin/verify"> <li style="display: flex; align-items: center;"><span style="vertical-align: middle;"><ion-icon name="shield-half-outline"></ion-icon></span> <span>Espace Admin</span></li></a>
                     
                 </ul>
             </div>           
        </div>
+
+            
+       @push('scripts')
+        
+           <script src="{{ asset('/js/dropdown.js')}}"></script>
+     
+                 @endpush

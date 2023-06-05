@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="/css/nav_sidebar.css">
     <link rel="stylesheet" href="/css/history.css">
+    <link rel="stylesheet" href="/css/affectation.css">
 
 
      @endpush
@@ -39,7 +40,6 @@
       @push('scripts')
      
 
-      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
       <script src="{{ asset('/js/affectation.js')}}"></script>
    

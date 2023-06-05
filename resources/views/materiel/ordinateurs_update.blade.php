@@ -31,7 +31,7 @@
                <div class="form-group">
     <label for="Role" class="required"><strong>{{ __('Role') }}</strong></label>
     <select name="Role" class="form-control @error('Role') is-invalid @enderror" id="Role">
-        <option value="">Choisir un Role</option>
+        <option value="">------</option>
         @foreach($Roles_tables as $Role)
             <option value="{{ $Role->id }}" {{ $Role->id == $ordinateurs->Role->id ? 'selected' : '' }}>
                 {{ $Role->Role_Nom }}
@@ -49,7 +49,7 @@
     <div class="form-group">
       <label for="Moniteur"><strong>{{ __('Moniteur') }}</strong></label>
       <select name="Moniteur" class="form-control   " id="Moniteur">
-        <option value="">Choisir un Moniteur</option>
+        <option value="">------</option>
         @foreach($Moniteur_tables as $Moniteur)
           <option value="{{ $Moniteur->id }}" {{ old('Moniteur') == $Moniteur->id ? 'selected' : '' }}>{{ $Moniteur->Moniteur_Nom }}</option>
         @endforeach
@@ -75,7 +75,7 @@
     <div class="form-group">
       <label for="Type" class="required"><strong>{{ __('Type') }}</strong> </label>
       <select name="Type" class="form-control   @error('Type') is-invalid @enderror" id="Type">
-        <option value="">Choisir un Type</option>
+        <option value="">------</option>
         @foreach($Type_tables as $Type)
           <option value="{{ $Type->id }}" {{ $Type->id == $ordinateurs->type_id ? 'selected' : '' }}>
             {{ $Type->Type_Nom }}</option>
@@ -91,7 +91,7 @@
     <div class="form-group">
       <label for="Marque" class="required"><strong>{{ __('Marque') }}</strong></label>
       <select name="Marque" class="form-control  @error('Marque') is-invalid @enderror " id="Marque">
-        <option value="">Choisir un Marque</option>
+        <option value="">------</option>
         @foreach($Marque_tables as $Marque)
           <option value="{{ $Marque->id }}" {{ $Marque->id == $ordinateurs->marque_id ? 'selected' : '' }} >{{ $Marque->Marque_Nom }}</option>
         @endforeach
@@ -105,7 +105,7 @@
     <div class="form-group">
       <label for="Model" class="required"><strong>{{ __('Model') }}</strong></label>
       <select name="Model" class="form-control @error('Model') is-invalid @enderror " id="Model">
-        <option value="">Choisir un Model</option>
+        <option value="">------</option>
         @foreach($Model_tables as $Model)
           <option value="{{ $Model->id }}" {{ $Model->id == $ordinateurs->model_id ? 'selected' : '' }}>{{ $Model->Model_Nom }}</option>
         @endforeach
@@ -165,7 +165,7 @@
     <div class="form-group">
       <label for="Processeur" class="required"><strong>{{ __('Processeur') }}</strong></label>
       <select name="Processeur" class="form-control  @error('Processeur') is-invalid @enderror" id="Processeur">
-        <option value="">Choisir un Processeur</option>
+        <option value="">------</option>
         @foreach($Processeur_tables as $Processeur)
           <option value="{{ $Processeur->id }}" {{  $Processeur->id == $ordinateurs->processeur_id ? 'selected' : ''}}>{{ $Processeur->Processeur_Nom }}</option>
         @endforeach
@@ -180,7 +180,7 @@
   <div class="form-group">
     <label for="Os" class="required"><strong>{{ __('Os') }}</strong></label>
     <select name="Os" class="form-control @error('Os') is-invalid @enderror" id="Os">
-      <option value="">Choisir un Os</option>
+      <option value="">------</option>
       @foreach($Os_tables as $Os)
         <option value="{{ $Os->id }}" {{ $Os->id == $ordinateurs->os_id ? 'selected' : ''}}>
           {!! old('Os') == $Os->id ? '<strong>' . $Os->Os_Nom . '</strong>' : $Os->Os_Nom !!}
@@ -246,7 +246,7 @@
     <div class="form-group">
       <label for="Post"  class="required"><strong>{{ __('Post') }}</strong></label>
       <select name="Post" class="form-control @error('Post') is-invalid @enderror" id="Post"  >
-        <option value="">Choisir un Post</option>
+        <option value="">------</option>
         @foreach($Post_tables as $Post)
           <option value="{{ $Post->id }}" {{  $Post->id == $ordinateurs->post_id ? 'selected' : ''}}>{{ $Post->Post_Nom }}</option>
         @endforeach

@@ -22,10 +22,12 @@ return new class extends Migration
             $table->boolean('is_smartphone')->nullable();
             $table->boolean('is_tablet')->nullable();
             $table->date('data_achat')->nullable();
+            $table->integer('categorie_id')->unsigned()->nullable()->default(4);
+
             $table->float('Cout')->nullable();
             $table->softDeletes();
 
-
+            $table->foreign('categorie_id')->references('id')->on('categorie')->nullable();;
             $table->foreign('marque_id')->references('id')->on('marque')->nullable();;
             $table->foreign('model_id')->references('id')->on('model')->nullable();;
 

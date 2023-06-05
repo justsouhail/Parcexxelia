@@ -26,7 +26,7 @@ return new class extends Migration
             $table->boolean('is_scanner')->nullable();
             $table->integer('marque_id')->unsigned()->nullable();;
             $table->integer('model_id')->unsigned()->nullable();;
-            $table->integer('categorie_id')->unsigned()->nullable();;
+            $table->integer('categorie_id')->unsigned()->nullable()->default(2);
 
             $table->softDeletes();
 

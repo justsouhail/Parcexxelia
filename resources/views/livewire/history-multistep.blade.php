@@ -13,7 +13,7 @@
                                     <div class="form-group">
                                         <label for=""><h4 style="color: white;">Choisir  categorie</h4></label>
                                         <select class="form-control @error('Categorie') is-invalid @enderror" name="Categorie" wire:model="Categorie">
-                                        <option value="" selected disabled style="color: red !important;">Appuiyez ici pour selectionnez une  categorie</option>
+                                        <option value="" selected disabled style="color: red !important;">------</option>
                                         @foreach($categorie_tables as $ct)
                                             <option value="{{ $ct->id }}" {!! old('Categorie') == $ct->id ? 'selected' : '' !!}>
                                                 {!! old('Categorie') == $ct->id ? '<strong>' . $ct->Categorie_Nom . '</strong>' : $ct->Categorie_Nom !!}
@@ -44,7 +44,7 @@
                                     <div class="form-group">
                                         <label for=""><h4 style="color: white;"> Choisir {{$tag}} </h4></label>
                                         <select class="form-control" wire:model="materiel">
-                                            <option value="" selected disabled style="color: red !important;"> Appuiyez ici pour selectionnez {{$tag}}</option>
+                                            <option value="" selected disabled style="color: red !important;"> ------</option>
                                             @foreach($data1 as $dt)
                                             <option value="{{ isset($dt->id) ? $dt->id : '' }}" {!! old('materiel') == $dt->id ? 'selected' : '' !!}>
                                                     {{ isset($dt->Marque->Marque_Nom) ? $dt->Marque->Marque_Nom : '' }}
@@ -91,8 +91,9 @@
                 </tr>
                 @foreach($history as $hs) 
                 <tr>
-                    <td>{{$hs->date_affectation}}</td>
-                    <td>{{$hs->employes->Nom}} {{$hs->employes->Prenom}}</td>
+     
+                    <td>{{ isset($hs->date_affectation) ? $hs->date_affectation : '' }}</td>
+                    <td>{{ isset($hs->employes->Nom) ? $hs->employes->Nom : '' }} {{ isset($hs->employes->Prenom) ? $hs->employes->Prenom : '' }} </td>
                 </tr>
                 @endforeach
               

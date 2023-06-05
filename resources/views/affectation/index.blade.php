@@ -4,7 +4,7 @@
     @section('content')
 
     @push('css')
-    
+
     <link rel="stylesheet" href="/css/nav_sidebar.css">
     <link rel="stylesheet" href="/css/affectation.css">
 

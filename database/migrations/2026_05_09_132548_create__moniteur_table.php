@@ -18,7 +18,7 @@ return new class extends Migration
             $table->float('Cout')->nullable();;
             $table->string('Data_achat')->nullable();
             $table->integer('ordinateur_id')->unsigned()->nullable();
-            $table->integer('categorie_id')->unsigned()->nullable();;
+            $table->integer('categorie_id')->unsigned()->nullable()->default(3);
             $table->integer('marque_id')->unsigned()->nullable();;
             $table->integer('model_id')->unsigned()->nullable();
             $table->softDeletes();

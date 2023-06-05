@@ -6,6 +6,8 @@
     @push('css')
    <link rel="stylesheet" href="/css/nav_sidebar.css">
     <link rel="stylesheet" href="/css/users.css">
+    <link rel="stylesheet" href="/css/ordinateurs.css">
+
     <link rel="stylesheet" href="/css/virtual-select.min.css" />
 
 
@@ -162,7 +164,7 @@
             
             @push('scripts')
            
-  
+
       <script src="{{ asset('/js/users.js')}}"></script>
       <script src="{{ asset('/js/virtual-select.min.js')}}"></script>
      

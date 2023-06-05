@@ -17,7 +17,7 @@
  a{
     text-decoration: none !important;
  }
- html, body{min-height:100%;}
+ html, body{min-height:100%;} 
 
  body {
     overflow-x: hidden;
@@ -35,4 +35,10 @@
 .main-content{
     margin-left: 350px;
     transition: left 300ms;
+}
+@media screen and (max-width: 1400px) {
+     .status{
+      display: none !important;
+     }
+     
 }

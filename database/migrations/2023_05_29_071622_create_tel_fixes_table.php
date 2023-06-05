@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('Commentaire')->nullable();
             $table->integer('model_id')->unsigned()->nullable();
             $table->integer('marque_id')->unsigned()->nullable();;
-            $table->integer('categorie_id')->unsigned()->nullable();
+            $table->integer('categorie_id')->unsigned()->nullable()->default(5);
             $table->softDeletes();
 
 

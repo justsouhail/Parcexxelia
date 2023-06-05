@@ -10,7 +10,6 @@ class HistoryController extends Controller
     public function index(){
         $Employes_tables = Employes::all();
         $route = '/Historique_du_materiel ';
-
         return view('history.index' ,  compact('Employes_tables' , 'route'));
     }
 

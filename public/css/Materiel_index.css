@@ -87,3 +87,23 @@
     padding-top: 10px;
     letter-spacing: 2px;
 }
+
+@media screen and (max-width: 1400px) {
+    .cartes{
+        
+        grid-template-columns: repeat(2 , 1fr);
+    
+        
+    }
+ 
+ }
+
+ @media screen and (max-width: 900px) {
+    .cartes{
+        
+        grid-template-columns: repeat(1 , 1fr);
+    
+        
+    }
+ 
+ }

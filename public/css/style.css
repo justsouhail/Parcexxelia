@@ -111,13 +111,9 @@ table{
     padding: 1rem;
 }
 
-
-
-
-
- /* @media only screen and (max-width:1500px){
+@media only screen and (max-width:1400px){
     .cartes{
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(2,1fr);
     }
       .sidebar{
         width: 100px !important;
@@ -137,96 +133,44 @@ table{
         padding-left: 0rem;
     }
      
-      .sidebar:hover{
-        width: 350px !important;
-        z-index: 200;
-    }
-    
-     .sidebar:hover .logo h1 , 
-     .sidebar:hover   a li{
-        padding-left: 2rem;
-        text-align: left;
-    }
-     .sidebar:hover .logo h1  span:last-child ,
-     .sidebar:hover  .sidebar_menu   a li span:last-child{
-        display: inline;
-    }
-     .sidebar:hover .sidebar_menu   a li span{
-        padding-left: 1rem;
-    }
+ 
+
 
       .main-content{
-        margin-left: 100px;
+        margin-left: 100px !important;
     }
      .navigation header{
         width: calc(100%-100px);
-        margin-left: 100px;
+        margin-left: 100px !important;
     }
-
+    footer{
+        margin-left: 100px !important;
+    }
+    .btnbtnbtn {
+        display: none;
+        
+    }
+    #dropdown{
+        padding-right: 0px;
+    }
 }
 
 @media only screen and (max-width:980px){
     .cartes{
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(1,1fr);
       
     }
+    .chart-container   {  
+         display: grid;
+    grid-template-columns: repeat(1,1fr) !important;
+}
+
     .bar-recherche {
         display: none;
     }
-    .sidebar:hover{
-        width: 350px;
-        z-index: 200;
-    }
-    
-     .sidebar:hover .logo h1 , 
-     .sidebar:hover   a li{
-        padding-left: 2rem;
-        text-align: left;
-    }
-     .sidebar:hover .logo h1  span:last-child ,
-     .sidebar:hover  .sidebar_menu   a li span:last-child{
-        display: inline;
-    }
-     .sidebar:hover .sidebar_menu   a li span{
-        padding-left: 1rem;
-    }
+
 }
 
-@media only screen and (max-width:680px){
-        .cartes{
-            grid-template-columns: 100%;
-          
-        }
-        .bar-recherche   ,
-        thead tr td:last-child ,
-        tbody tr td:last-child ,
-       #tb
-           {
-            display: none;
-        }
-        .sidebar:hover{
-            width: 350px;
-            z-index: 200;
-        }
-        
-         .sidebar:hover .logo h1 , 
-         .sidebar:hover   a li{
-            padding-left: 2rem;
-            text-align: left;
-        }
-         .sidebar:hover .logo h1  span:last-child ,
-         .sidebar:hover  .sidebar_menu   a li span:last-child{
-            display: inline;
-        }
-         .sidebar:hover .sidebar_menu   a li span{
-            padding-left: 1rem;
-        }
-      
-        
-        .sidebar:hover .sidebar_menu {
-            margin-right: 100px;
-        }
-    } */
 
 
     .mn{
@@ -241,7 +185,7 @@ table{
         width: 100%; */
         display: grid;
         grid-template-columns: repeat(2,1fr);
-
+        grid-column-gap: 90px !important;
     }
 
     .chart {

@@ -61,7 +61,7 @@
   <p>
     Je soussigné, <strong>{{$user->Prenom}}&nbsp;{{$user->Nom}}</strong>, responsable informatique de <strong>{{$user->Branche_Societe}}</strong>,
     déclare par la présente que j'ai remis le matériel informatique de type <strong>{{$tag}}</strong> à
-    <strong>{{$employe->Prenom}}&nbsp;{{$employe->Nom}}</strong>:
+    <strong>{{ isset($employe->Prenom) ? $employe->Prenom : '' }}&nbsp;{{ isset($employe->Nom) ? $employe->Nom : '' }}</strong>:
 </p>
 <br>
 <div style="font-size: 17px !important;">

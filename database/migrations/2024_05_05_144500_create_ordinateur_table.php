@@ -30,7 +30,7 @@ return new class extends Migration
             $table->integer('role_id')->unsigned()->nullable();;
             $table->integer('marque_id')->unsigned()->nullable();;
             $table->integer('post_id')->unsigned()->nullable();
-            $table->integer('categorie_id')->unsigned()->nullable();
+            $table->integer('categorie_id')->unsigned()->nullable()->default(1);
             $table->softDeletes();
 
 
