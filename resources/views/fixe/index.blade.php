@@ -63,7 +63,7 @@
                                         <td>utilisateur <span class="arrow">&UpArrow;</span></td>
                                         <td>Addresse IP<span class="arrow">&UpArrow;</span></td>
                                         <td>Numero Telephone  <span class="arrow">&UpArrow;</span></td>
-                                        <td>Date d'ajout <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
+                                        <td>MODEL  <span class="arrow" style="margin-left: 0px;">&UpArrow;</span></td>
 
                                     </tr>
                                 </thead>
@@ -102,20 +102,17 @@
                                     </td>
                                  
                                     <td>
-                                            @if(isset($ord->Num_tel))
-                                            {{$ord->Num_tel}}
+                                            @if(isset($ord->astreinte))
+                                            {{$ord->astreinte}}
                                             @else
                                     <span style="color: red;">Non disponible</span>
                                         @endif
                                     </td>
                                     <td>
-                                            @if(isset($ord->created_at))
-                                               {{$ord->created_at}}
-                                               @elseif(isset($ord->updated_at))
-                                    <span>  {{$ord->updated_at}}</span>
-                                    @else 
-                                    <span style="color: red;">  Non disponible</span>
-
+                                            @if(isset($ord->Model->Model_Nom))
+                                               {{$ord->Model->Model_Nom}}
+                                               @else
+                                    <span style="color: red;">Non disponible</span>
                                         @endif
                                     </td>
                                     

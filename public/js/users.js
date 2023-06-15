@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
     nav.setAttribute('id', 'nav');
     data.parentNode.insertBefore(nav, data.nextSibling);
   
-    var rowsShown = 30;
+    var rowsShown = 50;
     var rowsTotal = data.getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
     var numPages = Math.ceil(rowsTotal/rowsShown);
   

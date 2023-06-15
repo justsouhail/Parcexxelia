@@ -220,17 +220,7 @@
                             </div>
                         </div>
                         </a>
-                        <a href="/admin/parametre?Param=Categories">
-                        <div class="cartos">
-                            <div class="info-carte">
-                                <span>Categories</span>
-                            </div>
-                            <div>
-                            <span ><img src="/images/icons8-setting-23.png"/></span>
-
-                            </div>
-                        </div>
-                        </a>
+                  
                         <a href="/admin/parametre?Param=Marque">
                         <div class="cartos">
                             <div class="info-carte">

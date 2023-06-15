@@ -39,7 +39,7 @@ class MakeMultistep extends Component
         $print_id = Categorie::where('Categorie_Nom', 'Imprimante')->value('id');
         $mob_id = Categorie::where('Categorie_Nom', 'Mobile')->value('id');
         $fix_id = Categorie::where('Categorie_Nom', 'Tel_Fixe')->value('id');
-        $categorie_tables = Categorie::where('Categorie_Nom', '!=', 'Moniteur')->get();
+        $categorie_tables = Categorie::whereIn('Categorie_Nom', ['ordinateur', 'Tel_Fixe', 'imprimante', 'mobile'])->get();
         $selectedCategorie = $this->Categorie;
         $data1=[];
         $users = [];

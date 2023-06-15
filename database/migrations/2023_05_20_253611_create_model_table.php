@@ -9,17 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('model', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('Model_Nom')->nullable();;
-            $table->integer('categorie_id')->unsigned()->nullable();
+        public function up(): void
+        {
+            Schema::create('model', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('Model_Nom')->nullable();;
+                $table->integer('categorie_id')->unsigned()->nullable();
 
-            $table->foreign('categorie_id')->references('id')->on('categorie');
-            $table->timestamps();
-        });
-    }
+                $table->foreign('categorie_id')->references('id')->on('categorie');
+                $table->timestamps();
+            });
+        }
 
     /**
      * Reverse the migrations.

@@ -44,11 +44,11 @@
                  </div>
 
                  
-                 <div class="member">
+                 <!-- <div class="member">
                  @if (Route::has('password.request'))
                  <a href="{{ route('password.request') }}">Mot de passe oublié ?</a>
                  @endif 
-                    </div>
+                    </div> -->
           
                 </div>  
                

@@ -241,12 +241,14 @@ try{
         $pdf = PDF::loadView('materiel.pdf_ordinateus', [
             'ordinateur' => $ordinateur,
             'Moniteur_tables' => $Moniteur_tables,
-        ])->setOptions(['defaultFont' => 'sans-serif']);
+        ])->setOptions(['defaultFont' => 'sans-serif',    'isRemoteEnabled' => true   ]);
     
         // Set custom page size and margins
         $pdf->setPaper('A4', 'portrait')->setOptions(['margin_top' => 1, 'margin_bottom' => 1]);
     
-        return $pdf->stream();  
+        return $pdf->download(); 
+      
+        
     }
 
     public function DeleteAll(Request $request){
