@@ -28,7 +28,7 @@ class HistoryMultistep extends Component
         $history = [];
         $tag = '';
 
-        $categorie_tables = Categorie::where('Categorie_Nom', '!=', 'Moniteur')->get();
+        $categorie_tables = Categorie::whereIn('Categorie_Nom', ['ordinateur', 'Tel_Fixe', 'imprimante', 'mobile'])->get();
         $ord_id = Categorie::where('Categorie_Nom', 'Ordinateur')->value('id');
         $print_id = Categorie::where('Categorie_Nom', 'Imprimante')->value('id');
         $mobile_id = Categorie::where('Categorie_Nom', 'Mobile')->value('id');

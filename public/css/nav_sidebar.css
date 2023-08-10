@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Schibsted+Grotesk&display=swap');
 
+ 
 :root{
    --second-color : #0A5E4F;
    --first-color : #08473C;
@@ -149,8 +150,9 @@
     #menu-toogle:checked ~ footer{
         margin-left: 100px !important   ;
     }
-
-
+    #menu-toogle:checked + .sidebar #dropdown  #hide{
+        display: none;
+    }
 
 #menu-toogle {
     position: absolute;
@@ -246,9 +248,13 @@
     background-color: var(--second-color);
     border: none;
     margin-left: 20px;
- 
+    display: flex;
+    align-items: center;
+  
   }
-
+  #dropdown span {
+    vertical-align: middle;
+  }
  .contenaire{
     margin-bottom: 50px;
 
@@ -275,6 +281,9 @@
  }
  .sidebar .logo h1  span:last-child ,
  .sidebar .sidebar_menu   a li span:last-child{
+    display: none;
+ }
+ #hide{
     display: none;
  }
  .sidebar .sidebar_menu   a li span{
